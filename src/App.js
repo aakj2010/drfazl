@@ -1,10 +1,18 @@
 import './App.css';
+import Header from '../src/layout/Header'
+import Home from './screen/Home';
+import { BrowserRouter } from 'react-router-dom';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Quran by drfazl</h1>
-    </div>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Home />
+      </BrowserRouter>
+    </>
   );
 }
 
