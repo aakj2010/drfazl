@@ -2,9 +2,6 @@ import React from 'react'
 import './home.css'
 import more from '../Assets/more.svg'
 import bg from '../Assets/bg.svg'
-import menu from '../Assets/menu_book.svg'
-import home from '../Assets/home.svg'
-import star from '../Assets/star.svg'
 import notes from '../Assets/notes.svg'
 import bookmark from '../Assets/bookmark.svg'
 
@@ -32,6 +29,12 @@ function Home() {
                     </div>
                     <div className='chapter-list-items'>
                         <li>4. Women</li>
+                    </div>
+                    <div className='chapter-list-items'>
+                        <li>5. Unavu maravai</li>
+                    </div>
+                    <div className='chapter-list-items'>
+                        <li>6. Kalnadaigal</li>
                     </div>
                 </div>
 
@@ -161,7 +164,7 @@ function Home() {
                     </div> */}
                     </div>
                     <div className='verse-container'>
-                        <div className='verse-number'>
+                        {/* <div className='verse-number'>
                             <div className='verse-num'>1.6</div>
                             <div className='more-btn-wrapper'>
                                 <button className='more-btn'>
@@ -169,21 +172,7 @@ function Home() {
                                 </button>
                             </div>
                         </div>
-                        <div className='verse-text'>Keep us on the right course.</div>
-                        {/* <div className='verse-link'>
-                        
-                    </div> */}
-                    </div>
-                    <div className='verse-container'>
-                        <div className='verse-number'>
-                            <div className='verse-num'>1.6</div>
-                            <div className='more-btn-wrapper'>
-                                <button className='more-btn'>
-                                    <img src={more} alt="" />
-                                </button>
-                            </div>
-                        </div>
-                        <div className='verse-text'>Keep us on the right course.</div>
+                        <div className='verse-text'>Keep us on the right course.</div> */}
                         {/* <div className='verse-link'>
                         
                     </div> */}
@@ -191,7 +180,7 @@ function Home() {
 
                 </div>
 
-                <div className='icons-wrapper'>
+                {/* <div className='icons-wrapper'>
                     <div className='icon-with-title'>
                         <div className='icon-container'>
                             <button className='icon'>
@@ -232,7 +221,7 @@ function Home() {
                         </div>
                         <div className='icon-title'>Notes</div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
 
