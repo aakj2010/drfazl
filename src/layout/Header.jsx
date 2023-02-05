@@ -1,8 +1,9 @@
 import React from 'react'
 import './Header.css'
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import search from '../Assets/search.svg'
+import help from '../Assets/help.svg'
+import menu from '../Assets/menu.svg'
+
 
 function Header() {
     return (
@@ -10,23 +11,25 @@ function Header() {
             <div className='menu-title'>
                 <div className='menu-btn-wrapper'>
                     <button className='menu-btn'>
-                        <MenuRoundedIcon fontSize='small' />
+                        <img src={menu} alt="menu" />
                     </button>
                 </div>
                 <div className='title'>
-                    Chapter
+                    <button>
+                        Chapter
+                    </button>
                 </div>
             </div>
 
             <div className='help-with-search'>
                 <div className='menu-btn-wrapper'>
                     <button className='menu-btn'>
-                        <HelpOutlineRoundedIcon fontSize='small' />
+                        <img src={help} alt="help" />
                     </button>
                 </div>
                 <div className='menu-btn-wrapper'>
                     <button className='menu-btn'>
-                        <SearchRoundedIcon fontSize='small' />
+                        <img src={search} alt="search" />
                     </button>
                 </div>
             </div>

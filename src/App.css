@@ -20,17 +20,18 @@
 
 body {
   box-sizing: border-box;
-  width: 360px;
-  height: 640px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   box-sizing: border-box;
-  overflow-y: scroll;
   /* border: 1px solid lightgray; */
 }
-
-body::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
+.mobile-screen{
+  min-width: 360px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 48px auto 48px;
+  overflow-x: hidden;
 }

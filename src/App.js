@@ -7,12 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <>
+    <div className='mobile-screen'>
       <BrowserRouter>
         <Header />
         <Home />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

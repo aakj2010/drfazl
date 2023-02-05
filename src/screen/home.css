@@ -12,32 +12,40 @@
 }
 
 .home-wrapper {
-  width: 360px;
-  height: 538px;
-  /* border: 0.5px solid lightgrey; */
+  min-width: 360px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
+.home-wrapper::-webkit-scrollbar {
+  display: none;
+}
+/* Chapter list strat */
 .chapter-list-wrapper {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  flex-wrap: nowrap;
+  position: sticky;
+  top: 48px;
   padding: 0px;
   width: 360px;
   height: 40px;
   overflow-x: scroll;
+  scroll-behavior: smooth;
   background: #ffffff;
-  /* border: 0.5px solid lightgrey; */
 }
 .chapter-list-wrapper::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
+  display: none;
 }
 .chapter-list-items {
   box-sizing: border-box;
+  min-width: max-content;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
+  padding: 10px 6px;
   gap: 10px;
   width: auto;
   height: 40px;
@@ -55,19 +63,21 @@ li {
   line-height: 16px;
   color: #0055aa;
 }
+/* Chapter list End */
 
 /* varse wrapper start */
 .verse-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* justify-content: center; */
-  padding: 6px 16px 0px;
+  justify-content: flex-start;
+  padding: 6px 16px 0px 0px;
   gap: 6px;
-  width: 360px;
-  height: 312px;
+  min-width: 360px;
+  height: auto;
   background: #ffffff;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 .verse-wrapper::-webkit-scrollbar {
@@ -79,8 +89,8 @@ li {
   align-items: flex-start;
   padding: 12px;
   gap: 10px;
-  width: 328px;
-  height: 102px;
+  min-width: 328px;
+  height: auto;
   background: #ffffff;
   /* border-radius: 6px; */
   border-bottom: 0.5px solid #e7eaee;
@@ -97,7 +107,7 @@ li {
   align-items: center;
   padding: 0px;
   gap: 10px;
-  width: 304px;
+  min-width: 304px;
   height: 20px;
 }
 .verse-num {
@@ -107,7 +117,7 @@ li {
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 19px;
+  /* line-height: 19px; */
   color: #4b5768;
 }
 .more-btn-wrapper button {
@@ -128,12 +138,12 @@ li {
 
 .verse-text {
   width: 281px;
-  height: 19px;
+  height: auto;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 19px;
+  /* line-height: 19px; */
   color: #4b5768;
 }
 .verse-link {
@@ -144,7 +154,7 @@ li {
   gap: 12px;
 
   width: 70px;
-  height: 19px;
+  height: auto;
 }
 .verse-link-item {
   width: 29px;
@@ -157,6 +167,23 @@ li {
   text-decoration-line: underline;
   color: #0071e3;
 }
+.btn-wrapper {
+  width: 76px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-wrapper button {
+  color: #0071e3;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
 
 /* icons-wrapper start*/
 
@@ -166,6 +193,8 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px;
+  position: fixed;
+  bottom: 0px;
   gap: 10px;
   width: 360px;
   height: 54px;
