@@ -22,17 +22,17 @@ function Home() {
 
                 <div className='chapter-list-wrapper'>
                     <div className='chapter-list-items'>
-                        <li >1. Victory upon Victory</li>
+                        <li>1. Victory upon Victory</li>
                     </div>
                     <div className='chapter-list-items'>
-                        <li >2. Pasu</li>
+                        <li>2. Pasu</li>
                     </div>
                     <div className='chapter-list-items'>
-                        <li className='chapter-list-items'>3. Imran’s Family</li>
+                        <li>3. Imran’s Family</li>
                     </div>
                     <div className='chapter-list-items'>
-                    <li className='chapter-list-items'>4. Women</li>
-                </div>
+                        <li>4. Women</li>
+                    </div>
                 </div>
 
                 <div className='verse-wrapper'>
@@ -187,7 +187,7 @@ function Home() {
                         {/* <div className='verse-link'>
                         
                     </div> */}
-                    </div> 
+                    </div>
 
                 </div>
 
