@@ -1,0 +1,93 @@
+.div {
+    min-height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 10vw;
+    color: whitesmoke;
+    text-shadow: 4px 3px 8px rgba(35, 15, 9, 0.7);
+  }
+  
+  .star {
+    margin-top: 5vh;
+    margin-left: 40%;
+  }
+  
+  .link {
+    font-size: 4vw;
+    text-decoration: none;
+    border: 5px solid #4dbfc9;
+    background: none;
+    text-align: center;
+    border-radius: 50px;
+    color: #4dbfc9;
+    font-weight: 500;
+    margin-top: 5vh;
+    transition: letter-spacing 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+  
+  .link:hover {
+    color: white;
+    letter-spacing: 5px;
+    padding: 5px 5px;
+    border: none;
+    background: rgb(77, 191, 201);
+    background: linear-gradient(
+      180deg,
+      rgba(77, 191, 201, 1) 25%,
+      rgba(39, 132, 156, 1) 80%
+    );
+    text-shadow: none;
+  }
+  
+  /* .sticky {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0px;
+  } */
+  
+  .hide1to3 {
+    left: 22vw;
+  }
+  
+  .show1to3 {
+    left: 40vw;
+  }
+  
+  .hideHeight {
+    left: 38vw;
+  }
+  
+  .hide1to3Offset {
+    left: 0;
+  }
+  
+  .show1to3Offset {
+    left: 0;
+  }
+  
+  .hideDuring {
+    /* right: 0; */
+    bottom: 0vh;
+  }
+  
+  .hideScrollDown {
+    left: 3vw;
+    bottom: 0vh;
+  }
+  .hideScrollUp {
+    right: 62vw;
+    top: 95vh;
+  }
+  .hideOnDiv {
+    left: 40vw;
+    bottom: 85vh;
+  }
+  
+  .hideOnHeight {
+    left: vw;
+    bottom: 85vh;
+  }

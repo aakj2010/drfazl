@@ -1,81 +1,111 @@
 // import React, { useEffect, useState } from 'react'
 import './footer.css'
+import styles from './styles.module.css'
+import { HideScroll } from "react-hide-on-scroll";
+import classNames from 'classnames';
 import menu from '../Assets/menu_book.svg'
 import home from '../Assets/home.svg'
 import star from '../Assets/star.svg'
 import notes from '../Assets/notes.svg'
 import bookmark from '../Assets/bookmark.svg'
+import { useEffect, useState } from 'react';
 
+// function useScrollDirection() {
+//     const [scrollDirection, setScrollDirection] = useState(null);
+
+//     useEffect(() => {
+//         let lastScrollY = window.pageYOffset;
+
+//         const updateScrollDirection = () => {
+//             const scrollY = window.pageYOffset;
+//             const direction = scrollY > lastScrollY ? "up" : "down";
+//             if (direction !== scrollDirection && (scrollY - lastScrollY > 5 || scrollY - lastScrollY < -5)) {
+//                 setScrollDirection(direction);
+//             }
+//             lastScrollY = scrollY > 0 ? scrollY : 0;
+//         };
+//         window.addEventListener("scroll", updateScrollDirection); // add event listener
+//         return () => {
+//             window.removeEventListener("scroll", updateScrollDirection); // clean up
+//         }
+//     }, [scrollDirection]);
+
+//     return scrollDirection;
+// };
 function Footer() {
-    // const [isVisible, setIsVisible] = useState(true);
-    // const [height, setHeight] = useState(0)
+    // const scrollDirection = useScrollDirection();
+
+    // const [show, setShow] = useState(false)
+    // const controlNavbar = () => {
+    //     if (window.scrollY > 500) {
+    //         setShow(true)
+    //     } else {
+    //         setShow(false)
+    //     }
+    // }
 
     // useEffect(() => {
-    //     window.addEventListener("scroll", listenToScroll);
-    //     return () =>
-    //         window.removeEventListener("scroll", listenToScroll);
+    //     window.addEventListener('scroll', controlNavbar)
+    //     return () => {
+    //         window.removeEventListener('scroll', controlNavbar)
+    //     }
     // }, [])
 
-    // const listenToScroll = () => {
-    //     let heightToHideFrom = 100;
-    //     const winScroll = document.body.scrollTop ||
-    //         document.documentElement.scrollTop;
-    //     setHeight(winScroll);
-
-    //     if (winScroll > heightToHideFrom) {
-    //         isVisible && setIsVisible(false);
-    //     } else {
-    //         setIsVisible(true);
-    //     }
-    // };
     return (
         <>
-            {/* {
-                isVisible
-                && */}
-                <div className='icons-wrapper'>
-                    <div className='icon-with-title'>
-                        <div className='icon-container'>
-                            <button className='icon'>
-                                <img src={menu} alt="" />
-                            </button>
-                        </div>
-                        <div className='icon-title'>Chapter</div>
+            {/* <HideScroll variant="up">
+                <div className={classNames(styles.hideScrollUp)}> */}
+            {/* <div className={`icons-wrapper ${scrollDirection === "up" ? "-bottom-24" : "bottom-0"}transition-all duration-500`}>
+               
+            </div> */}
+
+            {/* </div>
+
+            </HideScroll> */}
+
+
+            <div className="icons-wrapper" >
+                <div className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={menu} alt="" />
+                        </button>
                     </div>
-                    <div className='icon-with-title'>
-                        <div className='icon-container'>
-                            <button className='icon'>
-                                <img src={star} alt="" />
-                            </button>
-                        </div>
-                        <div className='icon-title'>Keywords</div>
-                    </div>
-                    <div className='icon-with-title'>
-                        <div className='icon-container'>
-                            <button className='icon'>
-                                <img src={home} alt="" />
-                            </button>
-                        </div>
-                        <div className='icon-title'>Home</div>
-                    </div>
-                    <div className='icon-with-title'>
-                        <div className='icon-container'>
-                            <button className='icon'>
-                                <img src={bookmark} alt="" />
-                            </button>
-                        </div>
-                        <div className='icon-title'>Bookmarks</div>
-                    </div>
-                    <div className='icon-with-title'>
-                        <div className='icon-container'>
-                            <button className='icon'>
-                                <img src={notes} alt="" />
-                            </button>
-                        </div>
-                        <div className='icon-title'>Notes</div>
-                    </div>
+                    <div className='icon-title'>Chapter</div>
                 </div>
-            {/* } */}
+                <div className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={star} alt="" />
+                        </button>
+                    </div>
+                    <div className='icon-title'>Keywords</div>
+                </div>
+                <div className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={home} alt="" />
+                        </button>
+                    </div>
+                    <div className='icon-title'>Home</div>
+                </div>
+                <div className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={bookmark} alt="" />
+                        </button>
+                    </div>
+                    <div className='icon-title'>Bookmarks</div>
+                </div>
+                <div className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={notes} alt="" />
+                        </button>
+                    </div>
+                    <div className='icon-title'>Notes</div>
+                </div>
+            </div>
         </>
 
 

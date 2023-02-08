@@ -13,7 +13,7 @@ function Home() {
             <div className='home-wrapper'>
                 <div className='img'>
                     <figure>
-                        <img src={bg} alt="come what may" />
+                        <img className='img' src={bg} alt="come what may" />
                     </figure>
                 </div>
 

@@ -29,7 +29,7 @@ body {
   /* border: 1px solid lightgray; */
 }
 .mobile-screen{
-  min-width: 360px;
+  min-width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-columns: 48px auto 48px;
