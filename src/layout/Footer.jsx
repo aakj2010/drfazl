@@ -1,14 +1,14 @@
-// import React, { useEffect, useState } from 'react'
 import './footer.css'
-import styles from './styles.module.css'
-import { HideScroll } from "react-hide-on-scroll";
-import classNames from 'classnames';
+// import styles from './styles.module.css'
+// import { HideScroll } from "react-hide-on-scroll";
+// import classNames from 'classnames';
 import menu from '../Assets/menu_book.svg'
 import home from '../Assets/home.svg'
 import star from '../Assets/star.svg'
 import notes from '../Assets/notes.svg'
 import bookmark from '../Assets/bookmark.svg'
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 // function useScrollDirection() {
 //     const [scrollDirection, setScrollDirection] = useState(null);
@@ -65,46 +65,46 @@ function Footer() {
 
 
             <div className="icons-wrapper" >
-                <div className='icon-with-title'>
+                <NavLink to="" className='icon-with-title'>
                     <div className='icon-container'>
                         <button className='icon'>
                             <img src={menu} alt="" />
                         </button>
                     </div>
                     <div className='icon-title'>Chapter</div>
-                </div>
-                <div className='icon-with-title'>
+                </NavLink>
+                <NavLink to="keywords" className='icon-with-title'>
                     <div className='icon-container'>
                         <button className='icon'>
                             <img src={star} alt="" />
                         </button>
                     </div>
                     <div className='icon-title'>Keywords</div>
-                </div>
-                <div className='icon-with-title'>
+                </NavLink>
+                <NavLink to="" className='icon-with-title'>
                     <div className='icon-container'>
                         <button className='icon'>
                             <img src={home} alt="" />
                         </button>
                     </div>
                     <div className='icon-title'>Home</div>
-                </div>
-                <div className='icon-with-title'>
+                </NavLink>
+                <NavLink to="bookmarks" className='icon-with-title'>
                     <div className='icon-container'>
                         <button className='icon'>
                             <img src={bookmark} alt="" />
                         </button>
                     </div>
                     <div className='icon-title'>Bookmarks</div>
-                </div>
-                <div className='icon-with-title'>
+                </NavLink>
+                <NavLink to="notes" className='icon-with-title'>
                     <div className='icon-container'>
                         <button className='icon'>
                             <img src={notes} alt="" />
                         </button>
                     </div>
                     <div className='icon-title'>Notes</div>
-                </div>
+                </NavLink>
             </div>
         </>
 

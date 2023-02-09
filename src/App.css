@@ -28,10 +28,31 @@ body {
   box-sizing: border-box;
   /* border: 1px solid lightgray; */
 }
-.mobile-screen{
-  min-width: 100vw;
+.mobile-screen {
+  /* min-width: 360px;
+  max-width: 480px; */
+  width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-columns: 48px auto 48px;
   overflow-x: hidden;
+  overflow-y: scroll;
 }
+.mobile-screen::-webkit-scrollbar{
+  display: none;
+}
+/* Portal Starts */
+#wrapper {
+  display: flex;
+}
+
+#wrapper #content-wrapper {
+  /* background-color: #f7f8f9; */
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#wrapper #content-wrapper #content {
+  flex: 1 0 auto;
+}
+/* Portal Starts */

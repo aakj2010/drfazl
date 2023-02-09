@@ -31,9 +31,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   padding: 0px;
   width: 60px;
   height: 38px;
+  /* border: 1px solid grey; */
 }
 .icon-container {
   width: 24px;
@@ -45,7 +47,13 @@
   justify-content: center;
   width: 20px;
   height: 20px;
-  color: #4f1346;
+  color: #4b5768;
+  /* color: #4f1346; */
+}
+span button{
+  background: transparent;
+  outline: none;
+  border: none;
 }
 .icon-container button {
   padding: 0;
@@ -67,6 +75,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #4b5768;
+  
+}
+.active{
   color: #4f1346;
 }
 /* icons-wrapper End */
