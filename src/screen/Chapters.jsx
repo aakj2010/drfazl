@@ -14,27 +14,12 @@ function Chapters() {
                 <Home />
                 <div className='chapter-list-wrapper'>
                     <div className='chapter-list-items'>
-                        <NavLink to='' className="chapt">
-                            <li>1. Victory upon Victory</li>
-                        </NavLink>
-                    </div>
-
-                    <div className='chapter-list-items'>
-                        <NavLink to='chapter2' className="chapt">
-                            <li>2. Pasu</li>
-                        </NavLink>
-                    </div>
-                    <div className='chapter-list-items'>
-                        <li>3. Imran’s Family</li>
-                    </div>
-                    <div className='chapter-list-items'>
-                        <li>4. Women</li>
-                    </div>
-                    <div className='chapter-list-items'>
-                        <li>5. Unavu maravai</li>
-                    </div>
-                    <div className='chapter-list-items'>
-                        <li>6. Kalnadaigal</li>
+                        <NavLink to='' className="list-items">1. Victory upon Victory</NavLink>
+                        <NavLink to='chapter2' className="list-items">2. Pasu</NavLink>
+                        <NavLink to='chapter3' className="list-items">3. Imran’s Family</NavLink>
+                        <NavLink to='chapter4' className="list-items">4. Women</NavLink>
+                        <NavLink to='chapter5' className="list-items">5. Unavu maravai</NavLink>
+                        <NavLink to='chapter6' className="list-items">6. Kalnadaigal</NavLink>
                     </div>
                 </div>
                 <Outlet />

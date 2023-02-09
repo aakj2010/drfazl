@@ -1,4 +1,5 @@
 import React from 'react'
+import './notes.css'
 
 function Notes() {
   return (

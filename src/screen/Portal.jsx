@@ -5,6 +5,7 @@ import Header from '../layout/Header';
 
 
 function Portal() {
+    
     return (
         <div id="wrapper">
             <Header />

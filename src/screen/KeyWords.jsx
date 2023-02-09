@@ -1,8 +1,9 @@
 import React from 'react'
+import './notes.css'
 
 function KeyWords() {
   return (
-    <div className='chapters'>KeyWords</div>
+    <div className='notes'>KeyWords</div>
   )
 }
 

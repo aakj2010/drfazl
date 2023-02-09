@@ -9,6 +9,7 @@
   --Neutral100: #e7eaee;
   --Neutral600: #4b5768;
   --bgwhite: #ffffff;
+  --purpleprimary:#4f1346;
 }
 
 /* Chapter list strat */
@@ -29,7 +30,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   position: sticky;
   top: 48px;
   padding: 0px;
@@ -38,13 +39,13 @@
   overflow-x: scroll;
   scroll-behavior: smooth;
   background: #ffffff;
-  border-bottom: .5px solid lightgray;
-  outline: none;
+  border-bottom: 0.5px solid #e7eaee;
 }
 .chapter-list-wrapper::-webkit-scrollbar {
   display: none;
 }
 .chapter-list-items {
+  outline: none;
   box-sizing: border-box;
   min-width: max-content;
   display: flex;
@@ -55,10 +56,14 @@
   gap: 10px;
   width: auto;
   height: 40px;
-  border-bottom: 1px solid var(--primary400);
+  /* border-bottom: 1px solid var(--primary400); */
   border-radius: 8px 8px 0px 0px;
+  
 }
-.chapter-list-items li {
+
+.list-items {
+  text-decoration: none;
+  cursor: pointer;
   list-style-type: none;
   text-decoration: none;
   height: 16px;
@@ -69,14 +74,11 @@
   line-height: 16px;
   color: #0055aa;
 }
-.chapt{
-    text-decoration: none;
-    cursor: pointer;
-}
-.active{
-    border-bottom: #06102b !important;
-    /* background-color: #647488; */
-    color: #4f1346;
+.active {
+  font-size: 14.5px;
+  color: var(--purpleprimary);
+  font-weight: 600;
+  /* border-bottom: .5px solid #4f1346; */
 }
 /* Chapter list End */
 

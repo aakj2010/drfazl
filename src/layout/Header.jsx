@@ -3,9 +3,13 @@ import './Header.css'
 import search from '../Assets/search.svg'
 import help from '../Assets/help.svg'
 import menu from '../Assets/menu.svg'
+// import { useLocation } from 'react-router-dom'
 
 
 function Header() {
+    // const location = useLocation()
+    // const title = location.pathname
+    // console.log(location.pathname)
     return (
         <header className='m-header-wrapper'>
             <div className='menu-title'>

@@ -7,7 +7,7 @@ import home from '../Assets/home.svg'
 import star from '../Assets/star.svg'
 import notes from '../Assets/notes.svg'
 import bookmark from '../Assets/bookmark.svg'
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 // function useScrollDirection() {

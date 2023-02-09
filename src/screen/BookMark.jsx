@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './notes.css'
 function BookMark() {
   return (
-    <div>BookMark</div>
+    <div className='notes'>BookMark</div>
   )
 }
 
