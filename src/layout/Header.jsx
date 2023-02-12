@@ -3,19 +3,24 @@ import './Header.css'
 import search from '../Assets/search.svg'
 import help from '../Assets/help.svg'
 import menu from '../Assets/menu.svg'
+// import ToggleContext from '../context/ToggleContext'
 // import { useLocation } from 'react-router-dom'
 
 
 function Header() {
+
+    // let context = useContext(ToggleContext)
+
     // const location = useLocation()
     // const title = location.pathname
     // console.log(location.pathname)
+
     return (
         <header className='m-header-wrapper'>
             <div className='menu-title'>
                 <div className='menu-btn-wrapper'>
-                    <button className='menu-btn'>
-                        <img src={menu} alt="menu" />
+                    <button className='menu-btn' >
+                        <img src={menu} alt="menu"/>
                     </button>
                 </div>
                 <div className='title'>

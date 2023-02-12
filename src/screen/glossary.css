@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+.glossary-wrapper {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px;
+  margin-top: 40px;
+  font-family: "Nunito";
+}
+.g-title {
+  width: 65px;
+  height: 22px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 10px 0;
+  line-height: 22px;
+  color: #13161a;
+}
+.explanation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  width: 90vw;
+  height: 154px;
+}
+.e-title {
+  width: 90vw;
+  height: 22px;
+  text-align: center;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #13161a;
+}
+.e-para {
+  width: 90vw;
+  height: 120px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 170%;
+  text-align: justify;
+  color: #4b5768;
+}
+.g-title2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 10px;
+  width: 90vw;
+  height: 22px;
+}
+.g-title2 p {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #13161a;
+}
+.g-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+  width: 90vw;
+  height: 106px;
+}
+.g-items-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  width: 90vw;
+  height: 22px;
+}
+.g-items-title p {
+  width: auto;
+  height: 22px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #13161a;
+}
+.g-items-para {
+  width: 90vw;
+  height: 72px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 170%;
+  text-align: justify;
+  color: #4b5768;
+}

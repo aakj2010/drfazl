@@ -6,13 +6,11 @@ import bg from '../Assets/bg.svg'
 
 function Home() {
     return (
-            <div className='home-wrapper'>
-                <div className='img'>
-                    <figure>
-                        <img className='img' src={bg} alt="come what may" />
-                    </figure>
-                </div>
+        <div className='home-wrapper'>
+            <div className='img'>
+                <img src={bg} alt="come what may" />
             </div>
+        </div>
     )
 }
 

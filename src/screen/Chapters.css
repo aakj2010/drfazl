@@ -9,9 +9,29 @@
   --Neutral100: #e7eaee;
   --Neutral600: #4b5768;
   --bgwhite: #ffffff;
-  --purpleprimary:#4f1346;
+  --purpleprimary: #4f1346;
 }
-
+.img-container {
+  width: 100vw;
+  height: 234px;
+  background-image: url(../Assets/bg.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bottom-left {
+  position: absolute;
+  width: 51px;
+  height: 25px;
+  left: 14px;
+  top: 197px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #ffffff;
+}
 /* Chapter list strat */
 .chapters {
   width: 100vw;
@@ -32,53 +52,52 @@
   flex-direction: row;
   align-items: center;
   position: sticky;
-  top: 48px;
-  padding: 0px;
+  top: 47px;
+  padding: 10px 0px;
   width: 100vw;
   height: 40px;
   overflow-x: scroll;
   scroll-behavior: smooth;
-  background: #ffffff;
+  overflow-y: hidden;
+  background: #190041;
   border-bottom: 0.5px solid #e7eaee;
 }
 .chapter-list-wrapper::-webkit-scrollbar {
   display: none;
 }
 .chapter-list-items {
-  outline: none;
-  box-sizing: border-box;
-  min-width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 10px; */
+  width: max-content;
+  height: 40px;
+  border-radius: 8px 8px 0px 0px;
+}
+.chapter-list-items > li{
+  list-style-type: none;
+}
+.list-items {
   display: flex;
   flex-direction: row;
   align-items: center;
-  text-decoration: none;
-  padding: 10px;
-  gap: 10px;
-  width: auto;
-  height: 40px;
-  /* border-bottom: 1px solid var(--primary400); */
-  border-radius: 8px 8px 0px 0px;
-  
-}
-
-.list-items {
-  text-decoration: none;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  width: max-content;
   list-style-type: none;
   text-decoration: none;
   height: 16px;
   font-family: "Nunito";
+  padding: 10px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 12px;
-  line-height: 16px;
-  color: #0055aa;
+  color: #ffffff;
 }
+
 .active {
-  font-size: 14.5px;
-  color: var(--purpleprimary);
-  font-weight: 600;
-  /* border-bottom: .5px solid #4f1346; */
+  border-bottom: 3px solid #9a5aff;
 }
 /* Chapter list End */
 
