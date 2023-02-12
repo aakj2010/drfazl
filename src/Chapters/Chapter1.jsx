@@ -102,6 +102,20 @@ function Chapter1() {
         
     </div> */}
                 </div>
+                <div className='verse-container'>
+                    <div className='verse-number'>
+                        <div className='verse-num'>1.6</div>
+                        <div className='more-btn-wrapper'>
+                            <button className='more-btn'>
+                                <img src={more} alt="" />
+                            </button>
+                        </div>
+                    </div>
+                    <div className='verse-text'>Keep us on the right course.</div>
+                    {/* <div className='verse-link'>
+        
+    </div> */}
+                </div>
 
                 <div className='empty'></div>
             </div>
