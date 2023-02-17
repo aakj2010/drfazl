@@ -33,8 +33,10 @@ body {
   max-width: 480px; */
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 48px auto 48px;
+  /* display: grid; */
+  /* grid-template-columns: 48px auto 48px; */
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
 }

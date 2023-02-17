@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Chapters from './screen/Chapters';
-import Portal from './screen/Portal';
 import KeyWords from './screen/KeyWords';
 import Notes from './screen/Notes';
 import BookMark from './screen/BookMark';
@@ -12,35 +11,37 @@ import Chapter4 from './Chapters/Chapter4';
 import Chapter5 from './Chapters/Chapter5';
 import Chapter6 from './Chapters/Chapter6';
 import Glossary from './screen/Glossary';
-// import { ToggleProvider } from './context/ToggleContext';
+import Header from './layout/Header';
+import Preface from './screen/Preface';
+import AboutTheBook from './screen/AboutTheBook';
+import Quran from './screen/Quran';
 
 
 function App() {
-  // let context = useContext(ToggleContext)
+
   return (
     <div className='mobile-screen'>
-      {/* <ToggleProvider> */}
-        <BrowserRouter>
-          {/* <Header />
-          <SideBar /> */}
-          <Routes>
-            <Route path='/' element={<Portal />} >
-              <Route path='' element={<Chapters />} >
-                <Route index path='' element={<Chapter1 />} />
-                <Route index path='chapter2' element={<Chapter2 />} />
-                <Route index path='chapter3' element={<Chapter3 />} />
-                <Route index path='chapter4' element={<Chapter4 />} />
-                <Route index path='chapter5' element={<Chapter5 />} />
-                <Route index path='chapter6' element={<Chapter6 />} />
-              </Route>
-              <Route path='keywords' element={<KeyWords />} />
-              <Route path='bookmarks' element={<BookMark />} />
-              <Route path='notes' element={<Notes />} />
-              <Route path='glossary' element={<Glossary />} />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/Preface' element={<Preface />} />
+          <Route path='/AboutTheBook' element={<AboutTheBook />} />
+          <Route path='/Chapters' element={<Chapters />} >
+            <Route path='' element={<Quran />}>
+              <Route index element={<Chapter1 />} />
+              <Route path='2' element={<Chapter2 />} />
+              <Route path='3' element={<Chapter3 />} />
+              <Route path='4' element={<Chapter4 />} />
+              <Route path='5' element={<Chapter5 />} />
+              <Route path='6' element={<Chapter6 />} />
             </Route>
-          </Routes>
-        </BrowserRouter>
-      {/* </ToggleProvider> */}
+            <Route path='keywords' element={<KeyWords />} />
+            <Route path='glossary' element={<Glossary />} />
+            <Route path='notes' element={<Notes />} />
+            <Route path='bookmarks' element={<BookMark />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
