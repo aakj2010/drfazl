@@ -6,6 +6,7 @@
   justify-content: center;
   padding: 16px;
   margin-top: 32px;
+  font-family: "Nunito";
 }
 .keywords-wrapper::-webkit-scrollbar{
     display: none;

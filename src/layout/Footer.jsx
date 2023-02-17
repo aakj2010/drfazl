@@ -1,7 +1,5 @@
 import './footer.css'
-// import styles from './styles.module.css'
-// import { HideScroll } from "react-hide-on-scroll";
-// import classNames from 'classnames';
+
 import chapter from '../Assets/chapter.svg'
 import star from '../Assets/star.svg'
 import notes from '../Assets/notes.svg'

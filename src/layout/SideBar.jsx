@@ -43,7 +43,7 @@ function SideBar() {
                             <img src={menu} alt="" /></span><span className='list-title'>Chapters</span>
                         </li>
                     </NavLink>
-                    <NavLink to="/AboutTheBook">
+                    <NavLink to="/Book">
                         <li><span className='list-icon'>
                             <img src={book} alt="" /></span><span className='list-title'>About the book</span>
                         </li>

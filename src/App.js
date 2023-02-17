@@ -25,7 +25,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/Preface' element={<Preface />} />
-          <Route path='/AboutTheBook' element={<AboutTheBook />} />
+          <Route path='/Book' element={<AboutTheBook />} />
           <Route path='/Chapters' element={<Chapters />} >
             <Route path='' element={<Quran />}>
               <Route index element={<Chapter1 />} />
