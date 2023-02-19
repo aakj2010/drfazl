@@ -65,8 +65,10 @@
   justify-content: center;
   color: #4b5768;
 }
-.icon-with-title ~ .active {
-  color: blue;
+/* .icon-with-title .icon img .icon-title .active {
+  color: blue !important;
   border-bottom: 2px solid blue;
-}
+} */
+
+
 /* icons-wrapper End */

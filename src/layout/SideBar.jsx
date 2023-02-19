@@ -9,7 +9,18 @@ import toggle from '../Assets/togglebtn.svg'
 import settings from '../Assets/settings.svg'
 import account from '../Assets/account.svg'
 import { NavLink } from 'react-router-dom'
+import { styled } from '@mui/material'
 
+
+const StyledLinkButton = styled(NavLink)({
+    textDecoration: 'none',
+    textAlign: 'center',
+    color: '#fff',
+    "&.active": {
+        background: 'rgba(255, 255, 255, 0.2)',
+        borderRadius: 5
+    }
+})
 
 function SideBar() {
     return (
@@ -26,28 +37,32 @@ function SideBar() {
 
             <div className='menu-wrapper'>
                 <div className='menu-container'>
-                    <NavLink to="/home">
-                        <li><span className='list-icon'>
-                            <img src={home} alt="" /></span><span className='list-title'>Home</span>
+                    <StyledLinkButton to="/home">
+                        <li>
+                            <span className='list-icon'><img src={home} alt="" /></span>
+                            <span className='list-title'>Home</span>
                         </li>
-                    </NavLink>
+                    </StyledLinkButton>
 
-                    <NavLink to="/Preface">
-                        <li><span className='list-icon'>
-                            <img src={description} alt="" /></span><span className='list-title'>Preface</span>
+                    <StyledLinkButton to="/Preface">
+                        <li>
+                            <span className='list-icon'><img src={description} alt="" /></span>
+                            <span className='list-title'>Preface</span>
                         </li>
-                    </NavLink>
+                    </StyledLinkButton>
 
-                    <NavLink to="/Chapters">
-                        <li><span className='list-icon'>
-                            <img src={menu} alt="" /></span><span className='list-title'>Chapters</span>
+                    <StyledLinkButton to="/Chapters">
+                        <li>
+                            <span className='list-icon'><img src={menu} alt="" /></span>
+                            <span className='list-title'>Chapters</span>
                         </li>
-                    </NavLink>
-                    <NavLink to="/Book">
-                        <li><span className='list-icon'>
-                            <img src={book} alt="" /></span><span className='list-title'>About the book</span>
+                    </StyledLinkButton>
+                    <StyledLinkButton to="/Book">
+                        <li>
+                            <span className='list-icon'><img src={book} alt="" /></span>
+                            <span className='list-title'>About the book</span>
                         </li>
-                    </NavLink>
+                    </StyledLinkButton>
                 </div>
 
                 <div className='settings-container'>

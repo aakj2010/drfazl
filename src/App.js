@@ -24,11 +24,11 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/Preface' element={<Preface />} />
+          <Route index path='/Preface' element={<Preface />} />
           <Route path='/Book' element={<AboutTheBook />} />
           <Route path='/Chapters' element={<Chapters />} >
             <Route path='' element={<Quran />}>
-              <Route index element={<Chapter1 />} />
+              <Route path='' element={<Chapter1 />} />
               <Route path='2' element={<Chapter2 />} />
               <Route path='3' element={<Chapter3 />} />
               <Route path='4' element={<Chapter4 />} />

@@ -3,8 +3,8 @@
 }
 
 .sidebar{
-  position: absolute;
-  top: 0;
+ position: absolute;
+   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -95,18 +95,8 @@
   width: 160px;
   height: 32px;
   color: #fff;
-  /* border: 0.5px solid #fff; */
 }
-/* li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 10px;
 
-  width: 160px;
-  height: 32px;
-} */
 .list-title {
   width: max-content;
   height: 20px;
