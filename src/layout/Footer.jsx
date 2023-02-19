@@ -9,13 +9,13 @@ import { styled } from '@mui/material'
 
 
 const StyledLinkButton = styled(NavLink)({
-    textDecoration:'none',
+    textDecoration: 'none',
     textAlign: 'center',
-    color: '#fff',
+    color: '#4b5768',
     "&.active": {
         color: '#4B00C2',
-        borderBottom: 3,
-        borderBlockColor: '#4B00C2'
+        outline: 2,
+        borderBottomColor: '#4B00C2'
     }
 })
 
@@ -25,17 +25,19 @@ function Footer() {
     return (
         <>
             <div className="icons-wrapper" >
-                <StyledLinkButton to="" className='icon-with-title'>
-                    <button className='icon'>
-                        <img src={chapter} alt="" />
-                    </button>
-                    <div className='icon-title'>Chapter</div>
+                <StyledLinkButton to="" >
+                    <li className='icon-with-title'>
+                        <span className='icon'>
+                            <img src={chapter} alt="" />
+                        </span>
+                        <span className='icon-title'>Chapter</span>
+                    </li>
                 </StyledLinkButton>
                 <StyledLinkButton to="keywords" className='icon-with-title'>
-                    <button className='icon'>
-                        <img src={star} alt="" />
-                    </button>
-                    <div className='icon-title'>Keywords</div>
+                    
+                        <img className='icon' src={star} alt="" />
+                    Keywords
+                    {/* <span className='icon-title'>Keywords</span> */}
                 </StyledLinkButton>
 
                 <StyledLinkButton to="bookmarks" className='icon-with-title'>

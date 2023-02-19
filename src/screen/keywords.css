@@ -21,7 +21,7 @@
   width: 90vw;
   height: auto;
   background: #ffffff;
-  border-bottom: 0.5px solid lightgrey;
+  border-bottom: 0.5px solid #e7eaee;
 }
 .kw-number-icon {
   display: flex;
