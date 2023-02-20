@@ -44,20 +44,20 @@ function SideBar() {
                         </li>
                     </StyledLinkButton>
 
-                    <StyledLinkButton to="/Preface">
+                    <StyledLinkButton to="/preface">
                         <li>
                             <span className='list-icon'><img src={description} alt="" /></span>
                             <span className='list-title'>Preface</span>
                         </li>
                     </StyledLinkButton>
 
-                    <StyledLinkButton to="/Chapters">
+                    <StyledLinkButton to="/chapters">
                         <li>
                             <span className='list-icon'><img src={menu} alt="" /></span>
                             <span className='list-title'>Chapters</span>
                         </li>
                     </StyledLinkButton>
-                    <StyledLinkButton to="/Book">
+                    <StyledLinkButton to="/aboutthebook">
                         <li>
                             <span className='list-icon'><img src={book} alt="" /></span>
                             <span className='list-title'>About the book</span>

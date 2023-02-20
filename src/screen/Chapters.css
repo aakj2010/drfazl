@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
 
-
 :root {
   --primary400: #2b94ff;
   --primary500: #0071e3;
@@ -28,7 +27,7 @@
   z-index: -1;
 }
 .quran {
-  margin: .8rem;
+  margin: 0.8rem;
   width: 51px;
   height: 25px;
   font-family: "Nunito";
@@ -42,13 +41,10 @@
 /* Chapter list strat */
 .chapters {
   width: 100vw;
-  /* height: 90vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* overflow-x: hidden;*/
-  /* overflow-y: scroll;  */
 }
 .chapters::-webkit-scrollbar {
   display: none;
@@ -83,7 +79,7 @@
   height: 40px;
   border-radius: 8px 8px 0px 0px;
 }
-.chapter-list-items > li{
+.chapter-list-items > li {
   list-style-type: none;
 }
 .list-items {
@@ -105,14 +101,13 @@
   color: #ffffff;
 }
 
-
 /* Chapter list End */
 
 /* varse wrapper start */
 .verse-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 6px 16px 6px 6px;
   gap: 6px;
@@ -130,9 +125,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 12px 12px 12px 16px;
+  padding: 12px 8px;
   gap: 10px;
-  width: 90vw;
+  width: 95vw;
   height: auto;
   background: #ffffff;
   /* border-radius: 6px; */
@@ -150,7 +145,7 @@
   align-items: center;
   padding: 0px;
   gap: 10px;
-  width: 90vw;
+  width: 95vw;
   height: 20px;
 }
 .verse-num {
@@ -180,7 +175,7 @@
 }
 
 .verse-text {
-  width: 90vw;
+  width: 95vw;
   height: auto;
   font-family: "Nunito";
   font-style: normal;

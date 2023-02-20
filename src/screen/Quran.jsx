@@ -1,4 +1,5 @@
 import React from 'react'
+import './Chapters.css'
 import { NavLink, Outlet } from 'react-router-dom'
 import { styled } from '@mui/material'
 

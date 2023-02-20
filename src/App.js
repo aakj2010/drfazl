@@ -15,6 +15,7 @@ import Header from './layout/Header';
 import Preface from './screen/Preface';
 import AboutTheBook from './screen/AboutTheBook';
 import Quran from './screen/Quran';
+// import Login from './pages/Login';
 
 
 function App() {
@@ -24,9 +25,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route index path='/Preface' element={<Preface />} />
-          <Route path='/Book' element={<AboutTheBook />} />
-          <Route path='/Chapters' element={<Chapters />} >
+          {/* <Route path='/' element={<Login />}/> */}
+          <Route index path='/preface' element={<Preface />} />
+          <Route path='/aboutthebook' element={<AboutTheBook />} />
+          <Route path='/chapters' element={<Chapters />} >
             <Route path='' element={<Quran />}>
               <Route path='' element={<Chapter1 />} />
               <Route path='2' element={<Chapter2 />} />

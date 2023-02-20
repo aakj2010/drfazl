@@ -9,8 +9,9 @@ import SideBar from './SideBar'
 
 function Header() {
     const location = useLocation()
-    const title = location.pathname.split('/')
-        
+    const result = location.pathname.split('/')
+    const title = result[2] ? result[2].charAt(0).toUpperCase() + result[2].slice(1) : result[1].charAt(0).toUpperCase() + result[1].slice(1)
+
     const [open, setOpen] = useState(false)
 
     const showSidebar = () => {
@@ -19,21 +20,21 @@ function Header() {
 
     return (
         <header className='m-header-wrapper'>
-             <div className='menu-title'>
-                    <div className='menu-btn-wrapper'>
-                        <button className='menu-btn' onClick={showSidebar}>
-                            <img src={menu} alt="menu" />
-                            {
-                                open ? (
-                                    <SideBar />
-                                ) : null
-                            }
-                        </button>
-                    </div>
-                    <div className='title'>
-                            {title[1].replace(/^\s+|\s+$/gm,'')}
-                    </div>
+            <div className='menu-title'>
+                <div className='menu-btn-wrapper'>
+                    <button className='menu-btn' onClick={showSidebar}>
+                        <img src={menu} alt="menu" />
+                        {
+                            open ? (
+                                <SideBar />
+                            ) : null
+                        }
+                    </button>
                 </div>
+                <div className='title'>
+                    {title}
+                </div>
+            </div>
 
             <div className='help-with-search'>
                 <div className='menu-btn-wrapper'>
