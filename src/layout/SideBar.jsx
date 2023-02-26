@@ -1,8 +1,8 @@
 import React from 'react'
 import './Sidebar.css'
 import logo from '../Assets/logo.svg'
-import description from '../Assets/description.svg'
-import menu from '../Assets/menu_book.svg'
+import chapter from '../Assets/s-chapter.svg'
+import abook from '../Assets/aboutbook.svg'
 import home from '../Assets/home.svg'
 import toggle from '../Assets/togglebtn.svg'
 import settings from '../Assets/settings.svg'
@@ -36,25 +36,29 @@ function SideBar({ showSidebar }) {
             <div className='menu-wrapper'>
                 <div className='menu-container'>
                     <StyledLinkButton to="/home">
-                        <li><span className='list-icon'>
-                            <img src={home} alt="" /></span><span className='list-title'>Home</span>
+                        <li>
+                            <span ><img src={home} alt="" className='list-icon'/></span>
+                            <span className='list-title'>Home</span>
                         </li>
                     </StyledLinkButton>
 
                     <StyledLinkButton to="/preface">
-                        <li><span className='list-icon'>
-                            <img src={description} alt="" /></span><span className='list-title'>Preface</span>
+                        <li>
+                            <span ><img src={abook} alt="" className='list-icon'/></span>
+                            <span className='list-title'>Preface</span>
                         </li>
                     </StyledLinkButton>
 
                     <StyledLinkButton to="/chapters">
-                        <li><span className='list-icon'>
-                            <img src={menu} alt="" /></span><span className='list-title'>Chapters</span>
+                        <li>
+                        <span ><img src={chapter} alt="" className='list-icon'/></span>
+                            <span className='list-title'>Chapters</span>
                         </li>
                     </StyledLinkButton>
                     <StyledLinkButton to="/aboutTheBook">
-                        <li><span className='list-icon'>
-                            <img src={menu} alt="" /></span><span className='list-title'>About the book</span>
+                        <li>
+                            <span><img src={abook} alt="" className='list-icon'/></span>
+                            <span className='list-title'>About the book</span>
                         </li>
                     </StyledLinkButton>
                 </div>

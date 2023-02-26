@@ -116,9 +116,13 @@
   font-size: 13px;
 }
 .list-icon {
-  width: 20px;
-  height: 20px;
+  width: 1rem;
+  height: 1rem;
 }
+/* li img{
+  width: 15px !important;
+  height: 15px !important;
+} */
 .settings-container {
   display: flex;
   flex-direction: column;
