@@ -4,13 +4,11 @@ import logo from '../Assets/logo.svg'
 import description from '../Assets/description.svg'
 import menu from '../Assets/menu_book.svg'
 import home from '../Assets/home.svg'
-import book from '../Assets/aboutbook.svg'
 import toggle from '../Assets/togglebtn.svg'
 import settings from '../Assets/settings.svg'
 import account from '../Assets/account.svg'
 import { NavLink } from 'react-router-dom'
 import { styled } from '@mui/material'
-
 
 const StyledLinkButton = styled(NavLink)({
     textDecoration: 'none',
@@ -22,7 +20,7 @@ const StyledLinkButton = styled(NavLink)({
     }
 })
 
-function SideBar() {
+function SideBar({ showSidebar }) {
     return (
         <div className='sidebar'>
             <div className='logo-container'>
@@ -38,29 +36,25 @@ function SideBar() {
             <div className='menu-wrapper'>
                 <div className='menu-container'>
                     <StyledLinkButton to="/home">
-                        <li>
-                            <span className='list-icon'><img src={home} alt="" /></span>
-                            <span className='list-title'>Home</span>
+                        <li><span className='list-icon'>
+                            <img src={home} alt="" /></span><span className='list-title'>Home</span>
                         </li>
                     </StyledLinkButton>
 
                     <StyledLinkButton to="/preface">
-                        <li>
-                            <span className='list-icon'><img src={description} alt="" /></span>
-                            <span className='list-title'>Preface</span>
+                        <li><span className='list-icon'>
+                            <img src={description} alt="" /></span><span className='list-title'>Preface</span>
                         </li>
                     </StyledLinkButton>
 
                     <StyledLinkButton to="/chapters">
-                        <li>
-                            <span className='list-icon'><img src={menu} alt="" /></span>
-                            <span className='list-title'>Chapters</span>
+                        <li><span className='list-icon'>
+                            <img src={menu} alt="" /></span><span className='list-title'>Chapters</span>
                         </li>
                     </StyledLinkButton>
-                    <StyledLinkButton to="/aboutthebook">
-                        <li>
-                            <span className='list-icon'><img src={book} alt="" /></span>
-                            <span className='list-title'>About the book</span>
+                    <StyledLinkButton to="/aboutTheBook">
+                        <li><span className='list-icon'>
+                            <img src={menu} alt="" /></span><span className='list-title'>About the book</span>
                         </li>
                     </StyledLinkButton>
                 </div>
@@ -68,8 +62,18 @@ function SideBar() {
                 <div className='settings-container'>
                     {/* <li><span className='lang'>தமிழ் / English</span> <span className='toggle-btn'><img src={toggle} alt="" /></span></li> */}
                     <li><span className='theme'>Light / Dark</span> <span className='toggle-btn'><img src={toggle} alt="" /></span></li>
-                    <li><span className='list-icon'><img src={settings} alt="" /></span><span className='list-title'>Settings</span> </li>
-                    <li><span className='list-icon'><img src={account} alt="" /></span><span className='list-title'>8668071426</span> </li>
+                    <StyledLinkButton to="/settings">
+                        <li>
+                            <span className='list-icon'><img src={settings} alt="" /></span>
+                            <span className='list-title'>Settings</span>
+                        </li>
+                    </StyledLinkButton>
+                    <StyledLinkButton to="/">
+                        <li>
+                            <span className='list-icon'><img src={account} alt="" /></span>
+                            <span className='list-title'>8668071426</span>
+                        </li>
+                    </StyledLinkButton>
                 </div>
 
             </div>

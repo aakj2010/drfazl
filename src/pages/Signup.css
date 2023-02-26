@@ -1,0 +1,118 @@
+:root {
+  --primary500: #0071e3;
+  --primary600: #0055aa;
+  --primary700: #003e7d;
+  --primary800: #0c1f56;
+  --primary900: #06102b;
+  --placeholder: #647488;
+  --Neutral100: #e7eaee;
+  --Neutral600: #4b5768;
+  --bgwhite: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::placeholder {
+  color: var(--placeholder);
+}
+.signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 360px;
+  max-width: 768px;
+  height: 100vh;
+  padding: 48px 40px 24px;
+  gap: 40px;
+  background: #F8F8F8;
+}
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  gap: 40px;
+  width: 280px;
+  height: auto;
+}
+.login-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0px;
+    width: 102px;
+    height: 46px;
+  }
+  .login-title h4 {
+    width: 102px;
+    height: 29px;
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 80%;
+    color: #4b00c2;
+  }
+  .login-title h6 {
+    width: 40px;
+    height: 17px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    color: #4b00c2;
+  }
+  .inp-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 280px;
+    height: auto;
+  }
+  .inp-box > input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 10px;
+    width: 280px;
+    font-family: "Nunito";
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    outline: none;
+    caret-color: var(--placeholder);
+  }
+  .inp-box > input > ::placeholder {
+    width: max-content;
+    height: 20px;
+    
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 140%;
+    color: var(--placeholder);
+  }
+  .login-down-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    width: max-content;
+    height: 20px;
+  }

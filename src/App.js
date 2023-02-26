@@ -1,4 +1,5 @@
 import './App.css';
+import Login from './pages/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Chapters from './screen/Chapters';
 import KeyWords from './screen/KeyWords';
@@ -15,7 +16,10 @@ import Header from './layout/Header';
 import Preface from './screen/Preface';
 import AboutTheBook from './screen/AboutTheBook';
 import Quran from './screen/Quran';
-// import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import UserVerification from './pages/UserVerification';
+import CreatePassword from './pages/CreatePassword';
+import Settings from './screen/Settings';
 
 
 function App() {
@@ -25,12 +29,16 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          {/* <Route path='/' element={<Login />}/> */}
-          <Route index path='/preface' element={<Preface />} />
-          <Route path='/aboutthebook' element={<AboutTheBook />} />
-          <Route path='/chapters' element={<Chapters />} >
+          <Route path='/' element={<Login />} />
+          <Route path='/register' element={<SignUp />} />
+          <Route path='/verify' element={<UserVerification />} />
+          <Route path='/createpassword' element={<CreatePassword />} />
+          <Route path='/preface' element={<Preface />} />
+          <Route path='/aboutTheBook' element={<AboutTheBook />} />
+          <Route path='/settings' element={<Settings />} />
+          <Route path='/Chapters' element={<Chapters />} >
             <Route path='' element={<Quran />}>
-              <Route path='' element={<Chapter1 />} />
+              <Route index element={<Chapter1 />} />
               <Route path='2' element={<Chapter2 />} />
               <Route path='3' element={<Chapter3 />} />
               <Route path='4' element={<Chapter4 />} />
@@ -45,6 +53,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    
   );
 }
 
