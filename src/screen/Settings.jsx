@@ -3,10 +3,10 @@ import './Settings.css'
 import more from '../Assets/more.svg'
 
 const Settings = () => {
-    const [fontSize, setFontSize] = useState(16)
 
-    const [list, setList] = useState(['Small', 'Default', 'Large'])
-    const [active, setActive] = useState(null)
+    const [fontSize, setFontSize] = useState(16)
+    const [save, setSave] = useState(fontSize)
+
     return (
         <div className='settings-wrapper'>
             <div className='settings-container'>
@@ -25,39 +25,10 @@ const Settings = () => {
                             <button className='bi-ling-btn' onClick={() => setFontSize(14)}>Small</button>
                             <button className='active-eng-btn' onClick={() => setFontSize(16)}>Default</button>
                             <button className='bi-ling-btn' onClick={() => setFontSize(18)}>Large</button>
-                            {/* {
-                                list.map((item) => {
-                                    return (
-                                        <li key={item.index}
-                                            onClick={() => setActive(item)}
-                                            className={`bi-ling-btn ${active === item && 'active'}`}>
-                                            <button className='bi-ling-btn'>{item}</button>
-                                        </li>
-                                    )
-                                })
-                            } */}
                         </div>
                     </div>
                 </div>
-                {/* <div className='demo-box'>
-                    <Tabs defaultIndex={1} onSelect={(index) => console.log(index)} >
-                        <TabList className='chapter-list-wrapper'>
-                            <Tab className="list-items" style={{ fontSize: `${fontSize}px` }} >1.Victory upon Victory</Tab>
-                            <Tab className="list-items" style={{ fontSize: `${fontSize}px` }}>2.Pasu</Tab>
-                            <Tab className="list-items" style={{ fontSize: `${fontSize}px` }}>3.Imran's Family</Tab>
-                        </TabList>
-
-                        <TabPanel style={{ fontSize: `${fontSize}px` }}>
-                            <Chapter1 />
-                        </TabPanel>
-                        <TabPanel style={{ fontSize: `${fontSize}px` }}>
-                            <Chapter2 />
-                        </TabPanel>
-                        <TabPanel style={{ fontSize: `${fontSize}px` }}>
-                            <Chapter3 />
-                        </TabPanel>
-                    </Tabs>
-                </div> */}
+                
                 <div className='demo-box'>
                     <div className='chapter-list-wrapper'>
                         <div className='chapter-list-items'>
@@ -83,6 +54,9 @@ const Settings = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className='save-box'>
+                    <button>Save Changes</button>
                 </div>
             </div>
 

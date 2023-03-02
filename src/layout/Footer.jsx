@@ -5,64 +5,56 @@ import notes from '../Assets/notes.svg'
 import bookmark from '../Assets/bookmark.svg'
 import glossary from '../Assets/glossary.svg'
 import { NavLink } from 'react-router-dom';
-import { styled } from '@mui/material'
-
-
-const StyledLinkButton = styled(NavLink)({
-    textDecoration: 'none',
-    textAlign: 'center',
-    color: '#4b5768',
-    "&.active": {
-        color: '#4B00C2',
-        outline: 2,
-        borderBottomColor: '#4B00C2'
-    }
-})
 
 function Footer() {
-
 
     return (
         <>
             <div className="icons-wrapper" >
-                <StyledLinkButton to="" >
-                    <li className='icon-with-title'>
-                        <span className='icon'>
+                <NavLink to="" className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
                             <img src={chapter} alt="" />
-                        </span>
-                        <span className='icon-title'>Chapter</span>
-                    </li>
-                </StyledLinkButton>
-                <StyledLinkButton to="keywords" className='icon-with-title'>
-                    
-                        <img className='icon' src={star} alt="" />
-                    Keywords
-                    {/* <span className='icon-title'>Keywords</span> */}
-                </StyledLinkButton>
+                        </button>
+                    </div>
+                    <div className='icon-title'>Chapter</div>
+                </NavLink>
+                <NavLink to="keywords" className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={star} alt="" />
+                        </button>
+                    </div>
+                    <div className='icon-title'>Keywords</div>
+                </NavLink>
 
-                <StyledLinkButton to="bookmarks" className='icon-with-title'>
-                    <button className='icon'>
-                        <img src={bookmark} alt="" />
-                    </button>
+                <NavLink to="bookmarks" className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={bookmark} alt="" />
+                        </button>
+                    </div>
                     <div className='icon-title'>Bookmarks</div>
-                </StyledLinkButton>
-                <StyledLinkButton to="notes" className='icon-with-title'>
-                    <button className='icon'>
-                        <img src={notes} alt="" />
-                    </button>
+                </NavLink>
+                <NavLink to="notes" className='icon-with-title'>
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={notes} alt="" />
+                        </button>
+                    </div>
                     <div className='icon-title'>Notes</div>
-                </StyledLinkButton>
+                </NavLink>
 
-                <StyledLinkButton to="glossary" className='icon-with-title' >
-                    <button className='icon'>
-                        <img src={glossary} alt="" />
-                    </button>
+                <NavLink to="glossary" className='icon-with-title' >
+                    <div className='icon-container'>
+                        <button className='icon'>
+                            <img src={glossary} alt="" />
+                        </button>
+                    </div>
                     <div className='icon-title'>Glossary</div>
-                </StyledLinkButton>
+                </NavLink>
             </div>
         </>
-
-
     )
 }
 

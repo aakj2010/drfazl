@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
-
 :root {
   --primary400: #2b94ff;
   --primary500: #0071e3;
@@ -16,18 +14,15 @@
 .img-container {
   width: 100vw;
   height: 234px;
-  font-family: "Nunito";
   background-image: url(../Assets/bg.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #ffffff;
   display: flex;
   align-items: flex-end;
   z-index: -1;
 }
-.quran {
-  margin: 0.8rem;
+.bottom-left {
   width: 51px;
   height: 25px;
   font-family: "Nunito";
@@ -40,44 +35,60 @@
 }
 /* Chapter list strat */
 .chapters {
+  box-sizing: border-box;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .chapters::-webkit-scrollbar {
   display: none;
 }
 .chapter-list-wrapper {
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: sticky;
-  z-index: -1;
-  top: 47px;
-  padding: 10px 0px;
+  top: 46px;
+  /* padding: 10px 0px; */
   width: 100vw;
   height: 40px;
   overflow-x: scroll;
   scroll-behavior: smooth;
   overflow-y: hidden;
   background: #190041;
-  border-bottom: 0.5px solid #e7eaee;
+}
+.chapter-list-relative {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: static;
+  top: 48px;
+
+  /* padding: 10px 0px; */
+  width: 100vw;
+  height: 40px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+  background: #190041;
 }
 .chapter-list-wrapper::-webkit-scrollbar {
   display: none;
+}
+.chapter-list-wrapper::after{
+  visibility: hidden;
 }
 .chapter-list-items {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: -1;
   /* padding: 10px; */
   width: max-content;
   height: 40px;
   border-radius: 8px 8px 0px 0px;
+  z-index: -1;
 }
 .chapter-list-items > li {
   list-style-type: none;
@@ -101,13 +112,16 @@
   color: #ffffff;
 }
 
+/* .active {
+  border-bottom: 3px solid #9a5aff;
+} */
 /* Chapter list End */
 
 /* varse wrapper start */
 .verse-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 6px 16px 6px 6px;
   gap: 6px;
@@ -125,7 +139,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 12px 8px;
+  padding: 12px 12px 12px 16px;
   gap: 10px;
   width: 95vw;
   height: auto;
@@ -145,7 +159,7 @@
   align-items: center;
   padding: 0px;
   gap: 10px;
-  width: 95vw;
+  width: 93vw;
   height: 20px;
 }
 .verse-num {
@@ -168,6 +182,7 @@
 }
 .more-btn {
   display: flex;
+  margin-right: .75rem;
   align-items: center;
   justify-content: center;
   width: 20px;
@@ -175,7 +190,7 @@
 }
 
 .verse-text {
-  width: 95vw;
+  width: 90vw;
   height: auto;
   font-family: "Nunito";
   font-style: normal;
@@ -224,4 +239,42 @@
 .empty {
   width: 100vw;
   height: 48px;
+}
+
+
+.tab-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  width: max-content;
+  list-style-type: none;
+  text-decoration: none;
+  height: 40px;
+  font-family: "Nunito";
+  padding: 10px;
+  font-style: normal;
+  font-weight: 700;
+  /* font-size: 12px; */
+  color: #ffffff;
+}
+
+.tab.active {
+  border-bottom: 3px solid #9a5aff;
+}
+
+.tab-content {
+  padding: 10px;
+  border: 1px solid #ccc;
 }

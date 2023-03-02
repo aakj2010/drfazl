@@ -1,40 +1,69 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './Chapters.css'
-import { NavLink, Outlet } from 'react-router-dom'
-import { styled } from '@mui/material'
+import Tab from './Tab';
+import Chapter1 from '../Chapters/Chapter1'
+import Chapter2 from '../Chapters/Chapter2'
+import Chapter5 from '../Chapters/Chapter5'
+import FontContext from '../context/FontContext';
+import SideBarContext from '../context/SideBarContext';
 
-const StyledLinkButton = styled(NavLink)({
-    textDecoration: 'none',
-    textAlign: 'center',
-    color: '#fff',
-    borderBottomColor: '#4B00C2',
-    "&.active": {
-        borderBottom: 3,
-        borderBottomColor: '#4B00C2'
-    }
-})
 
 function Quran() {
+    let context = useContext(FontContext);
+    let SideBarcontext = useContext(SideBarContext);
+
+    const [activeTab, setActiveTab] = useState(0);
+
+    const handleTabClick = (index) => {
+        setActiveTab(index);
+    }
+
     return (
         <>
             <div className='chapters'>
                 <div className='img-container' >
-                    <div className="bottom-left">Quran</div>
+                    <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>Quran</div>
                 </div>
-                <div className='chapter-list-wrapper'>
-                    <div className='chapter-list-items'>
-                        <StyledLinkButton to='' className="list-items">1. Victory upon Victory</StyledLinkButton>
-                        <StyledLinkButton to='2' className="list-items" >2. Pasu </StyledLinkButton>
-                        <StyledLinkButton to='3' className="list-items">3. Imran’s Family</StyledLinkButton>
-                        <StyledLinkButton to='4' className="list-items">4. Women</StyledLinkButton>
-                        <StyledLinkButton to='5' className="list-items">5. Unavu maravai</StyledLinkButton>
-                        <StyledLinkButton to='6' className="list-items">6. Kalnadaigal</StyledLinkButton>
+                <div className={!SideBarcontext.open ? 'chapter-list-wrapper' : 'chapter-list-relative'}>
+                    <div className='tab-container' style={{ fontSize: `${context.fontSize}px` }}>
+                        <div className='tabs' style={{ fontSize: `${context.fontSize}px` }}>
+                            <Tab
+                                label="1.Victory upon victory"
+                                isActive={activeTab === 0}
+                                onClick={() => handleTabClick(0)}
+                            />
+                            <Tab
+                                label="2.Pasu"
+                                isActive={activeTab === 1}
+                                onClick={() => handleTabClick(1)}
+                            />
+                            <Tab
+                                label="3.Imran's Family"
+                                isActive={activeTab === 2}
+                                onClick={() => handleTabClick(2)}
+                            />
+                            <Tab
+                                label="4.Womens"
+                                isActive={activeTab === 3}
+                                onClick={() => handleTabClick(3)}
+                            />
+                            <Tab
+                                label="5.Kalnadaigal"
+                                isActive={activeTab === 4}
+                                onClick={() => handleTabClick(4)}
+                            />
+                        </div>
                     </div>
                 </div>
-                <Outlet />
+                <div className="tab-content" style={{ fontSize: `${context.fontSize}px` }}>
+                    {activeTab === 0 && <Chapter1 />}
+                    {activeTab === 1 && <Chapter2 />}
+                    {activeTab === 2 && <p>Content for Tab 3</p>}
+                    {activeTab === 3 && <Chapter1 />}
+                    {activeTab === 4 && <Chapter5 />}
+                </div>
             </div>
         </>
-
     )
 }
 
