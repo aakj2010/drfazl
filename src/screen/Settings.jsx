@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Settings.css'
 import more from '../Assets/more.svg'
+import FontContext from '../context/FontContext'
 
 const Settings = () => {
-
-    const [fontSize, setFontSize] = useState(16)
-    const [save, setSave] = useState(fontSize)
+    let context = useContext(FontContext)
+    // const [save, setSave] = useState(fontSize)
 
     return (
         <div className='settings-wrapper'>
@@ -22,9 +22,9 @@ const Settings = () => {
                     <div className='lang-box'>
                         <p>Font Size</p>
                         <div className='btn-box'>
-                            <button className='bi-ling-btn' onClick={() => setFontSize(14)}>Small</button>
-                            <button className='active-eng-btn' onClick={() => setFontSize(16)}>Default</button>
-                            <button className='bi-ling-btn' onClick={() => setFontSize(18)}>Large</button>
+                            <button className='bi-ling-btn' onClick={() => context.setFontSize(14)}>Small</button>
+                            <button className='active-eng-btn' onClick={() => context.setFontSize(16)}>Default</button>
+                            <button className='bi-ling-btn' onClick={() => context.setFontSize(18)}>Large</button>
                         </div>
                     </div>
                 </div>
@@ -32,25 +32,25 @@ const Settings = () => {
                 <div className='demo-box'>
                     <div className='chapter-list-wrapper'>
                         <div className='chapter-list-items'>
-                            <li className="list-items" style={{ fontSize: `${fontSize}px` }}>1. Victory upon Victory</li>
-                            <li className="list-items" style={{ fontSize: `${fontSize}px` }}>2. Pasu </li>
-                            <li className="list-items" style={{ fontSize: `${fontSize}px` }}>3. Imran’s Family</li>
+                            <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>1. Victory upon Victory</li>
+                            <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>2. Pasu </li>
+                            <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>3. Imran’s Family</li>
                         </div>
                     </div>
-                    <div className='verse-wrapper' style={{ fontSize: `${fontSize}px` }}>
-                        <div className='verse-container' style={{ fontSize: `${fontSize}px` }}>
-                            <div className='verse-number' style={{ fontSize: `${fontSize}px` }}>
-                                <div className='verse-num' style={{ fontSize: `${fontSize}px` }}>1.1</div>
-                                <div className='more-btn-wrapper' style={{ fontSize: `${fontSize}px` }}>
-                                    <button className='more-btn' style={{ fontSize: `${fontSize}px` }}>
+                    <div className='verse-wrapper' style={{ fontSize: `${context.fontSize}px` }}>
+                        <div className='verse-container' style={{ fontSize: `${context.fontSize}px` }}>
+                            <div className='verse-number' style={{ fontSize: `${context.fontSize}px` }}>
+                                <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>1.1</div>
+                                <div className='more-btn-wrapper' style={{ fontSize: `${context.fontSize}px` }}>
+                                    <button className='more-btn' style={{ fontSize: `${context.fontSize}px` }}>
                                         <img src={more} alt="" />
                                     </button>
                                 </div>
                             </div>
-                            <div className='verse-text' style={{ fontSize: `${fontSize}px` }}>All glory be to Allah, the God of the worlds.</div>
-                            <div className='verse-link' style={{ fontSize: `${fontSize}px` }}>
-                                <div className='verse-link-item' style={{ fontSize: `${fontSize}px` }}>2.26</div>
-                                <div className='verse-link-item' style={{ fontSize: `${fontSize}px` }}>2.28</div>
+                            <div className='verse-text' style={{ fontSize: `${context.fontSize}px` }}>All glory be to Allah, the God of the worlds.</div>
+                            <div className='verse-link' style={{ fontSize: `${context.fontSize}px` }}>
+                                <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>2.26</div>
+                                <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>2.28</div>
                             </div>
                         </div>
                     </div>
