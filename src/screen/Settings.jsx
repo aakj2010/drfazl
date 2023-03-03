@@ -55,9 +55,9 @@ const Settings = () => {
                         </div>
                     </div>
                 </div>
-                <div className='save-box'>
+                {/* <div className='save-box'>
                     <button>Save Changes</button>
-                </div>
+                </div> */}
             </div>
 
 
