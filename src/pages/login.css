@@ -227,7 +227,7 @@
   border: none;
   cursor: pointer;
 }
-.submit-btns > .signin {
+.submit-btns > .signin button{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -245,6 +245,12 @@
   line-height: 140%;
   color: #ffffff;
   outline: none;
+}
+.signin button{
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  color: #ffffff;
 }
 .submit-btns > .google-btn {
   display: flex;

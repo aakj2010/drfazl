@@ -16,6 +16,7 @@ import CreatePassword from './pages/CreatePassword';
 import Settings from './screen/Settings';
 import { FontSizeProvider } from './context/FontContext';
 import { SideBarProvider } from './context/SideBarContext';
+import Home from './screen/Home';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route path='/register' element={<SignUp />} />
               <Route path='/verify' element={<UserVerification />} />
               <Route path='/createpassword' element={<CreatePassword />} />
+              <Route path='/home' element={<Home />} />
               <Route path='/preface' element={<Preface />} />
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />

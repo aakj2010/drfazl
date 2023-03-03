@@ -3,7 +3,7 @@ import React from 'react'
 import './login.css'
 import logo from '../Assets/logo.svg'
 import google from '../Assets/google.svg'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -32,7 +32,9 @@ const Login = () => {
             </div>
           </div>
           <div className='submit-btns'>
-            <button className='signin'>Sign in</button>
+            <NavLink to='/chapters' className='signin'>
+              <button className='signin'>Sign in</button>
+            </NavLink>
             <button className='google-btn'>
               <img src={google} alt="google" /><span>Signin with Google</span>
             </button>
