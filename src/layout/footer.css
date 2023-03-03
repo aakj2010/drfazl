@@ -1,5 +1,7 @@
 /* icons-wrapper start*/
-
+.footer{
+  display: none;
+}
 .icons-wrapper {
   box-sizing: border-box;
   display: flex;

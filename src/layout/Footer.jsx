@@ -5,12 +5,14 @@ import notes from '../Assets/notes.svg'
 import bookmark from '../Assets/bookmark.svg'
 import glossary from '../Assets/glossary.svg'
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react'
+import SideBarContext from '../context/SideBarContext'
 
 function Footer() {
-
+    let SideBarcontext = useContext(SideBarContext);
     return (
         <>
-            <div className="icons-wrapper" >
+            <div className={!SideBarcontext.open ? "icons-wrapper" : "footer"} >
                 <NavLink to="" className='icon-with-title'>
                     <div className='icon-container'>
                         <button className='icon'>
