@@ -17,10 +17,13 @@ import Settings from './screen/Settings';
 import { FontSizeProvider } from './context/FontContext';
 import { SideBarProvider } from './context/SideBarContext';
 import Home from './screen/Home';
+import { useContext } from 'react';
+import LanguageContext from './context/LanguageContext';
+import TamilQuran from './Tamil Quran/TamilQuran';
 
 
 function App() {
-
+  let context = useContext(LanguageContext)
   return (
     <div className='mobile-screen'>
       <BrowserRouter>
@@ -36,13 +39,28 @@ function App() {
               <Route path='/preface' element={<Preface />} />
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />
-              <Route path='/Chapters' element={<Chapters />} >
-                <Route path='' element={<Quran />} />
-                <Route path='keywords' element={<KeyWords />} />
-                <Route path='glossary' element={<Glossary />} />
-                <Route path='notes' element={<Notes />} />
-                <Route path='bookmarks' element={<BookMark />} />
-              </Route>
+              {
+                context.language === 'English' &&
+                (
+                  <Route path='/Chapters' element={<Chapters />} >
+                    <Route path='' element={<Quran />} />
+                    <Route path='keywords' element={<KeyWords />} />
+                    <Route path='glossary' element={<Glossary />} />
+                    <Route path='notes' element={<Notes />} />
+                    <Route path='bookmarks' element={<BookMark />} />
+                  </Route>
+
+                )
+              }
+              {
+                <Route path='/Chapters' element={<Chapters />} >
+                  <Route path='' element={<TamilQuran />} />
+                  <Route path='keywords' element={<KeyWords />} />
+                  <Route path='glossary' element={<Glossary />} />
+                  <Route path='notes' element={<Notes />} />
+                  <Route path='bookmarks' element={<BookMark />} />
+                </Route>
+              }
             </Routes>
           </SideBarProvider>
         </FontSizeProvider>
