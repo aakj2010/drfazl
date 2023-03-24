@@ -4,6 +4,7 @@ import FontContext from '../context/FontContext'
 import LanguageContext from '../context/LanguageContext'
 import Tamil from '../demo/Tamil'
 import English from '../demo/English'
+import Header from '../layout/Header'
 
 const Settings = () => {
     let context = useContext(FontContext)
@@ -12,7 +13,9 @@ const Settings = () => {
     // const [save, setSave] = useState(fontSize)
 
     return (
-        <div className='settings-wrapper'>
+        <>
+        <Header />
+         <div className='settings-wrapper'>
             <div className='settings-container'>
                 <div className='settings-box'>
                     <div className='lang-box'>
@@ -48,6 +51,8 @@ const Settings = () => {
 
 
         </div >
+        </>
+       
     )
 }
 

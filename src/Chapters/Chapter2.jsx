@@ -19,8 +19,8 @@ function Chapter2() {
                 </div>
                 <div className='verse-text' style={{ fontSize: `${context.fontSize}px` }}>All glory be to Allah, the God of the worlds.</div>
                 <div className='verse-link' style={{ fontSize: `${context.fontSize}px` }}>
-                    <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>2.26</div>
-                    <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>2.28</div>
+                    <span className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>2.26</span>
+                    <span className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>2.28</span>
                 </div>
             </div>
 

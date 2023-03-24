@@ -6,6 +6,7 @@ import Chapter2 from '../Chapters/Chapter2'
 import Chapter5 from '../Chapters/Chapter5'
 import FontContext from '../context/FontContext';
 import SideBarContext from '../context/SideBarContext';
+import Header from '../layout/Header';
 
 
 function Quran() {
@@ -20,6 +21,7 @@ function Quran() {
 
     return (
         <>
+        <Header />
             <div className='chapters'>
                 <div className='img-container' >
                     <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>Quran</div>
@@ -32,21 +34,25 @@ function Quran() {
                                 isActive={activeTab === 0}
                                 onClick={() => handleTabClick(0)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
                                 label="2.Pasu"
                                 isActive={activeTab === 1}
                                 onClick={() => handleTabClick(1)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
                                 label="3.Imran's Family"
                                 isActive={activeTab === 2}
                                 onClick={() => handleTabClick(2)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
                                 label="4.Womens"
                                 isActive={activeTab === 3}
                                 onClick={() => handleTabClick(3)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
                                 label="5.Kalnadaigal"
                                 isActive={activeTab === 4}

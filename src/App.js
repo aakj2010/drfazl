@@ -6,7 +6,6 @@ import KeyWords from './screen/KeyWords';
 import Notes from './screen/Notes';
 import BookMark from './screen/BookMark';
 import Glossary from './screen/Glossary';
-import Header from './layout/Header';
 import Preface from './screen/Preface';
 import AboutTheBook from './screen/AboutTheBook';
 import Quran from './screen/Quran';
@@ -20,6 +19,7 @@ import Home from './screen/Home';
 import { useContext } from 'react';
 import LanguageContext from './context/LanguageContext';
 import TamilQuran from './Tamil Quran/TamilQuran';
+import LandingPage from './screen/LandingPage';
 
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
       <BrowserRouter>
         <FontSizeProvider>
           <SideBarProvider>
-            <Header />
             <Routes>
               <Route path='/' element={<Login />} />
               <Route path='/register' element={<SignUp />} />
@@ -39,6 +38,7 @@ function App() {
               <Route path='/preface' element={<Preface />} />
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />
+              <Route path='/welcome' element={<LandingPage />} />
               {
                 context.language === 'English' &&
                 (

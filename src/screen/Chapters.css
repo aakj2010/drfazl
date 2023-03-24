@@ -77,7 +77,7 @@
 .chapter-list-wrapper::-webkit-scrollbar {
   display: none;
 }
-.chapter-list-wrapper::after{
+.chapter-list-wrapper::after {
   visibility: hidden;
 }
 .chapter-list-items {
@@ -98,7 +98,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  /* border-right: 1px solid rgba(255, 255, 255, 0.2); */
   cursor: pointer;
   width: max-content;
   list-style-type: none;
@@ -111,10 +111,6 @@
   font-size: 12px;
   color: #ffffff;
 }
-
-/* .active {
-  border-bottom: 3px solid #9a5aff;
-} */
 /* Chapter list End */
 
 /* varse wrapper start */
@@ -140,18 +136,23 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 12px 12px 12px 16px;
-  gap: 10px;
+  /* gap: 10px; */
   width: 95vw;
+  height: auto !important;
+  background: #ffffff;
+}
+.verse-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
   height: auto;
+  margin: auto;
   background: #ffffff;
   /* border-radius: 6px; */
-  border-bottom: 0.5px solid #e7eaee;
+  /* border-bottom: 1px solid #e7eaee; */
 }
-/* .line {
-    width: 328px;
-    height: 0px;
-    border: 0.7px solid #e7eaee;
-  } */
+
 .verse-number {
   display: flex;
   flex-direction: row;
@@ -182,7 +183,7 @@
 }
 .more-btn {
   display: flex;
-  margin-right: .75rem;
+  margin-right: 0.75rem;
   align-items: center;
   justify-content: center;
   width: 20px;
@@ -199,23 +200,22 @@
   /* line-height: 19px; */
   color: #4b5768;
 }
-.verse-link {
+.verse-link-box {
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
   padding: 0px;
   gap: 12px;
   width: 90vw;
-  height: auto;
+  min-height: fit-content;
 }
 .verse-link-item {
   width: 29px;
-  height: 19px;
+  height: auto !important;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  line-height: 19px;
+  /* line-height: 19px; */
   text-decoration-line: underline;
   color: #0071e3;
 }
@@ -241,7 +241,6 @@
   height: 48px;
 }
 
-
 .tab-container {
   display: flex;
   flex-direction: column;
@@ -256,7 +255,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  /* border-right: 1px solid rgba(255, 255, 255, 0.2); */
   cursor: pointer;
   width: max-content;
   list-style-type: none;
@@ -268,6 +267,16 @@
   font-weight: 700;
   /* font-size: 12px; */
   color: #ffffff;
+}
+.divider-chapter {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  /* width: 2px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .tab.active {

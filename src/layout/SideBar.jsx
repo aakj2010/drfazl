@@ -20,7 +20,7 @@ const StyledLinkButton = styled(NavLink)({
     }
 })
 
-function SideBar({ showSidebar }) {
+function SideBar() {
     return (
         <div className='sidebar'>
             <div className='logo-container'>

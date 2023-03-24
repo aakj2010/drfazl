@@ -1,9 +1,8 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import './login.css'
 import logo from '../Assets/logo.svg'
 import google from '../Assets/google.svg'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -32,7 +31,7 @@ const Login = () => {
             </div>
           </div>
           <div className='submit-btns'>
-            <NavLink to='/chapters' className='signin'>
+            <NavLink to='/welcome' className='signin'>
               <button className='signin'>Sign in</button>
             </NavLink>
             <button className='google-btn'>
