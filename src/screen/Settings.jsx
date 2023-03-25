@@ -21,7 +21,7 @@ const Settings = () => {
                     <div className='lang-box'>
                         <p>Change Language</p>
                         <div className='btn-box'>
-                            <button className={languageContext.language === 'Tamil' ? 'active-eng-btn tamil-btn': 'bi-ling-btn'} onClick={() => languageContext.setLanguage("Tamil")}>தமிழ்</button>
+                            <button className={languageContext.language === 'Tamil' ? 'active-eng-btn': 'bi-ling-btn'} onClick={() => languageContext.setLanguage("Tamil")}>தமிழ்</button>
                             <button className={languageContext.language === 'English' ? 'active-eng-btn': 'bi-ling-btn'}onClick={() => languageContext.setLanguage("English")}>English</button>
                             <button className={languageContext.language === 'bi-lingual' ? 'active-eng-btn': 'bi-ling-btn'}>Bi-lingual</button>
                         </div>

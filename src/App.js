@@ -20,6 +20,7 @@ import { useContext } from 'react';
 import LanguageContext from './context/LanguageContext';
 import TamilQuran from './Tamil Quran/TamilQuran';
 import LandingPage from './screen/LandingPage';
+import TamilWelcome from './screen/TamilWelcome';
 
 
 function App() {
@@ -38,7 +39,19 @@ function App() {
               <Route path='/preface' element={<Preface />} />
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />
-              <Route path='/welcome' element={<LandingPage />} />
+
+              {
+                context.language === 'English' &&
+                (
+                  <Route path='/welcome' element={<LandingPage />} />
+                )
+              }
+              {
+                context.language === 'Tamil' &&
+                (
+                  <Route path='/welcome' element={<TamilWelcome />} />
+                )
+              }
               {
                 context.language === 'English' &&
                 (
@@ -53,13 +66,16 @@ function App() {
                 )
               }
               {
-                <Route path='/Chapters' element={<Chapters />} >
-                  <Route path='' element={<TamilQuran />} />
-                  <Route path='keywords' element={<KeyWords />} />
-                  <Route path='glossary' element={<Glossary />} />
-                  <Route path='notes' element={<Notes />} />
-                  <Route path='bookmarks' element={<BookMark />} />
-                </Route>
+                context.language === 'Tamil' &&
+                (
+                  <Route path='/Chapters' element={<Chapters />} >
+                    <Route path='' element={<TamilQuran />} />
+                    <Route path='keywords' element={<KeyWords />} />
+                    <Route path='glossary' element={<Glossary />} />
+                    <Route path='notes' element={<Notes />} />
+                    <Route path='bookmarks' element={<BookMark />} />
+                  </Route>
+                )
               }
             </Routes>
           </SideBarProvider>

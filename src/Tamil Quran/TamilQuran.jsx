@@ -29,23 +29,27 @@ const TamilQuran = () => {
                                 isActive={activeTab === 0}
                                 onClick={() => handleTabClick(0)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
                                 label="2. பசு"
                                 isActive={activeTab === 1}
                                 onClick={() => handleTabClick(1)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
                                 label="3. இம்ரானின் குடும்பத்தினர்"
                                 isActive={activeTab === 2}
                                 onClick={() => handleTabClick(2)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
-                                label="4.Womens"
+                                label="4.பெண்கள்"
                                 isActive={activeTab === 3}
                                 onClick={() => handleTabClick(3)}
                             />
+                            <div className='divider-chapter'></div>
                             <Tab
-                                label="5.Kalnadaigal"
+                                label="5.கால்நடைகள்"
                                 isActive={activeTab === 4}
                                 onClick={() => handleTabClick(4)}
                             />

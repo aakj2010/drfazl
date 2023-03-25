@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './login.css'
 import logo from '../Assets/logo.svg'
 import google from '../Assets/google.svg'
 import { NavLink } from 'react-router-dom'
+import LanguageContext from '../context/LanguageContext'
 
 const Login = () => {
+  const context = useContext(LanguageContext);
   return (
     <div className='login-wrapper'>
       <div className='login-container'>
@@ -19,8 +21,8 @@ const Login = () => {
             </div>
           </div>
           <div className='lang-btn'>
-            <button className='bi-ling-btn'>தமிழ்</button>
-            <button className='active-eng-btn'>English</button>
+            <button className={context.language === 'Tamil' ? 'active-eng-btn tamil-btn': 'bi-ling-btn'} onClick={() => context.setLanguage("Tamil")}>தமிழ்</button>
+            <button className={context.language === 'English' ? 'active-eng-btn': 'bi-ling-btn'} onClick={() => context.setLanguage("English")}>English</button>
             <button className='bi-ling-btn'>Bi-lingual</button>
           </div>
           <div className='inp-box'>
