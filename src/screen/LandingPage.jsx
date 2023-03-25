@@ -10,7 +10,7 @@ const LandingPage = () => {
         setTimeout(() => {
             setShow(!show)
         }, 3000)
-    },[])
+    }, [])
 
     return (
         <div className='landing_page'>
@@ -29,10 +29,10 @@ const LandingPage = () => {
             {
                 show &&
                 <>
-                    <div className='landing-text'>
+                    <div className='landing-text-box'>
                         <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
-                        <Link to='/Chapters' className='start-btn'>
-                            <button >Start Reading</button>
+                        <Link to='/Chapters'>
+                            <button className='start-btn'>Start Reading</button>
                         </Link>
                     </div>
 
