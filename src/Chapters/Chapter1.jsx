@@ -24,9 +24,14 @@ function Chapter1() {
                                     </div>
                                 </div>
                                 <div className='verse-text' style={{ fontSize: `${context.fontSize}px` }}>{verse.text}</div>
-                                {/* <div className='verse-link-box'>
-                                    <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>{verse.link}</div>
-                                </div> */}
+                                <div className='verse-link-box'>
+                                    {
+                                        verse.link.map((link) => {
+                                            return <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>{link}</div>
+                                        })
+                                    }
+
+                                </div>
                                 <div className='verse-divider'></div>
                             </div>
                         </>

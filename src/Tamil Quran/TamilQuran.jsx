@@ -5,7 +5,7 @@ import Tab from '../screen/Tab';
 import TamilQuran1 from './TamilQuran1';
 
 const TamilQuran = () => {
-
+    
     let context = useContext(FontContext);
     let SideBarcontext = useContext(SideBarContext);
 
@@ -15,8 +15,8 @@ const TamilQuran = () => {
         setActiveTab(index);
     }
 
-  return (
-    <>
+    return (
+        <>
             <div className='chapters'>
                 <div className='img-container' >
                     <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>Quran</div>
@@ -61,7 +61,7 @@ const TamilQuran = () => {
                 </div>
             </div>
         </>
-  )
+    )
 }
 
 export default TamilQuran

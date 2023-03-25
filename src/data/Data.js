@@ -3,7 +3,7 @@ export const engChapter1 = [
         id: 1,
         number: 1.1,
         text: "All glory be to Allah, the God of the worlds.",
-        link: []
+        link: ["2.26", "2.28"]
     },
     {
         id: 2,

@@ -11,12 +11,13 @@ export const FontSizeProvider = ({ children }) => {
     // const handleSave = () => {
     //     setSave(fontSize)
     // }
-    useEffect(() => {
-        const savedFontSize = parseInt(localStorage.getItem('fontSize'));
-        if (savedFontSize) {
-          setFontSize(savedFontSize);
-        }
-      }, []);
+    
+    // useEffect(() => {
+    //     const savedFontSize = parseInt(localStorage.getItem('fontSize'));
+    //     if (savedFontSize) {
+    //       setFontSize(savedFontSize);
+    //     }
+    //   }, []);
     
       const handleFontSizeChange = (size) => {
         setFontSize(size);
