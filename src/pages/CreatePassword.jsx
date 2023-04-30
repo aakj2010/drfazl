@@ -3,8 +3,8 @@ import './login.css'
 import logo from '../Assets/logo.svg'
 
 const CreatePassword = () => {
-    return (
-        <div className='login-wrapper'>
+  return (
+    <div className='login-wrapper'>
       <div className='login-container'>
         <div className='login-up-container'>
           <div className='title-with-image'>
@@ -16,10 +16,10 @@ const CreatePassword = () => {
               <h6>drfazl</h6>
             </div>
           </div>
-          
+
           <div className='inp-box'>
-            <input type="text" placeholder='Email or Mobile Number' />
-            <input type="password" placeholder='Password' />
+            <input type="text" placeholder='Enter Password' />
+            <input type="password" placeholder='Confirm Password' />
           </div>
           <div className='submit-btns'>
             <button className='signin'>Signin</button>
@@ -27,7 +27,7 @@ const CreatePassword = () => {
         </div>
       </div>
     </div>
-    )
+  )
 }
 
 export default CreatePassword

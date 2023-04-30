@@ -227,7 +227,7 @@
   border: none;
   cursor: pointer;
 }
-.submit-btns > .signin button{
+.submit-btns .signin{
   display: flex;
   flex-direction: row;
   justify-content: center;

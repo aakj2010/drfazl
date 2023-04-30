@@ -11,7 +11,7 @@ function AboutTheBook() {
     <>
       <Header />
       <div className='preface' style={{ fontSize: `${context.fontSize}px` }}>
-        <div className='p-title' style={{ fontSize: `${context.fontSize}px` }}>About The Book</div>
+        <div className='p-title' style={{ fontSize: `${context.fontSize}px` }}>Preface</div>
         <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>On the home screen, you can browse your available textbooks and select one to start reading.
           You can also easily search for specific topics, keywords, or pages, as well as access your bookmarked
           pages and notes. In the textbook screen, you can navigate through the pages by swiping or tapping. The

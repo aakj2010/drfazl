@@ -1,9 +1,11 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import logo from '../Assets/logo.svg'
-import './Signup.css'
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import logo from '../Assets/logo.svg';
+import './Signup.css';
 
 const SignUp = () => {
+    const [phoneNumber, setPhoneNumber] = useState("");
+    console.log(phoneNumber)
     return (
         <div className='signup-wrapper'>
             <div className='signup-container'>
@@ -18,10 +20,15 @@ const SignUp = () => {
                         </div>
                     </div>
                     <div className='inp-box'>
-                        <input type="text" placeholder='Email or Mobile Number' />
+                        <input
+                            type="text"
+                            placeholder='Email or Mobile Number'
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                        />
                     </div>
                     <div className='submit-btns'>
-                        <button className='signin'>Next</button>
+                        <button className='next-btn'>Next</button>
                     </div>
                 </div>
                 <div className='login-down-container'>
