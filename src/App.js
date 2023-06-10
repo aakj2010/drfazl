@@ -62,7 +62,6 @@ function App() {
                     <Route path='notes' element={<Notes />} />
                     <Route path='bookmarks' element={<BookMark />} />
                   </Route>
-
                 )
               }
               {

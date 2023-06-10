@@ -176,3 +176,8 @@
   line-height: 140%;
   color: #ffffff;
 }
+.settings-container > .li-logout button{
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}

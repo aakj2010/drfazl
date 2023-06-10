@@ -1,9 +1,44 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../Assets/logo.svg'
 import './userverification.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { verify } from '../Auth/actions/userActions'
 
 const UserVerification = () => {
+    const [otp, setOtp] = useState('');
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const email = useSelector(state => state.auth?.email);
+    console.log(email)
+    const authError = useSelector(state => state.auth?.error);
+    const isVerified = useSelector(state => state.auth?.isVerified);
+    console.log("isVerified: ", isVerified);
+
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        console.log("OTP: ", otp);
+        if (email) {
+            try {
+                await dispatch(verify({ email, otp }));
+            } catch (err) {
+                console.error(err.message);
+            }
+        }
+    }
+
+
+    useEffect(() => {
+        if (isVerified) {
+            navigate('/createpassword');
+        }
+    }, [isVerified, navigate])
+
+
+    console.log(email, otp)
     return (
         <div className='verify-wrapper'>
             <div className='verify-container'>
@@ -16,22 +51,32 @@ const UserVerification = () => {
                             <h4>Quran</h4>
                             <h6>drfazl</h6>
                         </div>
-                        <div className='verify-field'>
-                            <div className='otp-wrapper'>
-                                <input type="number" maxLength="1" max="9" min="0"/>
-                                <input type="number" maxLength="1" max="9" min="0"/>
-                                <input type="number" maxLength="1" max="9" min="0"/>
-                                <input type="number" maxLength="1" max="9" min="0"/>
+                        <form onSubmit={submitHandler}>
+                            <div className='verify-field'>
+                                <div className='otp-wrapper inp-box'>
+                                    {/* <input type="number" maxLength="1" max="9" min="0" />
+                                    <input type="number" maxLength="1" max="9" min="0" />
+                                    <input type="number" maxLength="1" max="9" min="0" />
+                                    <input type="number" maxLength="1" max="9" min="0" /> */}
+                                    <input
+                                        type="number" maxLength="4"
+                                        placeholder='Enter Otp'
+                                        value={otp}
+                                        onChange={(e) => setOtp(e.target.value)} />
+                                </div>
+                                <div className='verify-btn-wrapper'>
+                                    <button type='submit' className='verify-btn'>Verify</button>
+                                </div>
+                                <div className='verify-text'>Enter Verification Code sent to your Email</div>
                             </div>
-                            <div className='verify-btn-wrapper'>
-                                <button className='verify-btn'>Verify</button>
-                            </div>
-
-                            <div className='verify-text'>Enter Verification Code sent to your <br />
-                            Mobile Number / Email</div>
-                        </div>
+                        </form >
                     </div>
                 </div>
+                {authError && (
+                    <div className="error-message" style={{ color: 'red' }}>
+                        {authError}
+                    </div>
+                )}
                 <div className='login-down-container'>
                     <small>
                         <span className='dont-have-acc'>Not Received? </span>

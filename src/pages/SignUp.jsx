@@ -1,11 +1,28 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate
 import logo from '../Assets/logo.svg';
 import './Signup.css';
+import { useDispatch } from 'react-redux';
+import { register } from '../Auth/actions/userActions';
 
 const SignUp = () => {
-    const [phoneNumber, setPhoneNumber] = useState("");
-    console.log(phoneNumber)
+    const [email, setEmail] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate(); // useNavigate instead of useHistory
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        try {
+            await dispatch(register(email)).unwrap();
+            // navigate to verify page after successful registration
+            navigate('/verify');
+        } catch (error) {
+            console.error("Failed to register:", error);
+            // handle error here, e.g. show a message to the user
+        }
+    };
+
+
     return (
         <div className='signup-wrapper'>
             <div className='signup-container'>
@@ -19,17 +36,21 @@ const SignUp = () => {
                             <h6>drfazl</h6>
                         </div>
                     </div>
-                    <div className='inp-box'>
-                        <input
-                            type="text"
-                            placeholder='Email or Mobile Number'
-                            value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
-                        />
-                    </div>
-                    <div className='submit-btns'>
-                        <button className='next-btn'>Next</button>
-                    </div>
+                    <form onSubmit={submitHandler}>
+                        <div className='inp-box'>
+                            <input
+                                type="text"
+                                placeholder='Enter Email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className='submit-btns'>
+                            <button type="submit" className='next-btn'>
+                                Next
+                            </button>
+                        </div>
+                    </form>
                 </div>
                 <div className='login-down-container'>
                     <small>
@@ -38,7 +59,7 @@ const SignUp = () => {
                     </small>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -12,7 +12,7 @@ const TabContent = ({ index }) => {
         const chapterData = data.chapters.find(
             (c) => c.number === index
         );
-        console.log(chapterData); // debug statement
+        // console.log(chapterData);
         setChapter(chapterData);
     }
 
@@ -20,10 +20,10 @@ const TabContent = ({ index }) => {
         fetchChapter();
     }, []);
 
-    console.log(chapter.verses); // debug statement
+    // console.log(chapter.verses); 
 
     return (
-        <div className='verse-wrapper'>
+        <div className='verse-wrapper' >
             {chapter.verses && chapter.verses.map((verse, index) => (
                 <>
                     <div className='verse-container'>
