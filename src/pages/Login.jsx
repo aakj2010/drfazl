@@ -23,14 +23,12 @@ const Login = () => {
   // Handle form submission
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("Submitting form...");
     dispatch(login({ email, password }))
       .then(() => console.log("Login action dispatched"))
       .catch((error) => console.log('Error dispatching login action: ', error));
   };
 
   useEffect(() => {
-    console.log("useEffect called", user);
 
     if (isSuccess || user) {
       navigate('/welcome')
