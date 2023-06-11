@@ -262,7 +262,7 @@
   align-items: center;
   justify-content: center;
   height: 28px;
-  border-right: 2px solid #818AFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .tab.active {

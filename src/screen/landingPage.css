@@ -90,14 +90,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 32px 20px; */
   gap: 200px;
   width: 362px;
   height: 362px;
+  background-color: rgba(255, 255, 255);
   background-image: url("../Assets/Rectangle-bg.svg");
-  /* background: linear-gradient(0deg, #6268dd, #6268dd); */
+  background-blend-mode: hard-light;
   background-position: center;
-  /* background-blend-mode: ; */
 }
 .landing-text {
   width: 234px;
