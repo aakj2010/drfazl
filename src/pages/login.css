@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
 
 :root {
-  --primary500: #0071e3;
+  --primary500: #5854c9;
   --primary600: #0055aa;
   --primary700: #003e7d;
   --primary800: #0c1f56;
   --primary900: #06102b;
   --placeholder: #647488;
   --Neutral100: #e7eaee;
-  --Neutral200: #D0D5DD;
+  --Neutral200: #d0d5dd;
   --Neutral600: #4b5768;
   --bgwhite: #ffffff;
 }
@@ -31,7 +31,7 @@
   height: 100vh;
   padding: 48px 40px 24px;
   gap: 40px;
-  background: #F8F8F8;
+  background: var(--bgwhite);
 }
 .login-container {
   display: flex;
@@ -79,7 +79,7 @@
   font-weight: 700;
   font-size: 36px;
   line-height: 80%;
-  color: #4b00c2;
+  color: var(--primary500);
 }
 .login-title h6 {
   width: 40px;
@@ -92,7 +92,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 140%;
-  color: #4b00c2;
+  color: var(--primary500);
 }
 
 .lang-btn {
@@ -113,9 +113,9 @@
   padding: 10px;
   gap: 10px;
   width: 86px;
-  height: 28px;
+  height: 48px;
   background: #ffffff;
-  border: 1px solid #d0d5dd;
+  border: 1px solid #e7eaee;
   border-radius: 6px;
   font-family: "Arial Unicode MS";
   font-style: normal;
@@ -123,20 +123,17 @@
   font-size: 18px;
   line-height: 165%;
   text-align: center;
-  color: #4b00c2;
+  color: var(--primary500);
 }
-.lang-btn > .active-eng-btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
-  width: 86px;
-  height: 28px;
-  background: #4b00c2;
+.lang-btn > .active-btn {
+  background: linear-gradient(
+    277.57deg,
+    #3d4e81 -24.82%,
+    #5753c9 47.71%,
+    #6e7ff3 126.29%
+  );
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 12px;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
@@ -148,13 +145,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   gap: 10px;
-  width: 96px;
-  height: 28px;
+  /* width: 96px; */
   background: #ffffff;
-  border: 1px solid #d0d5dd;
-  border-radius: 6px;
+  border: 1px solid #e7eaee;
+  border-radius: 12px;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
@@ -179,7 +175,7 @@
   width: 280px;
   height: 40px;
   background: #ffffff;
-  border: 1px solid #d0d5dd;
+  border: 1px solid #e7eaee;
   border-radius: 8px;
   outline-color: transparent;
   caret-color: var(--placeholder);
@@ -200,9 +196,9 @@
   justify-content: flex-end;
   align-items: center;
   padding: 0px;
-  gap: 32px;
   width: 280px;
   height: 17px;
+  margin-bottom: 2rem;
 }
 .forgot-link > .signup-link {
   width: 126px;
@@ -212,7 +208,7 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 140%;
-  color: #4b00c2;
+  color: var(--primary500);
 }
 .submit-btns {
   display: flex;
@@ -223,11 +219,11 @@
   width: 280px;
   height: 96px;
 }
-.submit-btns button{
+.submit-btns button {
   border: none;
   cursor: pointer;
 }
-.submit-btns .signin{
+.submit-btns .signin {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -235,8 +231,13 @@
   padding: 12px 16px;
   width: 280px;
   height: 40px;
-  background: #4b00c2;
-  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
+  background: linear-gradient(
+    277.57deg,
+    #3d4e81 -24.82%,
+    #5753c9 47.71%,
+    #6e7ff3 126.29%
+  );
+  border-radius: 12px;
   border-radius: 8px;
   font-family: "Nunito";
   font-style: normal;
@@ -246,7 +247,7 @@
   color: #ffffff;
   outline: none;
 }
-.signin button{
+.signin button {
   border: none;
   background: transparent;
   text-decoration: none;
@@ -260,17 +261,19 @@
   padding: 12px 16px;
   width: 280px;
   height: 40px;
-  background: #fff;
-  border-radius: 8px;
+  background: var(--bgwhite);
+  border: 1px solid #e7eaee;
+  border-radius: 12px;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 140%;
-  color: #4b00c2;
+  color: var(--primary500);
   outline: none;
+  text-decoration: none;
 }
-.google-btn img{
+.google-btn img {
   padding: 0 8px;
 }
 .login-down-container {
@@ -302,6 +305,9 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 140%;
-  /* text-decoration-line: underline; */
-  color: #4b00c2;
+  color: var(--primary500);
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
 }

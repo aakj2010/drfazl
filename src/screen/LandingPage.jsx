@@ -28,15 +28,21 @@ const LandingPage = () => {
 
             {
                 show &&
-                <>
-                    <div className='landing-text-box'>
-                        <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
+                <div className='land-page'>
+                    <div className='logo'>
+                        <img src={logo} alt="" width="44px" height="44px" />
+                    </div>
+                    <div className='logo-with-textbox'>
+                        <div className='landing-text-box'>
+                            <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
+                        </div>
+                    </div>
+                    <div>
                         <Link to='/Chapters'>
                             <button className='start-btn'>Start Reading</button>
                         </Link>
                     </div>
-
-                </>
+                </div>
             }
 
 

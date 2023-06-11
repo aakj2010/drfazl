@@ -45,7 +45,6 @@ const TamilQuran = () => {
                         return activeTab === i && <TamilContent index={i + 1} />
                     })}
                 </div>
-
                 <div className='empty'></div>
             </div>
         </>

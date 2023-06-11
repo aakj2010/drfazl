@@ -55,8 +55,8 @@ const Login = () => {
             </div>
           </div>
           <div className='lang-btn'>
-            <button className={context.language === 'Tamil' ? 'active-eng-btn tamil-btn' : 'bi-ling-btn'} onClick={() => context.setLanguage("Tamil")}>தமிழ்</button>
-            <button className={context.language === 'English' ? 'active-eng-btn' : 'bi-ling-btn'} onClick={() => context.setLanguage("English")}>English</button>
+            <button className={context.language === 'Tamil' ? 'active-btn tamil-btn' : 'bi-ling-btn'} onClick={() => context.setLanguage("Tamil")}>தமிழ்</button>
+            <button className={context.language === 'English' ? 'active-btn' : 'bi-ling-btn'} onClick={() => context.setLanguage("English")}>English</button>
             <button className='bi-ling-btn'>Bi-lingual</button>
           </div>
 
@@ -64,7 +64,7 @@ const Login = () => {
             <div className='inp-box'>
               <input
                 type="text"
-                placeholder='Enter Email'
+                placeholder='Email ID'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />

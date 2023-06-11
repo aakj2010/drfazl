@@ -1,11 +1,12 @@
 :root {
-  --primary500: #0071e3;
+  --primary500: #5854c9;
   --primary600: #0055aa;
   --primary700: #003e7d;
   --primary800: #0c1f56;
   --primary900: #06102b;
   --placeholder: #647488;
   --Neutral100: #e7eaee;
+  --Neutral200: #d0d5dd;
   --Neutral600: #4b5768;
   --bgwhite: #ffffff;
 }
@@ -28,7 +29,7 @@
   height: 100vh;
   padding: 48px 40px 24px;
   gap: 40px;
-  background: #f8f8f8;
+  background: var(--bgwhite);
 }
 .signup-container {
   display: flex;
@@ -57,7 +58,7 @@
   font-weight: 700;
   font-size: 36px;
   line-height: 80%;
-  color: #4b00c2;
+  color: var(--primary500);
 }
 .login-title h6 {
   width: 40px;
@@ -70,7 +71,12 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 140%;
-  color: #4b00c2;
+  color: var(--primary500);
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 .inp-box {
   display: flex;
@@ -91,7 +97,7 @@
   font-family: "Nunito";
   height: 40px;
   background: #ffffff;
-  border: 1px solid #d0d5dd;
+  border: 1px solid #e7eaee;
   border-radius: 8px;
   outline: none;
   caret-color: var(--placeholder);
@@ -99,7 +105,6 @@
 .inp-box > input > ::placeholder {
   width: max-content;
   height: 20px;
-
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -125,8 +130,12 @@
   padding: 12px 16px;
   width: 280px;
   height: 40px;
-  background: #4b00c2;
-  /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); */
+  background: linear-gradient(
+    277.57deg,
+    #3d4e81 -24.82%,
+    #5753c9 47.71%,
+    #6e7ff3 126.29%
+  );
   border-radius: 8px;
   font-family: "Nunito";
   font-style: normal;
