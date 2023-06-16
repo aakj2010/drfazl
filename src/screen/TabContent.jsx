@@ -26,10 +26,10 @@ const TabContent = ({ index }) => {
         <div className='verse-wrapper' >
             {chapter.verses && chapter.verses.map((verse, index) => (
                 <>
-                    <div className='verse-container'>
-                        <div className='verse-number'>
-                            <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
-                            <div className='more-btn-wrapper'>
+                    <div className='verse-container' key={index}>
+                        <div className='verse-number' key={index}>
+                            <div className='verse-num' key={index} style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
+                            <div className='more-btn-wrapper' key={index}>
                                 <button className='more-btn' style={{ fontSize: `${context.fontSize}px` }}>
                                     <img src={more} alt="" />
                                 </button>

@@ -95,8 +95,10 @@ function SideBar() {
                     </StyledLinkButton>
                     {/* <StyledLinkButton to="/"> */}
                     <li className='li-logout'>
+                        {/* <div> */}
                         <span className='list-icon'><img src={account1} alt="" /></span>
                         <button onClick={onLogout} className='list-title'>{username}</button>
+                        {/* </div> */}
                         <span className='list-icon'><img src={logout1} alt="" /></span>
                     </li>
                     {/* </StyledLinkButton> */}
