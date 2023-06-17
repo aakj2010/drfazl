@@ -18,7 +18,7 @@ const TabContent = ({ index }) => {
 
     useEffect(() => {
         fetchChapter();
-    }, []);
+    }, [chapter]);
 
     // console.log(chapter.verses); 
 
@@ -27,9 +27,9 @@ const TabContent = ({ index }) => {
             {chapter.verses && chapter.verses.map((verse, index) => (
                 <>
                     <div className='verse-container' key={index}>
-                        <div className='verse-number' key={index}>
-                            <div className='verse-num' key={index} style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
-                            <div className='more-btn-wrapper' key={index}>
+                        <div className='verse-number' >
+                            <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
+                            <div className='more-btn-wrapper'>
                                 <button className='more-btn' style={{ fontSize: `${context.fontSize}px` }}>
                                     <img src={more} alt="" />
                                 </button>
