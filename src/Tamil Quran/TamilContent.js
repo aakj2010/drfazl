@@ -11,7 +11,7 @@ const TamilContent = ({ index }) => {
         const chapterData = data.chapters.find(
             (c) => c.number === index
         );
-        console.log(chapterData); // debug statement
+        // console.log(chapterData); // debug statement
         setChapter(chapterData);
     }
 
@@ -19,7 +19,7 @@ const TamilContent = ({ index }) => {
         fetchChapter();
     }, []);
 
-    console.log(chapter.verses); // debug statement
+    // console.log(chapter.verses); // debug statement
 
     return (
         <div className='verse-wrapper'>
