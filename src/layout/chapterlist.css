@@ -1,0 +1,44 @@
+.cl-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+}
+.cl-wrapper .cl-header {
+  display: flex;
+  padding: 12px 16px;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e226a;
+  color: #fff;
+  height: 48px;
+  position: sticky;
+  top: 0;
+}
+.cl-wrapper .cl-header .cl-header-title h3 {
+  display: inline-block;
+  row-gap: 1rem;
+}
+.cl-wrapper.cl-list-item-wrapper {
+}
+.cl-header-title-length{
+  padding: 1rem;
+  background-color: ;
+}
+.cl-list-item {
+  display: flex;
+  width: 360px;
+  padding: 8px 16px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid#f7f8f9;
+}
+.cl-wrapper.cl-list-item-wrapper .cl-list-item p{
+  display: inline;
+}
+.cl-header-closebtn > a > button{
+  background-color: transparent;
+  border: none;
+}

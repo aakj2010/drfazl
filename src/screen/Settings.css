@@ -268,7 +268,7 @@
 }
 
 .verse-text {
-  width: 70vw;
+  /* width: 70vw; */
   height: auto;
   font-family: "Nunito";
   font-style: normal;

@@ -21,6 +21,7 @@ import LanguageContext from './context/LanguageContext';
 import TamilQuran from './Tamil Quran/TamilQuran';
 import LandingPage from './screen/LandingPage';
 import TamilWelcome from './screen/TamilWelcome';
+import ChapterList from './layout/ChapterList';
 
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
               <Route path='/preface' element={<Preface />} />
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />
-
+              <Route path='/Chapters/chapter-list' element={<ChapterList />} />
               {
                 context.language === 'English' &&
                 (

@@ -3,7 +3,8 @@ import './Header.css'
 import search from '../Assets/search.svg'
 import help from '../Assets/help.svg'
 import menu from '../Assets/menu.svg'
-import { useLocation } from 'react-router-dom'
+import chapter_list from '../Assets/chapter_list.svg'
+import { Link, useLocation } from 'react-router-dom'
 import SideBar from './SideBar'
 import SideBarContext from '../context/SideBarContext'
 
@@ -29,7 +30,23 @@ function Header() {
                             }
                         </button>
                     </div>
-                    <div className='title'>{title}</div>
+                    <div className=''>
+                        {title === 'Chapters' ? (
+                            <div className='title'>
+                                {title}
+                                <div className='menu-btn-wrapper'>
+                                    <Link to='chapter-list'>
+                                        <button className='menu-btn'>
+                                            <img src={chapter_list} alt="chapter_list" />
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className='title'>{title}</div>
+                        )}
+                    </div>
+
                 </div>
 
                 <div className='help-with-search'>

@@ -24,31 +24,33 @@ const TabContent = ({ index }) => {
 
     return (
         <div className='verse-wrapper' >
-            {chapter.verses && chapter.verses.map((verse, index) => (
-                <>
-                    <div className='verse-container' key={index}>
-                        <div className='verse-number' >
-                            <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
-                            <div className='more-btn-wrapper'>
-                                <button className='more-btn' style={{ fontSize: `${context.fontSize}px` }}>
-                                    <img src={more} alt="" />
-                                </button>
+            {React.Children.toArray(
+                chapter.verses && chapter.verses.map((verse, index) => (
+                    <>
+                        <div className='verse-container' key={index}>
+                            <div className='verse-number' >
+                                <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
+                                <div className='more-btn-wrapper'>
+                                    <button className='more-btn' style={{ fontSize: `${context.fontSize}px` }}>
+                                        <img src={more} alt="" />
+                                    </button>
+                                </div>
                             </div>
+                            <div className='verse-text' style={{ fontSize: `${context.fontSize}px` }}>{verse.text}</div>
+                            {/* <div className='verse-link-box'>
+                    {
+                        verse.link.map((link) => {
+                            return <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>{link}</div>
+                        })
+                    }
+
+                </div> */}
+
                         </div>
-                        <div className='verse-text' style={{ fontSize: `${context.fontSize}px` }}>{verse.text}</div>
-                        {/* <div className='verse-link-box'>
-                                {
-                                    verse.link.map((link) => {
-                                        return <div className='verse-link-item' style={{ fontSize: `${context.fontSize}px` }}>{link}</div>
-                                    })
-                                }
+                        <div className='verse-divider'></div>
+                    </>
+                )))}
 
-                            </div> */}
-
-                    </div>
-                    <div className='verse-divider'></div>
-                </>
-            ))}
         </div>
     );
 }

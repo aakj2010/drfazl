@@ -72,22 +72,20 @@
 .title {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 58px;
   height: 19px;
   line-height: 19px;
   color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: transparent;
-  color: #ffffff;
   border: none;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   margin-left: 0.5rem;
+  gap: 0.5rem;
+  text-align: left;
 }
 .title::first-letter {
   text-transform: capitalize;
