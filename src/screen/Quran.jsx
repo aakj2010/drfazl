@@ -29,16 +29,17 @@ function Quran() {
                     <div className='tab-container' style={{ fontSize: `${context.fontSize}px` }}>
                         <div className='tabs' style={{ fontSize: `${context.fontSize}px` }}>
                             {
-                                data.chapters.map((chapter, index) => (
-                                    <>
-                                        <Tab
-                                            label={`${chapter.number}. ${chapter.title}`}
-                                            isActive={activeTab === index}
-                                            onClick={() => handleTabClick(index)}
-                                        />
-                                        <div className='divider-chapter'></div>
-                                    </>
-                                ))
+                                React.Children.toArray(
+                                    data.chapters.map((chapter, index) => (
+                                        <React.Fragment key={chapter.number}>
+                                            <Tab
+                                                label={`${chapter.number}. ${chapter.title}`}
+                                                isActive={activeTab === index}
+                                                onClick={() => handleTabClick(index)}
+                                            />
+                                            <div className='divider-chapter'></div>
+                                        </React.Fragment>
+                                    )))
                             }
                         </div>
                     </div>

@@ -18,13 +18,13 @@ const TabContent = ({ index }) => {
 
     useEffect(() => {
         fetchChapter();
-    }, [chapter]);
+    });
 
     const handleShareClick = async (chapterTitle, verseNumber, verseText) => {
         try {
             const shareData = {
                 title: `${index}. ${chapterTitle}`,
-                text: `${verseNumber} ${verseText}`,
+                text: `${index}. ${chapterTitle}\n${verseNumber} ${verseText}`,
             };
             await navigator.share(shareData);
             console.log('Shared successfully');

@@ -17,7 +17,7 @@ const TamilContent = ({ index }) => {
 
     useEffect(() => {
         fetchChapter();
-    }, []);
+    });
 
     const handleShareClick = async (chapterTitle, verseNumber, verseText) => {
         try {
