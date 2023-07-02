@@ -12,6 +12,17 @@ const ChapterList = () => {
   const Context = useContext(LanguageContext);
   const data = Context.language === 'Tamil' ? tamQuranData : engQuranData;
   const chapters = data.chapters;
+  let lastNumbers = [];
+  // Access the last number value of each verse
+  chapters.forEach((chapter) => {
+    const verses = chapter.verses;
+    if (verses.length > 0) {
+      const lastVerse = verses[verses.length - 1];
+      const lastNumber = lastVerse.number.split('.').pop();
+      lastNumbers.push(lastNumber);
+      console.log(lastNumbers);
+    }
+  });
 
   if (!Array.isArray(chapters)) {
     console.error('Data is not an array:', chapters);
@@ -41,9 +52,9 @@ const ChapterList = () => {
                 <p className='cl-list-item-title' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
                   {`${index + 1}. ${chapter.title}`}
                 </p>
-                <p className='cl-list-item-length' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>{chapter.verses.length}</p>
+                <p className='cl-list-item-length' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>{lastNumbers[index]}</p>
               </div>
-          )))
+            )))
         }
       </div>
     </div>
