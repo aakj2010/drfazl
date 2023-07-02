@@ -8,7 +8,7 @@ import tamQuranData from '../Tamil Quran/tam-quran.json';
 import FontContext from '../context/FontContext';
 
 const ChapterList = () => {
-    let fontSizeContext = useContext(FontContext)
+  let fontSizeContext = useContext(FontContext)
   const Context = useContext(LanguageContext);
   const data = Context.language === 'Tamil' ? tamQuranData : engQuranData;
   const chapters = data.chapters;
@@ -22,8 +22,8 @@ const ChapterList = () => {
     <div className='cl-wrapper'>
       <div className='cl-header'>
         <div className='cl-header-title'>
-          <h3 className='' >Chapter list</h3>
-          <h3 className='cl-header-title-length'>{chapters.length}</h3>
+          <h3 className='cl-h-title' >Chapter list</h3>
+          <h4 className='cl-header-title-length'>{chapters.length}</h4>
         </div>
         <div className='cl-header-closebtn'>
           <Link to='/Chapters'>
@@ -34,14 +34,17 @@ const ChapterList = () => {
         </div>
       </div>
       <div className='cl-list-item-wrapper'>
-        {chapters.map((chapter, index) => (
-          <div className='cl-list-item' key={index}>
-            <p className='cl-list-item-title' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
-              {`${index + 1}. ${chapter.title}`}
-            </p>
-            <p className='cl-list-item-length'style={{ fontSize: `${fontSizeContext.fontSize}px` }}>{chapter.length}</p>
-          </div>
-        ))}
+        {
+          React.Children.toArray(
+            chapters.map((chapter, index) => (
+              <div className='cl-list-item' key={index}>
+                <p className='cl-list-item-title' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
+                  {`${index + 1}. ${chapter.title}`}
+                </p>
+                <p className='cl-list-item-length' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>{chapter.verses.length}</p>
+              </div>
+          )))
+        }
       </div>
     </div>
   );

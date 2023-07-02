@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import data from './eng-quran.json'
 import { useContext } from 'react';
 import FontContext from '../context/FontContext';
-import more from '../Assets/more.svg'
+import share1 from '../Assets/share1.svg'
 
 const TabContent = ({ index }) => {
     let context = useContext(FontContext)
@@ -20,6 +20,18 @@ const TabContent = ({ index }) => {
         fetchChapter();
     }, [chapter]);
 
+    const handleShareClick = async (chapterTitle, verseNumber, verseText) => {
+        try {
+            const shareData = {
+                title: `${index}. ${chapterTitle}`,
+                text: `${verseNumber} ${verseText}`,
+            };
+            await navigator.share(shareData);
+            console.log('Shared successfully');
+        } catch (error) {
+            console.error('Error sharing:', error);
+        }
+    }
     // console.log(chapter.verses); 
 
     return (
@@ -31,8 +43,12 @@ const TabContent = ({ index }) => {
                             <div className='verse-number' >
                                 <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
                                 <div className='more-btn-wrapper'>
-                                    <button className='more-btn' style={{ fontSize: `${context.fontSize}px` }}>
-                                        <img src={more} alt="" />
+                                    <button
+                                        className="more-btn"
+                                        style={{ fontSize: `${context.fontSize}px` }}
+                                        onClick={() => handleShareClick(chapter.title, verse.number, verse.text)}
+                                    >
+                                        <img src={share1} alt="" />
                                     </button>
                                 </div>
                             </div>
