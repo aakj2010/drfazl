@@ -23,7 +23,7 @@ const TamilContent = ({ index }) => {
         try {
             const shareData = {
                 title: `${index}. ${chapterTitle}`,
-                text: `${index}. ${chapterTitle}\n${verseNumber} ${verseText}`,
+                text: `Quran \n \n${index}. ${chapterTitle}\n \n${verseNumber} ${verseText}`,
             };
             await navigator.share(shareData);
             console.log('Shared successfully');
