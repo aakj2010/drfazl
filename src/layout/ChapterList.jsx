@@ -20,7 +20,7 @@ const ChapterList = () => {
       const lastVerse = verses[verses.length - 1];
       const lastNumber = lastVerse.number.split('.').pop();
       lastNumbers.push(lastNumber);
-      console.log(lastNumbers);
+      // console.log(lastNumbers);
     }
   });
 
