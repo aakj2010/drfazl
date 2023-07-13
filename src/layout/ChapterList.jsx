@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './chapterlist.css';
 import x_close from '../Assets/x_close.svg';
+import search_refraction from '../Assets/search_refraction.svg';
 import { Link } from 'react-router-dom';
 import LanguageContext from '../context/LanguageContext';
 import engQuranData from '../screen/eng-quran.json';
@@ -8,19 +9,36 @@ import tamQuranData from '../Tamil Quran/tam-quran.json';
 import FontContext from '../context/FontContext';
 
 const ChapterList = () => {
-  let fontSizeContext = useContext(FontContext)
+  const [searchQuery, setSearchQuery] = useState('');
+  let fontSizeContext = useContext(FontContext);
   const Context = useContext(LanguageContext);
   const data = Context.language === 'Tamil' ? tamQuranData : engQuranData;
   const chapters = data.chapters;
   let lastNumbers = [];
+
+  // Handle search query change
+  const handleSearchQueryChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Filter chapters based on search query
+  const filteredChapters = chapters.filter((chapter) => {
+    const chapterNumber = chapter.number.toString();
+    const query = searchQuery.toLowerCase();
+
+    return (
+      chapter.title.toLowerCase().includes(query) ||
+      chapterNumber.includes(query)
+    );
+  });
+
   // Access the last number value of each verse
-  chapters.forEach((chapter) => {
+  filteredChapters.forEach((chapter) => {
     const verses = chapter.verses;
     if (verses.length > 0) {
       const lastVerse = verses[verses.length - 1];
       const lastNumber = lastVerse.number.split('.').pop();
       lastNumbers.push(lastNumber);
-      // console.log(lastNumbers);
     }
   });
 
@@ -33,8 +51,9 @@ const ChapterList = () => {
     <div className='cl-wrapper'>
       <div className='cl-header'>
         <div className='cl-header-title'>
-          <h3 className='cl-h-title' >Chapter list</h3>
-          <h4 className='cl-header-title-length'>{chapters.length}</h4>
+          <h3 className='cl-h-title'>Chapter list</h3>
+          <h4 className='cl-header-title-length'>114</h4>
+
         </div>
         <div className='cl-header-closebtn'>
           <Link to='/Chapters'>
@@ -44,18 +63,34 @@ const ChapterList = () => {
           </Link>
         </div>
       </div>
+      <div className='cl-search'>
+        <img src={search_refraction} alt="" />
+        <input
+          type='text'
+          placeholder='Search chapters'
+          value={searchQuery}
+          onChange={handleSearchQueryChange}
+        />
+      </div>
       <div className='cl-list-item-wrapper'>
-        {
-          React.Children.toArray(
-            chapters.map((chapter, index) => (
-              <div className='cl-list-item' key={index}>
-                <p className='cl-list-item-title' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
-                  {`${index + 1}. ${chapter.title}`}
-                </p>
-                <p className='cl-list-item-length' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>{lastNumbers[index]}</p>
-              </div>
-            )))
-        }
+        {React.Children.toArray(
+          filteredChapters.map((chapter, index) => (
+            <div className='cl-list-item' key={index}>
+              <p
+                className='cl-list-item-title'
+                style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+              >
+                {`${chapter.number}. ${chapter.title}`}
+              </p>
+              <p
+                className='cl-list-item-length'
+                style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+              >
+                {lastNumbers[index]}
+              </p>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
