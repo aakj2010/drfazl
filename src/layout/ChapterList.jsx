@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './chapterlist.css';
 import x_close from '../Assets/x_close.svg';
 import search_refraction from '../Assets/search_refraction.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LanguageContext from '../context/LanguageContext';
 import engQuranData from '../screen/eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
@@ -12,6 +12,8 @@ const ChapterList = ({ setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState('');
   let fontSizeContext = useContext(FontContext);
   const Context = useContext(LanguageContext);
+  const navigate = useNavigate()
+
   const data = Context.language === 'Tamil' ? tamQuranData : engQuranData;
   const chapters = data.chapters;
   let lastNumbers = [];
@@ -48,7 +50,7 @@ const ChapterList = ({ setActiveTab }) => {
   }
   const handleClick = (index) => {
     setActiveTab(index)
-    console.log(index)
+    navigate('/Chapters')
   }
 
   return (

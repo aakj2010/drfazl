@@ -6,12 +6,12 @@ import SideBarContext from '../context/SideBarContext';
 import Header from '../layout/Header';
 import TabContent from './TabContent';
 import data from './eng-quran.json';
+import { useNavigate } from 'react-router-dom';
 
 
 function Quran({ activeTab, setActiveTab }) {
     let context = useContext(FontContext);
     let SideBarcontext = useContext(SideBarContext);
-
 
     const handleTabClick = (index) => {
         setActiveTab(index);
