@@ -10,7 +10,7 @@ const LandingPage = () => {
         setTimeout(() => {
             setShow(!show)
         }, 3000)
-    }, [])
+    }, [show])
 
     return (
         <div className='landing_page'>
@@ -44,8 +44,6 @@ const LandingPage = () => {
                     </div>
                 </div>
             }
-
-
         </div>
     )
 }

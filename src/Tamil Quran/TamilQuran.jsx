@@ -20,7 +20,7 @@ const TamilQuran = () => {
         <>
             <div className='chapters'>
                 <div className='img-container' >
-                    <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>Quran</div>
+                    <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>குர்ஆன்</div>
                 </div>
                 <div className={!SideBarcontext.open ? 'chapter-list-wrapper' : 'chapter-list-relative'}>
                     <div className='tab-container' style={{ fontSize: `${context.fontSize}px` }}>

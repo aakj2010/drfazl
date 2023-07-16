@@ -56,9 +56,11 @@ function Header() {
                         </button>
                     </div>
                     <div className='menu-btn-wrapper'>
-                        <button className='menu-btn'>
-                            <img src={search} alt="search" />
-                        </button>
+                        <Link to='search'>
+                            <button className='menu-btn'>
+                                <img src={search} alt="search" />
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </header>

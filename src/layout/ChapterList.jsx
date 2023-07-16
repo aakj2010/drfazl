@@ -52,7 +52,7 @@ const ChapterList = () => {
       <div className='cl-header'>
         <div className='cl-header-title'>
           <h3 className='cl-h-title'>Chapter list</h3>
-          <h4 className='cl-header-title-length'>114</h4>
+          <h4 className='cl-header-title-length'>{filteredChapters.length}</h4>
 
         </div>
         <div className='cl-header-closebtn'>
@@ -72,7 +72,7 @@ const ChapterList = () => {
           onChange={handleSearchQueryChange}
         />
       </div>
-      <div className='cl-list-item-wrapper'>
+      <div className='cl-list-item-wrapper' style={{ marginTop:"56px" }}>
         {React.Children.toArray(
           filteredChapters.map((chapter, index) => (
             <div className='cl-list-item' key={index}>

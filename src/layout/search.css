@@ -1,0 +1,78 @@
+.s-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  font-family: "Nunito";
+  font-style: normal;
+}
+.s-wrapper.verse-wrapper p{
+    margin-top: 64px;
+}
+.s-header {
+  display: flex;
+  padding: 12px 16px;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e226a;
+  height: 48px;
+  position: sticky;
+  top: 0;
+}
+.s-h-title {
+  color: #fff;
+  font-weight: 600;
+}
+.s-header-closebtn > a > button {
+  background-color: transparent;
+  border: none;
+}
+
+/* spinner */
+.spinner {
+  /* Size */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2rem;
+  width: 2rem;
+
+  /* Create a curve at the top */
+  border: 4px solid #d1d5db;
+  border-top-color: #1e226a;
+  border-radius: 50%;
+
+  animation: spinner 800ms linear infinite;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scroll-to-top button styles */
+/* Add this CSS code */
+.scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #1e226a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.scroll-top-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.scroll-top-button:hover {
+  opacity: 0.8;
+}

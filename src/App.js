@@ -22,6 +22,7 @@ import TamilQuran from './Tamil Quran/TamilQuran';
 import LandingPage from './screen/LandingPage';
 import TamilWelcome from './screen/TamilWelcome';
 import ChapterList from './layout/ChapterList';
+import Search from './layout/Search';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />
               <Route path='/Chapters/chapter-list' element={<ChapterList />} />
+              <Route path='/Chapters/search' element={<Search />} />
               {
                 context.language === 'English' &&
                 (
