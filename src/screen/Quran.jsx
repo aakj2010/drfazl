@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import './Chapters.css'
 import Tab from './Tab';
 import FontContext from '../context/FontContext';
@@ -19,7 +19,7 @@ function Quran({ activeTab, setActiveTab }) {
 
     return (
         <>
-            <Header/>
+            <Header />
             <div className='chapters'>
                 <div className='img-container' >
                     <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>Quran</div>
