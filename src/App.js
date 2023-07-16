@@ -16,7 +16,7 @@ import Settings from './screen/Settings';
 import { FontSizeProvider } from './context/FontContext';
 import { SideBarProvider } from './context/SideBarContext';
 import Home from './screen/Home';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import LanguageContext from './context/LanguageContext';
 import TamilQuran from './Tamil Quran/TamilQuran';
 import LandingPage from './screen/LandingPage';
@@ -26,6 +26,7 @@ import Search from './layout/Search';
 
 
 function App() {
+  const [activeTab, setActiveTab] = useState(0)
   let context = useContext(LanguageContext)
   return (
     <div className='mobile-screen'>
@@ -41,7 +42,7 @@ function App() {
               <Route path='/preface' element={<Preface />} />
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />
-              <Route path='/Chapters/chapter-list' element={<ChapterList />} />
+              <Route path='/Chapters/chapter-list' element={<ChapterList activeTab={activeTab} setActiveTab={setActiveTab} />} />
               <Route path='/Chapters/search' element={<Search />} />
               {
                 context.language === 'English' &&
@@ -59,7 +60,7 @@ function App() {
                 context.language === 'English' &&
                 (
                   <Route path='/Chapters' element={<Chapters />} >
-                    <Route path='' element={<Quran />} />
+                    <Route path='' element={<Quran activeTab={activeTab} setActiveTab={setActiveTab} />} />
                     <Route path='keywords' element={<KeyWords />} />
                     <Route path='glossary' element={<Glossary />} />
                     <Route path='notes' element={<Notes />} />

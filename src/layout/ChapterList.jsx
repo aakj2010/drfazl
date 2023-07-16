@@ -8,7 +8,7 @@ import engQuranData from '../screen/eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
 import FontContext from '../context/FontContext';
 
-const ChapterList = () => {
+const ChapterList = ({ setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState('');
   let fontSizeContext = useContext(FontContext);
   const Context = useContext(LanguageContext);
@@ -46,6 +46,10 @@ const ChapterList = () => {
     console.error('Data is not an array:', chapters);
     return null; // or render an error message
   }
+  const handleClick = (index) => {
+    setActiveTab(index)
+    console.log(index)
+  }
 
   return (
     <div className='cl-wrapper'>
@@ -72,10 +76,10 @@ const ChapterList = () => {
           onChange={handleSearchQueryChange}
         />
       </div>
-      <div className='cl-list-item-wrapper' style={{ marginTop:"56px" }}>
+      <div className='cl-list-item-wrapper' style={{ marginTop: "56px" }}>
         {React.Children.toArray(
           filteredChapters.map((chapter, index) => (
-            <div className='cl-list-item' key={index}>
+            <div className='cl-list-item' key={index} onClick={() => { handleClick(index) }}>
               <p
                 className='cl-list-item-title'
                 style={{ fontSize: `${fontSizeContext.fontSize}px` }}

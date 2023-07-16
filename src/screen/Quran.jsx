@@ -8,11 +8,10 @@ import TabContent from './TabContent';
 import data from './eng-quran.json';
 
 
-function Quran() {
+function Quran({ activeTab, setActiveTab }) {
     let context = useContext(FontContext);
     let SideBarcontext = useContext(SideBarContext);
 
-    const [activeTab, setActiveTab] = useState(0);
 
     const handleTabClick = (index) => {
         setActiveTab(index);
@@ -20,7 +19,7 @@ function Quran() {
 
     return (
         <>
-            <Header />
+            <Header/>
             <div className='chapters'>
                 <div className='img-container' >
                     <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>Quran</div>
