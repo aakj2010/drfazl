@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import data from './eng-quran.json'
+import engQuranData from './eng-quran.json';
+import tamQuranData from '../Tamil Quran/tam-quran.json';
+import LanguageContext from '../context/LanguageContext';
 import { useContext } from 'react';
 import FontContext from '../context/FontContext';
 import share1 from '../Assets/share1.svg'
 
 const TabContent = ({ index }) => {
-    let context = useContext(FontContext)
     const [chapter, setChapter] = useState({});
+
+    let context = useContext(FontContext)
+    const langContext = useContext(LanguageContext);
+
+
+    const data = langContext.language === 'Tamil' ? tamQuranData : engQuranData;
 
     function fetchChapter() {
         const chapterData = data.chapters.find(

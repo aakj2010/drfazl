@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './landingPage.css'
 import logo from '../Assets/logo.svg'
 import { Link } from 'react-router-dom'
+import LanguageContext from '../context/LanguageContext'
 
 const LandingPage = () => {
     const [show, setShow] = useState(false)
+
+    const languageContext = useContext(LanguageContext);
 
     useEffect(() => {
         setTimeout(() => {
             setShow(!show)
         }, 3000)
-    }, [show])
+    }, [])
 
     return (
         <div className='landing_page'>
@@ -32,16 +35,32 @@ const LandingPage = () => {
                     <div className='logo'>
                         <img src={logo} alt="" width="44px" height="44px" />
                     </div>
-                    <div className='logo-with-textbox'>
-                        <div className='landing-text-box'>
-                            <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <Link to='/Chapters'>
-                            <button className='start-btn'>Start Reading</button>
-                        </Link>
-                    </div>
+                    {
+                        languageContext === 'Tamil' ? (
+                            <div className='logo-with-textbox'>
+                                <div className='landing-text-box'>
+                                    <p className='landing-text'>மனிதர்களிலும், ஜின்களிலும் உள்ள விரட்டப்பட்ட  ஷைத்தான்களிடமிருந்து, இறைவனே உன்னிடமே பாதுகாவல் தேடுகிறேன்.</p>
+                                </div>
+                                <div>
+                                    <Link to='/Chapters'>
+                                        <button className='start-btn'>நுழைக</button>
+                                    </Link>
+                                </div>
+                            </div>
+
+                        ) : (
+                            <div className='logo-with-textbox'>
+                                <div className='landing-text-box'>
+                                    <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
+                                </div>
+                                <div>
+                                    <Link to='/Chapters'>
+                                        <button className='start-btn'>Start Reading</button>
+                                    </Link>
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
             }
         </div>

@@ -18,9 +18,8 @@ import { SideBarProvider } from './context/SideBarContext';
 import Home from './screen/Home';
 import { useContext, useState } from 'react';
 import LanguageContext from './context/LanguageContext';
-import TamilQuran from './Tamil Quran/TamilQuran';
 import LandingPage from './screen/LandingPage';
-import TamilWelcome from './screen/TamilWelcome';
+// import TamilWelcome from './screen/TamilWelcome';
 import ChapterList from './layout/ChapterList';
 import Search from './layout/Search';
 
@@ -43,11 +42,16 @@ function App() {
               <Route path='/aboutTheBook' element={<AboutTheBook />} />
               <Route path='/settings' element={<Settings />} />
               <Route path='/Chapters/chapter-list' element={<ChapterList activeTab={activeTab} setActiveTab={setActiveTab} />} />
-              <Route path='/Chapters/search' element={<Search />} />
-              {
+              <Route path='/Chapters/search' element={<Search activeTab={activeTab} setActiveTab={setActiveTab} />} />
+              <Route path='/Chapters' element={<Chapters />} >
+                <Route path='' element={<Quran activeTab={activeTab} setActiveTab={setActiveTab} />} />
+              </Route>
+              <Route path='/welcome' element={<LandingPage />} />
+
+
+              {/* {
                 context.language === 'English' &&
                 (
-                  <Route path='/welcome' element={<LandingPage />} />
                 )
               }
               {
@@ -55,12 +59,11 @@ function App() {
                 (
                   <Route path='/welcome' element={<TamilWelcome />} />
                 )
-              }
+              } */}
               {
                 context.language === 'English' &&
                 (
                   <Route path='/Chapters' element={<Chapters />} >
-                    <Route path='' element={<Quran activeTab={activeTab} setActiveTab={setActiveTab} />} />
                     <Route path='keywords' element={<KeyWords />} />
                     <Route path='glossary' element={<Glossary />} />
                     <Route path='notes' element={<Notes />} />
@@ -72,7 +75,6 @@ function App() {
                 context.language === 'Tamil' &&
                 (
                   <Route path='/Chapters' element={<Chapters />} >
-                    <Route path='' element={<TamilQuran />} />
                     <Route path='keywords' element={<KeyWords />} />
                     <Route path='glossary' element={<Glossary />} />
                     <Route path='notes' element={<Notes />} />

@@ -6,19 +6,19 @@ import LanguageContext from '../context/LanguageContext';
 import share1 from '../Assets/share1.svg';
 import x_close from '../Assets/x_close.svg';
 import search_refraction from '../Assets/search_refraction.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './search.css';
 
-const Search = () => {
+const Search = ({ setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   // const [showScrollButton, setShowScrollButton] = useState(false);
 
+  const navigate = useNavigate()
   const fontSizeContext = useContext(FontContext);
   const languageContext = useContext(LanguageContext);
   const data = languageContext.language === 'Tamil' ? tamQuranData : engQuranData;
   const chapters = data.chapters;
-
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -35,6 +35,13 @@ const Search = () => {
   //   window.scrollTo({ top: 0, behavior: 'smooth' });
   // };
 
+  const handleClick = (number) => {
+    const number1 = parseInt(number.split(".")[0]);
+    setActiveTab(number1 - 1)
+    console.log(number1 - 1)
+    navigate('/Chapters') 
+  }
+
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
     setIsLoading(true);
@@ -42,10 +49,9 @@ const Search = () => {
 
   const renderVerses = (chapter) => {
 
-    const filteredVerses = chapter.verses.filter(
-      (verse) =>
-        verse.number.includes(searchQuery) ||
-        verse.text.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredVerses = chapter.verses.filter((verse) =>
+      verse.number.includes(searchQuery) ||
+      verse.text.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     if (filteredVerses.length === 0) {
@@ -69,6 +75,7 @@ const Search = () => {
           </div>
         </div>
         <div
+          onClick={() => { handleClick(verse.number) }}
           className='verse-text'
           style={{ fontSize: `${fontSizeContext.fontSize}px` }}
           dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
@@ -144,7 +151,7 @@ const Search = () => {
             onChange={handleSearch}
           />
         </div>
-        <div className='verse-wrapper' style={{ marginTop:"56px" }}>
+        <div className='verse-wrapper' style={{ marginTop: "56px" }}>
           {isLoading ? (
             <div class="spinner"></div>
           ) : filteredData.length > 0 ? (
