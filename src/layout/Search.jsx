@@ -111,20 +111,19 @@ const Search = ({ setActiveTab }) => {
     setIsLoading(false);
   }, [filteredData]);
 
-  const handleScroll = () => {
-    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight) {
-      setVisibleResults((prevVisibleResults) => prevVisibleResults + 2); // Increase visible results by 4
-    }
-    console.log("Scroll Triggered")
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+      if (scrollTop + clientHeight >= scrollHeight) {
+        setVisibleResults((prevVisibleResults) => prevVisibleResults + 4); // Increase visible results by 4
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [handleScroll, setVisibleResults, visibleResults]);
+  });
 
   const renderResults = () => {
     const visibleFilteredData = filteredData.slice(0, visibleResults);
