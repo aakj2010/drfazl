@@ -12,35 +12,20 @@ import './search.css';
 const Search = ({ setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  // const [showScrollButton, setShowScrollButton] = useState(false);
+  const [visibleResults, setVisibleResults] = useState(2);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const fontSizeContext = useContext(FontContext);
   const languageContext = useContext(LanguageContext);
   const data = languageContext.language === 'Tamil' ? tamQuranData : engQuranData;
   const chapters = data.chapters;
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setShowScrollButton(window.scrollY > 0);
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-  // const handleScrollToTop = () => {
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // };
-
   const handleClick = (number) => {
-    const number1 = parseInt(number.split(".")[0]);
-    setActiveTab(number1 - 1)
-    console.log(number1 - 1)
-    navigate('/Chapters') 
-  }
+    const number1 = parseInt(number.split('.')[0]);
+    setActiveTab(number1 - 1);
+    console.log(number1 - 1);
+    navigate('/Chapters');
+  };
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
@@ -48,10 +33,10 @@ const Search = ({ setActiveTab }) => {
   };
 
   const renderVerses = (chapter) => {
-
-    const filteredVerses = chapter.verses.filter((verse) =>
-      verse.number.includes(searchQuery) ||
-      verse.text.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredVerses = chapter.verses.filter(
+      (verse) =>
+        verse.number.includes(searchQuery) ||
+        verse.text.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     if (filteredVerses.length === 0) {
@@ -59,12 +44,12 @@ const Search = ({ setActiveTab }) => {
     }
 
     return filteredVerses.map((verse, index) => (
-      <div className='verse-container' key={index}>
-        <div className='verse-number'>
-          <div className='verse-num' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
+      <div className="verse-container" key={index}>
+        <div className="verse-number">
+          <div className="verse-num" style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
             {verse.number}
           </div>
-          <div className='more-btn-wrapper'>
+          <div className="more-btn-wrapper">
             <button
               className="more-btn"
               style={{ fontSize: `${fontSizeContext.fontSize}px` }}
@@ -75,8 +60,10 @@ const Search = ({ setActiveTab }) => {
           </div>
         </div>
         <div
-          onClick={() => { handleClick(verse.number) }}
-          className='verse-text'
+          onClick={() => {
+            handleClick(verse.number);
+          }}
+          className="verse-text"
           style={{ fontSize: `${fontSizeContext.fontSize}px` }}
           dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
         ></div>
@@ -95,7 +82,7 @@ const Search = ({ setActiveTab }) => {
     } catch (error) {
       console.error('Error sharing:', error);
     }
-  }
+  };
 
   const highlightSearchQuery = (text) => {
     if (searchQuery.trim() !== '') {
@@ -104,7 +91,6 @@ const Search = ({ setActiveTab }) => {
     }
     return text;
   };
-
 
   const filteredData = useMemo(() => {
     if (searchQuery) {
@@ -125,50 +111,62 @@ const Search = ({ setActiveTab }) => {
     setIsLoading(false);
   }, [filteredData]);
 
+  const handleScroll = () => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight) {
+      setVisibleResults((prevVisibleResults) => prevVisibleResults + 2); // Increase visible results by 4
+    }
+    console.log("Scroll Triggered")
+  };
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll, setVisibleResults, visibleResults]);
+
+  const renderResults = () => {
+    const visibleFilteredData = filteredData.slice(0, visibleResults);
+
+    if (isLoading) {
+      return <div className="spinner"></div>;
+    } else if (visibleFilteredData.length > 0) {
+      return visibleFilteredData.map((chapter) => (
+        <div key={chapter.number}>{renderVerses(chapter)}</div>
+      ));
+    } else {
+      return <p>No results found.</p>;
+    }
+  };
 
   return (
     <>
-      <div className='s-wrapper'>
-        <div className='s-header'>
-          <div className='s-header-title'>
-            <h3 className='s-h-title'>Search</h3>
+      <div className="s-wrapper">
+        <div className="s-header">
+          <div className="s-header-title">
+            <h3 className="s-h-title">Search</h3>
           </div>
-          <div className='s-header-closebtn'>
-            <Link to='/Chapters'>
+          <div className="s-header-closebtn">
+            <Link to="/Chapters">
               <button>
-                <img src={x_close} alt='' />
+                <img src={x_close} alt="" />
               </button>
             </Link>
           </div>
         </div>
-        <div className='cl-search'>
+        <div className="cl-search">
           <img src={search_refraction} alt="" />
           <input
-            type='text'
-            placeholder='Search chapters'
+            type="text"
+            placeholder="Search chapters"
             value={searchQuery}
             onChange={handleSearch}
           />
         </div>
-        <div className='verse-wrapper' style={{ marginTop: "56px" }}>
-          {isLoading ? (
-            <div class="spinner"></div>
-          ) : filteredData.length > 0 ? (
-            filteredData.map((chapter) => (
-              <div key={chapter.number}>
-                {renderVerses(chapter)}
-              </div>
-            ))
-          ) : (
-            <p>No results found.</p>
-          )}
+        <div className="verse-wrapper" style={{ marginTop: '56px' }}>
+          {renderResults()}
         </div>
-        {/* {showScrollButton && (
-          <button className="scroll-top-button" onClick={handleScrollToTop}>
-            <img src={x_close} alt='' />
-          </button>
-        )} */}
       </div>
     </>
   );
