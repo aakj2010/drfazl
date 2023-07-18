@@ -324,8 +324,8 @@
   align-items: center;
   justify-content: center;
   width: max-content;
-  padding: 12px 24px;
-  font-size: 18px;
+  padding: .5rem 1rem;
+  font-size: 1rem;
   color: var(--bgwhite);
   background: linear-gradient(
     277.57deg,
@@ -334,7 +334,7 @@
     #6e7ff3 126.29%
   );
   border: none;
-  border-radius: 12px;
+  border-radius: 4px;
   margin-bottom: 5rem;
   
 }

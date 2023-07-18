@@ -27,6 +27,25 @@
   border: none;
 }
 
+.show-more-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: var(--bgwhite);
+  background: linear-gradient(
+    277.57deg,
+    #3d4e81 -24.82%,
+    #5753c9 47.71%,
+    #6e7ff3 126.29%
+  );
+  border: none;
+  border-radius: 4px;
+  margin-top: 2rem;
+  padding: .5rem 1rem;
+}
+
 /* spinner */
 .spinner {
   /* Size */
@@ -54,25 +73,3 @@
   }
 }
 
-/* Scroll-to-top button styles */
-/* Add this CSS code */
-.scroll-top-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  background-color: #1e226a;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.scroll-top-button img {
-  width: 24px;
-  height: 24px;
-}
-
-.scroll-top-button:hover {
-  opacity: 0.8;
-}

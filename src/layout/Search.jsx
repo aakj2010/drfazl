@@ -12,7 +12,7 @@ import './search.css';
 const Search = ({ setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [visibleResults, setVisibleResults] = useState(2);
+  const [showAllResults, setShowAllResults] = useState(false);
 
   const navigate = useNavigate();
   const fontSizeContext = useContext(FontContext);
@@ -109,29 +109,18 @@ const Search = ({ setActiveTab }) => {
 
   useEffect(() => {
     setIsLoading(false);
-  }, [filteredData]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight) {
-        setVisibleResults((prevVisibleResults) => prevVisibleResults + 4); // Increase visible results by 4
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
   });
 
-  const renderResults = () => {
-    const visibleFilteredData = filteredData.slice(0, visibleResults);
+  const handleShowAllResults = () => {
+    setShowAllResults(true);
+  };
 
+  const renderResults = () => {
     if (isLoading) {
       return <div className="spinner"></div>;
-    } else if (visibleFilteredData.length > 0) {
-      return visibleFilteredData.map((chapter) => (
+    } else if (filteredData.length > 0) {
+      const resultsToRender = showAllResults ? filteredData : filteredData.slice(0, 2);
+      return resultsToRender.map((chapter) => (
         <div key={chapter.number}>{renderVerses(chapter)}</div>
       ));
     } else {
@@ -165,6 +154,11 @@ const Search = ({ setActiveTab }) => {
         </div>
         <div className="verse-wrapper" style={{ marginTop: '56px' }}>
           {renderResults()}
+          {!showAllResults && filteredData.length > 2 && (
+            <button className="show-more-btn" onClick={handleShowAllResults}>
+              Show More
+            </button>
+          )}
         </div>
       </div>
     </>
