@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect, useMemo } from 'react';
 import engQuranData from '../screen/eng-quran.json';
-import tamQuranData from '../Tamil Quran/tam-quran.json';
+import tamQuranData from '../Content/tam-quran.json';
+import tamKalaiSorkalData from '../Content/tam-Kalaisol.json';
 import FontContext from '../context/FontContext';
 import LanguageContext from '../context/LanguageContext';
 import share1 from '../Assets/share1.svg';
@@ -13,68 +14,185 @@ const Search = ({ setActiveTab }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showAllResults, setShowAllResults] = useState(false);
-
+  const [selectedDataset, setSelectedDataset] = useState('quran'); // 'quran' or 'kalaisorkal'
+  const [data, setData] = useState(tamQuranData)
   const navigate = useNavigate();
   const fontSizeContext = useContext(FontContext);
   const languageContext = useContext(LanguageContext);
-  const data = languageContext.language === 'Tamil' ? tamQuranData : engQuranData;
-  const chapters = data.chapters;
+  const [selectedLanguage, setSelectedLanguage] = useState(languageContext.language);
+
+  // const switchDataset = (dataset) => {
+  //   setSelectedDataset(dataset);
+  // };
+
+  // Combine the selected dataset based on the selected language
+  //  let data =
+  //   selectedLanguage === 'Tamil'
+  //     ? selectedDataset === 'quran'
+  //       ? tamQuranData
+  //       : tamKalaiSorkalData
+  //     : selectedDataset === 'kalaisorkal'
+  //       ? engQuranData
+  //       : tamKalaiSorkalData;
+
+  // let data;
+
+
+  useEffect(() => {
+    switch (selectedLanguage) {
+      case 'Tamil':
+        switch (selectedDataset) {
+          case 'kalaisorkal':
+            setData(tamKalaiSorkalData);
+            break;
+          case 'quran':
+            setData(tamQuranData);
+            break;
+          default:
+            setData(tamQuranData);
+            break;
+        }
+        break;
+      case 'English':
+        switch (selectedDataset) {
+          case 'kalaisorkal':
+            setData(engQuranData);
+            break;
+          case 'quran':
+            setData(engQuranData);
+            break;
+          default:
+            setData(engQuranData);
+            break;
+        }
+        break;
+      default:
+        setData(tamKalaiSorkalData); // Set a default value if none of the cases match
+    }
+
+  }, [selectedDataset])
+
+  let chapters = data.chapters || [];
 
   const handleClick = (number) => {
     const number1 = parseInt(number.split('.')[0]);
     setActiveTab(number1 - 1);
-    console.log(number1 - 1);
     navigate('/Chapters');
   };
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
     setIsLoading(true);
-  };
+  }
+
+  // const renderVerses = (chapter) => {
+  //   if (chapter) {
+  //     if (selectedDataset === "quran") {
+  //       if (chapter.verses && searchQuery.trim() !== "") {
+  //         const filteredVerses = chapter.verses.filter(
+  //           (verse) =>
+  //             verse.number.includes(searchQuery) ||
+  //             verse.text.toLowerCase().includes(searchQuery.toLowerCase())
+  //         );
+
+  //         if (filteredVerses.length === 0) {
+  //           return <p>No results found.</p>;
+  //         }
+
+  //         return filteredVerses.map((verse, index) => (
+  //           <div className="verse-container" key={index}>
+  //             <div className="verse-number">
+  //               <div className="verse-num" style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
+  //                 {verse.number}
+  //               </div>
+  //               <div className="more-btn-wrapper">
+  //                 <button
+  //                   className="more-btn"
+  //                   style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+  //                   onClick={() => handleShareClick(verse.number, verse.text)}
+  //                 >
+  //                   <img src={share1} alt="" />
+  //                 </button>
+  //               </div>
+  //             </div>
+  //             <div
+  //               onClick={() => {
+  //                 handleClick(verse.number);
+  //               }}
+  //               className="verse-text"
+  //               style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+  //               dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
+  //             ></div>
+  //           </div>
+  //         ));
+  //       } else {
+  //         return <p>Please enter a search query to see results.</p>;
+  //       }
+  //     } 
+  //     else if (selectedDataset === "kalaisorkal") {
+  //       if (chapter.text && chapter.text.toLowerCase().includes(searchQuery.toLowerCase())) {
+  //         return renderVerses(chapter);
+  //       } else {
+  //         return <p>No results found.</p>;
+  //       }
+  //     }
+  //   }
+  //   return <p>Chapter not found.</p>;
+  // };
+
 
   const renderVerses = (chapter) => {
-    const filteredVerses = chapter.verses.filter(
-      (verse) =>
-        verse.number.includes(searchQuery) ||
-        verse.text.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    if (chapter) {
+      if (selectedDataset) {
+        if (chapter.verses && searchQuery.trim() !== "") {
+          const filteredVerses = chapter.verses.filter(
+            (verse) =>
+              verse.number.includes(searchQuery) ||
+              verse.text.toLowerCase().includes(searchQuery.toLowerCase())
+          );
 
-    if (filteredVerses.length === 0) {
-      return <p>No results found.</p>;
+          if (filteredVerses.length === 0) {
+            return <p>No results found.</p>;
+          }
+
+          return filteredVerses.map((verse, index) => (
+            <div className="verse-container" key={index}>
+              <div className="verse-number">
+                <div className="verse-num" style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
+                  {verse.number}
+                </div>
+                <div className="more-btn-wrapper">
+                  <button
+                    className="more-btn"
+                    style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+                    onClick={() => handleShareClick(verse.number, verse.text)}
+                  >
+                    <img src={share1} alt="" />
+                  </button>
+                </div>
+              </div>
+              <div
+                onClick={() => {
+                  handleClick(verse.number);
+                }}
+                className="verse-text"
+                style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+                dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
+              ></div>
+            </div>
+          ));
+        } else {
+          return <p>Please enter a search query to see results.</p>;
+        }
+      }
     }
-
-    return filteredVerses.map((verse, index) => (
-      <div className="verse-container" key={index}>
-        <div className="verse-number">
-          <div className="verse-num" style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
-            {verse.number}
-          </div>
-          <div className="more-btn-wrapper">
-            <button
-              className="more-btn"
-              style={{ fontSize: `${fontSizeContext.fontSize}px` }}
-              onClick={() => handleShareClick(verse.number, verse.text)}
-            >
-              <img src={share1} alt="" />
-            </button>
-          </div>
-        </div>
-        <div
-          onClick={() => {
-            handleClick(verse.number);
-          }}
-          className="verse-text"
-          style={{ fontSize: `${fontSizeContext.fontSize}px` }}
-          dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
-        ></div>
-      </div>
-    ));
+    return <p>Chapter not found.</p>;
   };
+
 
   const handleShareClick = async (verseNumber, verseText) => {
     try {
       const shareData = {
-        // title: `${chapterTitle}`,
         text: `குர்ஆன் \n \n${verseNumber}: ${verseText}`,
       };
       await navigator.share(shareData);
@@ -93,19 +211,38 @@ const Search = ({ setActiveTab }) => {
   };
 
   const filteredData = useMemo(() => {
-    if (searchQuery) {
+    if (searchQuery && chapters && chapters.length > 0) {
       return chapters.filter((chapter) => {
-        const chapterTitleMatches = chapter.title.toLowerCase().includes(searchQuery.toLowerCase());
-        const verses = chapter.verses.filter(
-          (verse) =>
-            verse.number.includes(searchQuery) ||
-            verse.text.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        return chapterTitleMatches || verses.length > 0;
+        if (selectedDataset === "quran") {
+          const chapterTitleMatches =
+            chapter.title && chapter.title.toLowerCase().includes(searchQuery.toLowerCase());
+          const verses =
+            chapter.verses &&
+            chapter.verses.filter(
+              (verse) =>
+                verse.number &&
+                verse.text &&
+                (verse.number.includes(searchQuery) ||
+                  verse.text.toLowerCase().includes(searchQuery.toLowerCase()))
+            );
+          return chapterTitleMatches || (verses && verses.length > 0);
+        } else if (selectedDataset === "kalaisorkal") {
+          const kalai =
+            chapter.verses &&
+            chapter.verses.filter(
+              (verse) =>
+                verse.number &&
+                verse.text &&
+                (verse.number.includes(searchQuery) ||
+                  verse.text.toLowerCase().includes(searchQuery.toLowerCase()))
+            );
+          return (kalai && kalai.length > 0);
+        }
+        return false;
       });
     }
     return [];
-  }, [chapters, searchQuery]);
+  }, [chapters, searchQuery, selectedDataset]);
 
   useEffect(() => {
     setIsLoading(false);
@@ -119,7 +256,7 @@ const Search = ({ setActiveTab }) => {
     if (isLoading) {
       return <div className="spinner"></div>;
     } else if (filteredData.length > 0) {
-      const resultsToRender = showAllResults ? filteredData : filteredData.slice(0, 2);
+      let resultsToRender = showAllResults ? filteredData : filteredData.slice(0, 1);
       return resultsToRender.map((chapter) => (
         <div key={chapter.number}>{renderVerses(chapter)}</div>
       ));
@@ -147,10 +284,24 @@ const Search = ({ setActiveTab }) => {
           <img src={search_refraction} alt="" />
           <input
             type="text"
-            placeholder="Search chapters"
+            placeholder={selectedLanguage === "English" ? "Search words" : "வார்த்தை அல்லது அத்தியாயம்"}
             value={searchQuery}
             onChange={handleSearch}
           />
+        </div>
+        <div className="language-switcher">
+          <button
+            className={selectedDataset === 'quran' ? 'show-more-btn' : ''}
+            onClick={() => setSelectedDataset('quran')}
+          >
+            {selectedLanguage === "English" ? "Quran" : "குர்ஆன்"}
+          </button>
+          <button
+            className={selectedDataset === 'kalaisorkal' ? 'show-more-btn' : ''}
+            onClick={() => setSelectedDataset('kalaisorkal')}
+          >
+            {selectedLanguage === "English" ? "KalaiSorkal" : "கலைச்சொற்கள்"}
+          </button>
         </div>
         <div className="verse-wrapper" style={{ marginTop: '56px' }}>
           {renderResults()}
