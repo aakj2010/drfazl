@@ -25,11 +25,11 @@ import {
     updateProfileRequest,
     updateProfileSuccess
 } from "../slice/authSlice"
-
+const API_URL = 'https://drfazl-server.vercel.app/api/v1/'
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch(loginRequest());
-        const { data } = await axios.post(`/api/v1/login`, { email, password });
+        const { data } = await axios.post( API_URL + 'login', { email, password });
         dispatch(loginSuccess(data))
     } catch (error) {
         dispatch(loginFail(error.response.data.message))
@@ -43,7 +43,7 @@ export const clearAuthError = dispatch => {
 export const register = (name, email, password) => async (dispatch) => {
     try {
         dispatch(registerRequest());
-        const { data } = await axios.post(`/api/v1/register`, { name, email, password });
+        const { data } = await axios.post(API_URL + 'register', { name, email, password });
         dispatch(registerSuccess(data))
     } catch (error) {
         dispatch(registerFail(error.response.data.message))
@@ -55,7 +55,7 @@ export const loadUser = async (dispatch) => {
     try {
         dispatch(loadUserRequest());
 
-        const { data } = await axios.get(`/api/v1/myprofile`);
+        const { data } = await axios.get(API_URL + 'myprofile');
 
         dispatch(loadUserSuccess(data))
 
@@ -67,7 +67,7 @@ export const loadUser = async (dispatch) => {
 
 export const logout = async (dispatch) => {
     try {
-        await axios.get(`/api/v1/logout`);
+        await axios.get(API_URL + 'logout');
         dispatch(logoutSuccess())
     } catch (error) {
         dispatch(logoutFail())
@@ -83,7 +83,7 @@ export const updateProfile = (userData) => async (dispatch) => {
                 'Content-type': 'multipart/form-data'
             }
         }
-        const { data } = await axios.put(`/api/v1/update`, userData, config);
+        const { data } = await axios.put(API_URL + 'update', userData, config);
         dispatch(updateProfileSuccess(data))
     } catch (error) {
         dispatch(updateProfileFail(error.response.data.message))
@@ -99,7 +99,7 @@ export const updatePassword = (formData) => async (dispatch) => {
                 'Content-type': 'application/json'
             }
         }
-        await axios.put(`/api/v1/password/change`, formData, config);
+        await axios.put(API_URL + 'password/change', formData, config);
         dispatch(updatePasswordSuccess())
     } catch (error) {
         dispatch(updatePasswordFail(error.response.data.message))
@@ -113,7 +113,7 @@ export const forgotPassword = (formData) => async (dispatch) => {
                 'Content-type': 'application/json'
             }
         }
-        const { data } = await axios.post(`/api/v1/password/forgot`, formData, config);
+        const { data } = await axios.post(API_URL + 'password/forgot', formData, config);
         dispatch(forgotPasswordSuccess(data))
     } catch (error) {
         dispatch(forgotPasswordFail(error.response.data.message))
@@ -127,7 +127,7 @@ export const resetPassword = (formData, token) => async (dispatch) => {
                 'Content-type': 'application/json'
             }
         }
-        const { data } = await axios.post(`/api/v1/password/reset/${token}`, formData, config);
+        const { data } = await axios.post(API_URL + `password/reset/${token}`, formData, config);
         dispatch(resetPasswordSuccess(data))
     } catch (error) {
         dispatch(resetPasswordFail(error.response.data.message))
