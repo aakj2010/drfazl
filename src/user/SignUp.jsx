@@ -103,10 +103,10 @@ const SignUp = () => {
                                 disabled={loading} >
                                 Register
                             </button>
-                            {/* <button className='google-btn'>
+                            <button className='google-btn'>
                                 <img src={google} alt="google" />
                                 <span>Sign In with Google</span>
-                            </button> */}
+                            </button>
                         </div>
                     </form>
                 </div>
