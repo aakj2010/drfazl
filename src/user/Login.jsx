@@ -2,42 +2,45 @@ import React, { useContext, useEffect, useState } from 'react'
 import './login.css'
 import logo from '../Assets/logo.svg'
 import google from '../Assets/google.svg'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import LanguageContext from '../context/LanguageContext'
 import { useDispatch, useSelector } from 'react-redux'
-import { login } from '../Auth/actions/userActions'
+import { toast } from 'react-toastify'
+import { clearAuthError, login } from '../actions/userActions'
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate()
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("")
+
   const context = useContext(LanguageContext);
 
-  // Add state for email and password
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Select the user information from state
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
-    (state) => state.auth)
+  const { loading, error, isAuthenticated } = useSelector(state => state.authState)
 
-  // Handle form submission
+  const redirect = location.search ? '/' + location.search.split('=')[1] : '/'
+
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login({ email, password }))
-      .then(() => console.log("Login action dispatched"))
-      .catch((error) => console.log('Error dispatching login action: ', error));
-  };
+    dispatch(login(email, password))
+  }
 
   useEffect(() => {
-
-    if (isSuccess || user) {
-      navigate('/welcome')
+    if (isAuthenticated) {
+      navigate("/welcome")
     }
-    if (!user) {
-      navigate("/"); //navigate to login component
+    if (error) {
+      toast(error, {
+        position: toast.POSITION.TOP_CENTER,
+        type: 'error',
+        onOpen: () => { dispatch(clearAuthError) }
+      })
+      return
     }
-  }, [user, isSuccess, navigate]);
-
+  }, [error, isAuthenticated, dispatch, navigate, redirect])
 
   return (
     <div className='login-wrapper'>
@@ -61,16 +64,16 @@ const Login = () => {
           <form onSubmit={submitHandler}>
             <div className='inp-box'>
               <input
-                type="text"
+                type="email"
                 placeholder='Email ID'
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
               />
               <input
                 type="password"
                 placeholder='Password'
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
               />
               <div className='forgot-link'>
                 <NavLink to='/forgot-password'> <span className='signup-link'>Forgot your password?</span></NavLink>
@@ -78,10 +81,16 @@ const Login = () => {
             </div>
             <div className='submit-btns'>
               {/* <NavLink className='signin'> */}
-              <button type="submit" className='signin' >Sign in</button>
+              <button 
+                type="submit"
+                className='signin'
+                disabled={loading}
+              >
+                Sign In
+              </button>
               {/* </NavLink> */}
               <button className='google-btn'>
-                <img src={google} alt="google" /><span>Signin with Google</span>
+                <img src={google} alt="google" /><span>Sign In with Google</span>
               </button>
             </div>
           </form>

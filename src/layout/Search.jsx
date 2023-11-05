@@ -19,24 +19,7 @@ const Search = ({ setActiveTab }) => {
   const navigate = useNavigate();
   const fontSizeContext = useContext(FontContext);
   const languageContext = useContext(LanguageContext);
-  const [selectedLanguage, setSelectedLanguage] = useState(languageContext.language);
-
-  // const switchDataset = (dataset) => {
-  //   setSelectedDataset(dataset);
-  // };
-
-  // Combine the selected dataset based on the selected language
-  //  let data =
-  //   selectedLanguage === 'Tamil'
-  //     ? selectedDataset === 'quran'
-  //       ? tamQuranData
-  //       : tamKalaiSorkalData
-  //     : selectedDataset === 'kalaisorkal'
-  //       ? engQuranData
-  //       : tamKalaiSorkalData;
-
-  // let data;
-
+  const [selectedLanguage] = useState(languageContext.language);
 
   useEffect(() => {
     switch (selectedLanguage) {
@@ -70,7 +53,7 @@ const Search = ({ setActiveTab }) => {
         setData(tamKalaiSorkalData); // Set a default value if none of the cases match
     }
 
-  }, [selectedDataset])
+  }, [selectedDataset, selectedLanguage])
 
   let chapters = data.chapters || [];
 
@@ -84,62 +67,6 @@ const Search = ({ setActiveTab }) => {
     setSearchQuery(e.target.value);
     setIsLoading(true);
   }
-
-  // const renderVerses = (chapter) => {
-  //   if (chapter) {
-  //     if (selectedDataset === "quran") {
-  //       if (chapter.verses && searchQuery.trim() !== "") {
-  //         const filteredVerses = chapter.verses.filter(
-  //           (verse) =>
-  //             verse.number.includes(searchQuery) ||
-  //             verse.text.toLowerCase().includes(searchQuery.toLowerCase())
-  //         );
-
-  //         if (filteredVerses.length === 0) {
-  //           return <p>No results found.</p>;
-  //         }
-
-  //         return filteredVerses.map((verse, index) => (
-  //           <div className="verse-container" key={index}>
-  //             <div className="verse-number">
-  //               <div className="verse-num" style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
-  //                 {verse.number}
-  //               </div>
-  //               <div className="more-btn-wrapper">
-  //                 <button
-  //                   className="more-btn"
-  //                   style={{ fontSize: `${fontSizeContext.fontSize}px` }}
-  //                   onClick={() => handleShareClick(verse.number, verse.text)}
-  //                 >
-  //                   <img src={share1} alt="" />
-  //                 </button>
-  //               </div>
-  //             </div>
-  //             <div
-  //               onClick={() => {
-  //                 handleClick(verse.number);
-  //               }}
-  //               className="verse-text"
-  //               style={{ fontSize: `${fontSizeContext.fontSize}px` }}
-  //               dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
-  //             ></div>
-  //           </div>
-  //         ));
-  //       } else {
-  //         return <p>Please enter a search query to see results.</p>;
-  //       }
-  //     } 
-  //     else if (selectedDataset === "kalaisorkal") {
-  //       if (chapter.text && chapter.text.toLowerCase().includes(searchQuery.toLowerCase())) {
-  //         return renderVerses(chapter);
-  //       } else {
-  //         return <p>No results found.</p>;
-  //       }
-  //     }
-  //   }
-  //   return <p>Chapter not found.</p>;
-  // };
-
 
   const renderVerses = (chapter) => {
     if (chapter) {
@@ -291,13 +218,13 @@ const Search = ({ setActiveTab }) => {
         </div>
         <div className="language-switcher">
           <button
-            className={selectedDataset === 'quran' ? 'show-more-btn' : ''}
+            className={selectedDataset === 'quran' ? 'active-btn' : ''}
             onClick={() => setSelectedDataset('quran')}
           >
             {selectedLanguage === "English" ? "Quran" : "குர்ஆன்"}
           </button>
           <button
-            className={selectedDataset === 'kalaisorkal' ? 'show-more-btn' : ''}
+            className={selectedDataset === 'kalaisorkal' ? 'active-btn' : ''}
             onClick={() => setSelectedDataset('kalaisorkal')}
           >
             {selectedLanguage === "English" ? "KalaiSorkal" : "கலைச்சொற்கள்"}

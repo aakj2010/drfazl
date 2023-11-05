@@ -59,7 +59,9 @@ const TabContent = ({ index }) => {
                                     </button>
                                 </div>
                             </div>
-                            <div className='verse-text' style={{ fontSize: `${context.fontSize}px` }}>{verse.text}</div>
+                            <div className='verse-text'
+                                style={{ fontSize: `${context.fontSize}px` }}
+                                dangerouslySetInnerHTML={{ __html: verse.text }}></div>
                             {/* <div className='verse-link-box'>
                     {
                         verse.link.map((link) => {
