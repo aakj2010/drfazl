@@ -9,9 +9,8 @@ import settings from '../Assets/settings.svg'
 import account1 from '../Assets/account1.svg'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { styled } from '@mui/material'
-import { useDispatch } from 'react-redux'
-import { logoutReducer } from '../Auth/reducers/authSlice';
-import { logout } from '../Auth/actions/userActions'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../actions/userActions'
 
 
 const StyledLinkButton = styled(NavLink)({
@@ -26,19 +25,15 @@ const StyledLinkButton = styled(NavLink)({
 })
 
 function SideBar() {
-    const user = JSON.parse(localStorage.getItem('user'))
+    // const user = JSON.parse(localStorage.getItem('user'))
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    const username = user.name?.replace("@gmail.com", "");
-
+    const { isAuthenticated, user } = useSelector(state => state.authState)
+    const username = user?.name?.substring(0, 10) + "...";
+    
     const onLogout = () => {
-        // Remove user data from local storage
-        localStorage.removeItem('user');
         // Update redux state
         dispatch(logout());
-        dispatch(logoutReducer());
-        // Navigate to home page
         navigate('/');
     }
 
@@ -95,12 +90,13 @@ function SideBar() {
                     </StyledLinkButton>
                     {/* <StyledLinkButton to="/"> */}
                     <li className='li-logout'>
-                        {/* <div> */}
-                        <span className='list-icon'><img src={account1} alt="" /></span>
-                        <button onClick={onLogout} className='list-title'>{username}</button>
-                        {/* </div> */}
-                        <span className='list-icon'><img src={logout1} alt="" /></span>
+                        <div className='user-name'>
+                            <span className='list-icon'><img src={account1} alt="" /></span>
+                            <span className='list-title'>{username || ""}</span>
+                        </div>
+                        <button onClick={onLogout} className='list-icon'><img src={logout1} alt="" /></button>
                     </li>
+
                     {/* </StyledLinkButton> */}
                 </div>
 

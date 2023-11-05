@@ -106,6 +106,7 @@
 .list-title {
   width: max-content;
   height: 20px;
+  width: max-content !important;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
@@ -180,8 +181,13 @@
   line-height: 140%;
   color: #ffffff;
 }
-.settings-container > .li-logout > .list-title {
+.settings-container > .li-logout > .user-name > .list-title {
   color: var(--primary500);
+  margin-left: .5rem;
+}
+.li-logout > .user-name {
+  display: flex;
+  align-items: center;
 }
 .settings-container > .li-logout {
   display: flex;

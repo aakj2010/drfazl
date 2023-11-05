@@ -1,0 +1,38 @@
+  // const renderVerses = (chapter) => {
+  //   const filteredVerses = chapter.verses.filter(
+  //     (verse) =>
+  //       verse.number.includes(searchQuery) ||
+  //       verse.text.toLowerCase().includes(searchQuery.toLowerCase())
+  //   );
+
+  //   if (filteredVerses.length === 0) {
+  //     return <p>No results found.</p>;
+  //   }
+
+  //   return filteredVerses.map((verse, index) => (
+  //     <div className="verse-container" key={index}>
+  //       <div className="verse-number">
+  //         <div className="verse-num" style={{ fontSize: `${fontSizeContext.fontSize}px` }}>
+  //           {verse.number}
+  //         </div>
+  //         <div className="more-btn-wrapper">
+  //           <button
+  //             className="more-btn"
+  //             style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+  //             onClick={() => handleShareClick(verse.number, verse.text)}
+  //           >
+  //             <img src={share1} alt="" />
+  //           </button>
+  //         </div>
+  //       </div>
+  //       <div
+  //         onClick={() => {
+  //           handleClick(verse.number);
+  //         }}
+  //         className="verse-text"
+  //         style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+  //         dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
+  //       ></div>
+  //     </div>
+  //   ));
+  // };
