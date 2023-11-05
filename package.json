@@ -53,5 +53,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "drfazl-server.vercel.app"
+  "proxy": "https://drfazl-server.vercel.app"
 }
