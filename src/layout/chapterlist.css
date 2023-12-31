@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
 }
@@ -26,10 +26,7 @@
 .cl-header-title-length {
   font-size: 16px;
 }
-.cl-wrapper
-  .cl-header
-  .cl-header-title
-  .cl-header-title-length {
+.cl-wrapper .cl-header .cl-header-title .cl-header-title-length {
   font-size: 1rem;
   display: inline-block;
 }
@@ -71,7 +68,7 @@
   display: flex;
   width: 100%;
   border: 0px 0px 1px 0px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   gap: 10px;
 }
 .cl-search > input {
@@ -82,6 +79,6 @@
   caret-color: var(--placeholder);
   border: none;
 }
-.highlight{
+.highlight {
   background-color: yellow;
 }

@@ -67,7 +67,7 @@
 .login-title h4 {
   width: 102px;
   height: 29px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -80,7 +80,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -134,7 +134,7 @@
   border-radius: 8px;
   outline: none;
   caret-color: var(--placeholder);
-  font-family: "Nunito";
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -163,7 +163,7 @@
 .verify-text {
   width: 280px;
   height: 40px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

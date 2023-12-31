@@ -53,7 +53,7 @@
 .login-title h4 {
   width: 102px;
   height: 29px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -66,14 +66,14 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 140%;
   color: var(--primary500);
 }
-form{
+form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -94,7 +94,7 @@ form{
   padding: 12px 16px;
   gap: 10px;
   width: 280px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   height: 40px;
   background: #ffffff;
   border: 1px solid #e7eaee;
@@ -137,7 +137,7 @@ form{
     #6e7ff3 126.29%
   );
   border-radius: 8px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

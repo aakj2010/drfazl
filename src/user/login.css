@@ -74,7 +74,7 @@
 .login-title h4 {
   width: 102px;
   height: 29px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -87,7 +87,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -134,7 +134,7 @@
   );
   color: #ffffff;
   border-radius: 12px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -151,7 +151,7 @@
   background: #ffffff;
   border: 1px solid #e7eaee;
   border-radius: 12px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -183,7 +183,7 @@
 .inp-box > input > ::placeholder {
   width: max-content;
   height: 20px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -203,7 +203,7 @@
 .forgot-link > .signup-link {
   width: 126px;
   height: 17px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
@@ -239,7 +239,7 @@
   );
   border-radius: 12px;
   border-radius: 8px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -264,7 +264,7 @@
   background: var(--bgwhite);
   border: 1px solid #e7eaee;
   border-radius: 12px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -290,7 +290,7 @@
 .dont-have-acc {
   width: 148px;
   height: 20px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -300,7 +300,7 @@
 .signup-link {
   width: 77px;
   height: 20px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -308,6 +308,6 @@
   color: var(--primary500);
   text-decoration: none;
 }
-a{
+a {
   text-decoration: none;
 }

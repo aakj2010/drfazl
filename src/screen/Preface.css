@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 48px;
-  padding:24px 32px;
+  padding: 24px 32px;
   gap: 10px;
 }
 .preface::-webkit-scrollbar {
@@ -14,7 +14,7 @@
 .p-title {
   /* width: 90vw; */
   height: 22px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -29,7 +29,7 @@
   width: 90vw;
   margin: 10px;
   height: auto;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

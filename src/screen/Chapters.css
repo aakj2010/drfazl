@@ -19,7 +19,7 @@
 .bottom-left {
   width: 51px;
   height: 25px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -93,7 +93,7 @@
   list-style-type: none;
   text-decoration: none;
   height: 16px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   padding: 10px;
   font-style: normal;
   font-weight: 700;
@@ -154,7 +154,7 @@
 .verse-num {
   width: 21px;
   height: 19px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -181,7 +181,7 @@
 .verse-text {
   width: 90vw;
   height: auto;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -199,7 +199,7 @@
 .verse-link-item {
   width: 29px;
   height: auto !important;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -249,7 +249,7 @@
   list-style-type: none;
   text-decoration: none;
   height: 40px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   padding: 10px;
   font-style: normal;
   color: var(--Neutral100);
@@ -266,7 +266,7 @@
 }
 
 .tab.active {
-  border-bottom: 3px solid #818AFF;
+  border-bottom: 3px solid #818aff;
   font-weight: 700;
 }
 

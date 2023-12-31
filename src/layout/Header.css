@@ -23,7 +23,7 @@
   height: 25px;
   left: 14px;
   top: 197px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -42,7 +42,7 @@
   gap: 10px;
   width: 100vw;
   height: 48px;
-  background: #1E226A !important;
+  background: #1e226a !important;
   border: transparent;
   /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16); */
   /* border-radius: 0px; */
@@ -79,7 +79,7 @@
   color: #ffffff;
   background: transparent;
   border: none;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

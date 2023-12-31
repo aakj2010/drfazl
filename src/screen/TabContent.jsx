@@ -39,7 +39,6 @@ const TabContent = ({ index }) => {
             console.error('Error sharing:', error);
         }
     }
-    // console.log(chapter.verses); 
     useEffect(() => {
         // Parse the verse number from the URL
         const verseNumberFromUrl = window.location.hash.substring(1);
@@ -51,12 +50,14 @@ const TabContent = ({ index }) => {
             verseRefFromUrl.scrollIntoView({
               behavior: 'smooth',
               block: 'start',
+            //   inline: 'nearest', // To ensure the element is aligned at the top
+            // Set the top offset to 100px
+                top: 300,
             });
           }
-        }, 500);
+        }, 300);
       }, []);
     
-
     return (
         <div className='verse-wrapper' >
             {React.Children.toArray(

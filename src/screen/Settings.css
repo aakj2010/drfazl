@@ -54,7 +54,7 @@
 .lang-box > p {
   width: 133px;
   height: 22px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -103,7 +103,7 @@
   background: #4b00c2;
   color: #ffffff;
   border-radius: 6px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -121,7 +121,7 @@
   background: #ffffff;
   border: 1px solid #d0d5dd;
   border-radius: 6px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -190,7 +190,7 @@
   list-style-type: none;
   text-decoration: none;
   height: 16px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   padding: 10px;
   font-style: normal;
   font-weight: 700;
@@ -244,7 +244,7 @@
 .verse-num {
   width: 21px;
   height: 19px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -270,7 +270,7 @@
 .verse-text {
   /* width: 70vw; */
   height: auto;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -289,7 +289,7 @@
 .verse-link-item {
   width: 29px;
   height: 19px;
-  font-family: "Nunito";
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -314,7 +314,7 @@
   background: transparent;
   border: none;
 }
-.go-to-btn-box a{
+.go-to-btn-box a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -324,7 +324,7 @@
   align-items: center;
   justify-content: center;
   width: max-content;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
   color: var(--bgwhite);
   background: linear-gradient(
@@ -336,5 +336,4 @@
   border: none;
   border-radius: 4px;
   margin-bottom: 5rem;
-  
 }

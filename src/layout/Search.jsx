@@ -99,14 +99,14 @@ const Search = ({ setActiveTab }) => {
                   </button>
                 </div>
               </div>
-              <a href={`/Chapters#${verse.number}`}
+              <div
                 onClick={() => {
                   handleClick(verse.number);
                 }}
                 className="verse-text"
                 style={{ fontSize: `${fontSizeContext.fontSize}px` }}
                 dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
-              ></a>
+              ></div>
             </div>
           ));
         } else {
@@ -174,7 +174,7 @@ const Search = ({ setActiveTab }) => {
 
   useEffect(() => {
     setIsLoading(false);
-  },[]);
+  });
 
   const handleShowAllResults = () => {
     setShowAllResults(true);
