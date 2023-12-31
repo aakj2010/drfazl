@@ -14,6 +14,7 @@ const TabContent = ({ index }) => {
 
 
     const data = langContext.language === 'Tamil' ? tamQuranData : engQuranData;
+    const Quran = langContext.language === 'Tamil' ? "குர்ஆன்" : "Quran";
 
     function fetchChapter() {
         const chapterData = data.chapters.find(
@@ -31,7 +32,7 @@ const TabContent = ({ index }) => {
         try {
             const shareData = {
                 title: `${index}. ${chapterTitle}`,
-                text: `Quran \n \n${index}. ${chapterTitle}\n \n${verseNumber} ${verseText}`,
+                text: `${Quran} \n \n${index}. ${chapterTitle}\n \n${verseNumber} ${verseText}`,
             };
             await navigator.share(shareData);
             console.log('Shared successfully');
@@ -50,9 +51,6 @@ const TabContent = ({ index }) => {
             verseRefFromUrl.scrollIntoView({
               behavior: 'smooth',
               block: 'start',
-            //   inline: 'nearest', // To ensure the element is aligned at the top
-            // Set the top offset to 100px
-                top: 300,
             });
           }
         }, 300);

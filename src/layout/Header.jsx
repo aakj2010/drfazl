@@ -14,17 +14,17 @@ function Header() {
 
     const location = useLocation();
     const result = location.pathname.split('/')
-    const title = result[2] ? result[2].charAt(0).toUpperCase() + result[2].slice(1) : result[1].charAt(0).toUpperCase() + result[1].slice(1)
+    const title = result[2] ? result[2].charAt(0).toUpperCase() + result[2].slice(1) : result[1].charAt(0).toUpperCase() + result[1].slice(1);
 
     return (
         <>
             <header className='m-header-wrapper'>
                 <div className='menu-title'>
                     <div className='menu-btn-wrapper'>
-                        <button className='menu-btn' onClick={SideBarcontext.showSidebar}>
+                        <button className='menu-btn' onClick={SideBarcontext.toggleSidebar}>
                             <img src={menu} alt="menu" />
                             {
-                                SideBarcontext.open ? (
+                                SideBarcontext.sidebarOpen ? (
                                     <SideBar />
                                 ) : null
                             }

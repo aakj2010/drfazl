@@ -52,7 +52,7 @@
   border-radius: 6px;
 }
 .lang-box > p {
-  width: 133px;
+  width: max-content;
   height: 22px;
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -116,7 +116,7 @@
   align-items: center;
   padding: 10px;
   gap: 10px;
-  width: 96px;
+  width: 97px;
   height: 28px;
   background: #ffffff;
   border: 1px solid #d0d5dd;
@@ -258,6 +258,7 @@
   background: transparent;
   color: #4b5768;
   border: none;
+  cursor: pointer;
 }
 .more-btn {
   display: flex;
