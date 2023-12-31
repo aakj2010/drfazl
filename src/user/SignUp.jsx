@@ -98,15 +98,16 @@ const SignUp = () => {
                         </div> */}
                         <div className='submit-btns'>
                             <button
-                                type="submit"
+                                // type="submit"
                                 className='next-btn'
-                                disabled={loading} >
+                                // disabled={loading}
+                                 >
                                 Register
                             </button>
-                            <button className='google-btn'>
+                            {/* <button className='google-btn'>
                                 <img src={google} alt="google" />
                                 <span>Sign In with Google</span>
-                            </button>
+                            </button> */}
                         </div>
                     </form>
                 </div>

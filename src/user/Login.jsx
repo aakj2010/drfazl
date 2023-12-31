@@ -82,16 +82,16 @@ const Login = () => {
             <div className='submit-btns'>
               {/* <NavLink className='signin'> */}
               <button 
-                type="submit"
+                // type="submit"
                 className='signin'
-                disabled={loading}
+                // disabled={loading}
               >
                 Sign In
               </button>
               {/* </NavLink> */}
-              <button className='google-btn'>
+              {/* <button className='google-btn'>
                 <img src={google} alt="google" /><span>Sign In with Google</span>
-              </button>
+              </button> */}
             </div>
           </form>
         </div>
