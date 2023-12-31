@@ -40,13 +40,29 @@ const TabContent = ({ index }) => {
         }
     }
     // console.log(chapter.verses); 
+    useEffect(() => {
+        // Parse the verse number from the URL
+        const verseNumberFromUrl = window.location.hash.substring(1);
+    
+        // Scroll to the verseRef after a short delay (adjust delay as needed)
+        setTimeout(() => {
+          const verseRefFromUrl = document.getElementById(verseNumberFromUrl);
+          if (verseRefFromUrl) {
+            verseRefFromUrl.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        }, 500);
+      }, []);
+    
 
     return (
         <div className='verse-wrapper' >
             {React.Children.toArray(
                 chapter.verses && chapter.verses.map((verse, index) => (
                     <>
-                        <div className='verse-container' key={index}>
+                        <div className='verse-container' key={index} id={verse.number}>
                             <div className='verse-number' >
                                 <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
                                 <div className='more-btn-wrapper'>

@@ -49,7 +49,7 @@ function Quran({ activeTab, setActiveTab }) {
                 </div>
                 <div className="tab-content" style={{ fontSize: `${context.fontSize}px` }}>
                     {[...Array(114)].map((_, i) => {
-                        return activeTab === i && <TabContent index={i + 1} />
+                        return activeTab === i && <TabContent index={i + 1} key={i} />
                     })}
                 </div>
 

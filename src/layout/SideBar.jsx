@@ -7,7 +7,7 @@ import home from '../Assets/home.svg'
 import logout1 from '../Assets/logout1.svg'
 import settings from '../Assets/settings.svg'
 import account1 from '../Assets/account1.svg'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { styled } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../actions/userActions'
@@ -28,7 +28,7 @@ function SideBar() {
     // const user = JSON.parse(localStorage.getItem('user'))
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const { isAuthenticated, user } = useSelector(state => state.authState)
+    const { user } = useSelector(state => state.authState)
     const username = user?.name?.substring(0, 10) + "...";
     
     const onLogout = () => {
@@ -94,7 +94,7 @@ function SideBar() {
                             <span className='list-icon'><img src={account1} alt="" /></span>
                             <span className='list-title'>{username || ""}</span>
                         </div>
-                        <button onClick={onLogout} className='list-icon'><img src={logout1} alt="" /></button>
+                        <Link to='/' onClick={onLogout} className='list-icon'><img src={logout1} alt="" /></Link>
                     </li>
 
                     {/* </StyledLinkButton> */}

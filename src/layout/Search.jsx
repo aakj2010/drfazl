@@ -60,7 +60,8 @@ const Search = ({ setActiveTab }) => {
   const handleClick = (number) => {
     const number1 = parseInt(number.split('.')[0]);
     setActiveTab(number1 - 1);
-    navigate('/Chapters');
+    // navigate('/Chapters');
+    navigate(`/Chapters#${number}`);
   };
 
   const handleSearch = (e) => {
@@ -98,14 +99,14 @@ const Search = ({ setActiveTab }) => {
                   </button>
                 </div>
               </div>
-              <div
+              <a href={`/Chapters#${verse.number}`}
                 onClick={() => {
                   handleClick(verse.number);
                 }}
                 className="verse-text"
                 style={{ fontSize: `${fontSizeContext.fontSize}px` }}
                 dangerouslySetInnerHTML={{ __html: highlightSearchQuery(verse.text) }}
-              ></div>
+              ></a>
             </div>
           ));
         } else {
@@ -173,7 +174,7 @@ const Search = ({ setActiveTab }) => {
 
   useEffect(() => {
     setIsLoading(false);
-  });
+  },[]);
 
   const handleShowAllResults = () => {
     setShowAllResults(true);
