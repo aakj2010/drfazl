@@ -32,7 +32,7 @@ function App() {
   return (
     <div className='mobile-screen'>
       <BrowserRouter>
-      <ToastContainer theme='dark' />
+        <ToastContainer theme='dark' />
         <FontSizeProvider>
           <SideBarProvider>
             <Routes>
@@ -50,17 +50,6 @@ function App() {
                 <Route path='' element={<Quran activeTab={activeTab} setActiveTab={setActiveTab} />} />
               </Route>
               <Route path='/welcome' element={<LandingPage />} />
-              {/* {
-                context.language === 'English' &&
-                (
-                )
-              }
-              {
-                context.language === 'Tamil' &&
-                (
-                  <Route path='/welcome' element={<TamilWelcome />} />
-                )
-              } */}
               {
                 context.language === 'English' &&
                 (
@@ -93,3 +82,4 @@ function App() {
 }
 
 export default App;
+// https://github.com/senthiltechspot/Whatsapp-Clone/blob/master/Backend/Controllers/Chat.controller.js

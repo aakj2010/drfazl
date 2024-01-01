@@ -53,11 +53,9 @@ const LandingPage = () => {
                                 <div className='landing-text-box'>
                                     <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
                                 </div>
-                                <div>
-                                    <Link to='/Chapters'>
-                                        <button className='start-btn'>Start Reading</button>
-                                    </Link>
-                                </div>
+                                <Link to='/Chapters' className='start-btn'>
+                                    Start Reading
+                                </Link>
                             </div>
                         )
                     }
