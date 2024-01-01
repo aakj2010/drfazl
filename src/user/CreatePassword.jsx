@@ -19,7 +19,7 @@ const CreatePassword = () => {
 
     if (email && password && password === confirmPassword) {
       dispatch(createPassword({ email, password }));
-      navigate('/Chapters');
+      navigate('/chapters');
     } else {
       setError('Passwords did not match!');
     }

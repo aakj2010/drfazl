@@ -50,7 +50,7 @@ const ChapterList = ({ setActiveTab }) => {
   }
   const handleClick = (index) => {
     setActiveTab(index)
-    navigate('/Chapters')
+    navigate('/chapters')
   }
 
   return (
@@ -62,7 +62,7 @@ const ChapterList = ({ setActiveTab }) => {
 
         </div>
         <div className='cl-header-closebtn'>
-          <Link to='/Chapters'>
+          <Link to='/chapters'>
             <button>
               <img src={x_close} alt='' />
             </button>
@@ -78,7 +78,7 @@ const ChapterList = ({ setActiveTab }) => {
           onChange={handleSearchQueryChange}
         />
       </div>
-      <div className='cl-list-item-wrapper' style={{ marginTop: "56px" }}>
+      <div className='cl-list-item-wrapper' style={{ marginTop: "20px" }}>
         {React.Children.toArray(
           filteredChapters.map((chapter, index) => (
             <div className='cl-list-item' key={index} onClick={() => { handleClick(index) }}>

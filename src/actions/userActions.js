@@ -26,11 +26,17 @@ import {
     updateProfileSuccess
 } from "../slice/authSlice"
 const API_URL = 'https://drfazl-server.vercel.app/api/v1/'
+// const API_URL = 'http://localhost:8002/api/v1/'
+// axios.create({
+//     // baseURL: API_URL,
+//     withCredentials: true,
+// });
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch(loginRequest());
-        const { data } = await axios.post( API_URL + 'login', { email, password });
+        const { data } = await axios.post(API_URL + 'login', { email, password }, { withCredentials: true });
         dispatch(loginSuccess(data))
+        localStorage.setItem('user', JSON.stringify(data));
     } catch (error) {
         dispatch(loginFail(error.response.data.message))
     }
@@ -45,6 +51,7 @@ export const register = (name, email, password) => async (dispatch) => {
         dispatch(registerRequest());
         const { data } = await axios.post(API_URL + 'register', { name, email, password });
         dispatch(registerSuccess(data))
+        localStorage.setItem('user', JSON.stringify(data));
     } catch (error) {
         dispatch(registerFail(error.response.data.message))
     }
@@ -68,6 +75,7 @@ export const loadUser = async (dispatch) => {
 export const logout = async (dispatch) => {
     try {
         await axios.get(API_URL + 'logout');
+        localStorage.removeItem('user')
         dispatch(logoutSuccess())
     } catch (error) {
         dispatch(logoutFail())

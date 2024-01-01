@@ -3,12 +3,14 @@ import { Navigate } from 'react-router-dom'
 import Loader from '../layout/Loader';
 
 export default function ProtectedRoute({ children, isAdmin }) {
-    const { isAuthenticated, loading } = useSelector(state => state.authState)
+    // const { isAuthenticated, loading } = useSelector(state => state.authState)
+    const userName = localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    console.log(userName)
 
-    if (!isAuthenticated && !loading) {
+    if (!userName) {
         return <Navigate to="/" />
     }
-    if (isAuthenticated) {
+    if (userName) {
         return children;
     }
 

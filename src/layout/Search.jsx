@@ -60,8 +60,8 @@ const Search = ({ setActiveTab }) => {
   const handleClick = (number) => {
     const number1 = parseInt(number.split('.')[0]);
     setActiveTab(number1 - 1);
-    // navigate('/Chapters');
-    navigate(`/Chapters#${number}`);
+    // navigate('/chapters');
+    navigate(`/chapters#${number}`);
   };
 
   const handleSearch = (e) => {
@@ -201,7 +201,7 @@ const Search = ({ setActiveTab }) => {
             <h3 className="s-h-title">Search</h3>
           </div>
           <div className="s-header-closebtn">
-            <Link to="/Chapters">
+            <Link to="/chapters">
               <button>
                 <img src={x_close} alt="" />
               </button>

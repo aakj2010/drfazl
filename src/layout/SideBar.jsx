@@ -27,8 +27,13 @@ function SideBar() {
   // const user = JSON.parse(localStorage.getItem('user'))
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.authState);
-  const username = user?.name?.substring(0, 10) + "...";
+  // const { user } = useSelector((state) => state.authState);
+  // const username = user?.name?.substring(0, 10) + "...";
+  const userName = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user'))
+    : { user: null };
+  const username = userName?.user?.name?.substring(0, 10) + "...";
+
 
   const onLogout = () => {
     // Update redux state
@@ -103,7 +108,7 @@ function SideBar() {
                 <span className="list-icon">
                   <img src={account1} alt="" />
                 </span>
-                <span className="list-title">{username || ""}</span>
+                <span className="list-title">{username && username || ""}</span>
               </div>
               <Link to="/" onClick={onLogout} className="list-icon">
                 <img src={logout1} alt="" />

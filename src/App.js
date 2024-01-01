@@ -24,6 +24,7 @@ import ChapterList from './layout/ChapterList';
 import Search from './layout/Search';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProtectedRoute from './route/ProtectedRoute';
 
 
 function App() {
@@ -40,20 +41,20 @@ function App() {
               <Route path='/register' element={<SignUp />} />
               {/* <Route path='/verify' element={<UserVerification />} /> */}
               {/* <Route path='/createpassword' element={<CreatePassword />} /> */}
-              <Route path='/home' element={<Home />} />
-              <Route path='/preface' element={<Preface />} />
-              <Route path='/aboutTheBook' element={<AboutTheBook />} />
-              <Route path='/settings' element={<Settings />} />
-              <Route path='/Chapters/chapter-list' element={<ChapterList activeTab={activeTab} setActiveTab={setActiveTab} />} />
-              <Route path='/Chapters/search' element={<Search activeTab={activeTab} setActiveTab={setActiveTab} />} />
-              <Route path='/Chapters' element={<Chapters />} >
+              <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
+              <Route path='/preface' element={<ProtectedRoute><Preface /></ProtectedRoute>} />
+              <Route path='/aboutTheBook' element={<ProtectedRoute><AboutTheBook /></ProtectedRoute>} />
+              <Route path='/settings' element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+              <Route path='/chapters/chapter-list' element={<ChapterList activeTab={activeTab} setActiveTab={setActiveTab} />} />
+              <Route path='/chapters/search' element={<Search activeTab={activeTab} setActiveTab={setActiveTab} />} />
+              <Route path='/chapters' element={<ProtectedRoute><Chapters /></ProtectedRoute>} >
                 <Route path='' element={<Quran activeTab={activeTab} setActiveTab={setActiveTab} />} />
               </Route>
-              <Route path='/welcome' element={<LandingPage />} />
+              <Route path='/welcome' element={<ProtectedRoute><LandingPage /></ProtectedRoute>} />
               {
                 context.language === 'English' &&
                 (
-                  <Route path='/Chapters' element={<Chapters />} >
+                  <Route path='/chapters' element={<Chapters />} >
                     <Route path='keywords' element={<KeyWords />} />
                     <Route path='glossary' element={<Glossary />} />
                     <Route path='notes' element={<Notes />} />
@@ -64,7 +65,7 @@ function App() {
               {
                 context.language === 'Tamil' &&
                 (
-                  <Route path='/Chapters' element={<Chapters />} >
+                  <Route path='/chapters' element={<Chapters />} >
                     <Route path='keywords' element={<KeyWords />} />
                     <Route path='glossary' element={<Glossary />} />
                     <Route path='notes' element={<Notes />} />

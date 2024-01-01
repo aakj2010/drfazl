@@ -42,7 +42,7 @@ const LandingPage = () => {
                                     <p className='landing-text'>மனிதர்களிலும், ஜின்களிலும் உள்ள விரட்டப்பட்ட  ஷைத்தான்களிடமிருந்து, இறைவனே உன்னிடமே பாதுகாவல் தேடுகிறேன்.</p>
                                 </div>
                                 <div>
-                                    <Link to='/Chapters'>
+                                    <Link to='/chapters'>
                                         <button className='start-btn'>நுழைக</button>
                                     </Link>
                                 </div>
@@ -53,7 +53,7 @@ const LandingPage = () => {
                                 <div className='landing-text-box'>
                                     <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
                                 </div>
-                                <Link to='/Chapters' className='start-btn'>
+                                <Link to='/chapters' className='start-btn'>
                                     Start Reading
                                 </Link>
                             </div>
