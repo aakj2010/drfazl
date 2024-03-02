@@ -22,7 +22,7 @@
   padding: 12px 16px;
   justify-content: space-between;
   align-items: center;
-  background: #1e226a;
+  background: var(--bg-primary);
   height: 48px;
   position: sticky;
   top: 0;
@@ -43,12 +43,7 @@
   margin: 0 auto;
   font-size: 1rem;
   color: var(--bgwhite);
-  background: linear-gradient(
-    277.57deg,
-    #3d4e81 -24.82%,
-    #5753c9 47.71%,
-    #6e7ff3 126.29%
-  );
+  background: var(--btn-gradient);
   border: none;
   border-radius: 4px;
   margin-top: 2rem;
@@ -59,18 +54,13 @@
   margin: 0.5rem;
   border-radius: 0.25rem;
   letter-spacing: 1px;
-  border: 2px solid lightgray;
+  /* border: 2px solid lightgray; */
 }
 .active-btn {
   color: #fff;
   font-weight: 700;
-  background: linear-gradient(
-    277.57deg,
-    #3d4e81 -24.82%,
-    #5753c9 47.71%,
-    #6e7ff3 126.29%
-  );
-  border: 2px solid #3d4e81 !important;
+  background: var(--btn-gradient);
+  /* border: 2px solid #3d4e81 !important; */
 }
 
 /* spinner */

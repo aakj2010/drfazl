@@ -23,6 +23,10 @@ const StyledLinkButton = styled(NavLink)({
 function Footer() {
     let SideBarcontext = useContext(SideBarContext);
     const languageContext = useContext(LanguageContext);
+
+    const getFontFamily = () => {
+      return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+    };
     return (
         <>
             <div className={!SideBarcontext.open ? "icons-wrapper" : "footer"} >
@@ -30,7 +34,7 @@ function Footer() {
                     <div className='icon-container'>
                     <MenuBookRoundedIcon />
                     </div>
-                    <div className='icon-title'>
+                    <div className='icon-title'  style={{ fontFamily: getFontFamily() }}>
                         {languageContext.language === 'Tamil' ? 'அத்தியாயம்' : 'Chapter'}
                     </div>
                 </StyledLinkButton>
@@ -38,7 +42,7 @@ function Footer() {
                     <div className='icon-container'>
                         <StarRateRoundedIcon />
                     </div>
-                    <div className='icon-title'>
+                    <div className='icon-title'  style={{ fontFamily: getFontFamily() }}>
                         {languageContext.language === 'Tamil' ? 'கலைச்சொற்கள்' : 'keywords'}
                     </div>
                 </StyledLinkButton>
@@ -66,7 +70,7 @@ function Footer() {
                     <div className='icon-container'>
                         <AssignmentRoundedIcon />
                     </div>
-                    <p className='icon-title'>
+                    <p className='icon-title'  style={{ fontFamily: getFontFamily() }}>
                     {languageContext.language === 'Tamil' ? 'பிற்சேர்க்கை' : 'Glossary'}</p>
                 </StyledLinkButton>
             </div>

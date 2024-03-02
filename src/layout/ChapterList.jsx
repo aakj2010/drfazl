@@ -14,6 +14,10 @@ const ChapterList = ({ setActiveTab }) => {
   const Context = useContext(LanguageContext);
   const navigate = useNavigate()
 
+  const getFontFamily = () => {
+    return Context.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+  };
+
   const data = Context.language === 'Tamil' ? tamQuranData : engQuranData;
   const chapters = data.chapters;
   let lastNumbers = [];
@@ -84,7 +88,7 @@ const ChapterList = ({ setActiveTab }) => {
             <div className='cl-list-item' key={index} onClick={() => { handleClick(index) }}>
               <p
                 className='cl-list-item-title'
-                style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+                style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
               >
                 {`${chapter.number}. ${chapter.title}`}
               </p>

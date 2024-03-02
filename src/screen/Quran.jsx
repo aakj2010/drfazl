@@ -20,7 +20,9 @@ function Quran({ activeTab, setActiveTab }) {
     const handleTabClick = (index) => {
         setActiveTab(index);
     }
-
+    const getFontFamily = () => {
+        return langContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+      };
     return (
         <>
             <Header />

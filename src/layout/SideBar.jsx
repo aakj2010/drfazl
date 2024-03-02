@@ -47,6 +47,10 @@ function SideBar() {
     navigate("/");
   };
 
+  const getFontFamily = () => {
+    return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+  };
+
   return (
     <div className="sidebar">
       <div className="container">
@@ -55,7 +59,7 @@ function SideBar() {
             <img src={logo} alt="" width="32px" height="32px" />
           </div>
           <div className="title-sidebar">
-            <h4>{languageContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran drfazl'}</h4>
+            <h4 style={{ fontFamily: getFontFamily() }}>{languageContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran drfazl'}</h4>
           </div>
         </div>
 
@@ -64,9 +68,9 @@ function SideBar() {
             <StyledLinkButton to="/home">
               <li>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <HomeRoundedIcon fontSize="small"/>
+                  <HomeRoundedIcon fontSize="small" />
                 </div>
-                <div className="list-title">
+                <div className="list-title"  style={{ fontFamily: getFontFamily() }}>
                   {languageContext.language === 'Tamil' ? 'முகப்பு' : 'Home'}
                 </div>
               </li>
@@ -75,10 +79,9 @@ function SideBar() {
             <StyledLinkButton to="/preface">
               <li>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {/* <img src={preface} alt="" className="list-icon" /> */}
-                  <FeedRoundedIcon fontSize="small"/>
+                  <FeedRoundedIcon fontSize="small" />
                 </div>
-                <div className="list-title">
+                <div className="list-title" style={{ fontFamily: getFontFamily() }}>
                   {languageContext.language === 'Tamil' ? 'முன்னுரை' : 'Preface'}
                 </div>
               </li>
@@ -87,9 +90,9 @@ function SideBar() {
             <StyledLinkButton to="/chapters">
               <li>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <MenuBookRoundedIcon fontSize="small"/>
+                  <MenuBookRoundedIcon fontSize="small" />
                 </div>
-                <div className="list-title">
+                <div className="list-title" style={{ fontFamily: getFontFamily() }}>
                   {languageContext.language === 'Tamil' ? 'அத்தியாயம்' : 'Chapter'}
                 </div>
               </li>
@@ -97,9 +100,9 @@ function SideBar() {
             <StyledLinkButton to="/aboutTheBook">
               <li>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <StickyNote2RoundedIcon fontSize="small"/>
+                  <StickyNote2RoundedIcon fontSize="small" />
                 </div>
-                <div className="list-title">
+                <div className="list-title" style={{ fontFamily: getFontFamily() }}>
                   {languageContext.language === 'Tamil' ? 'அணிந்துரை' : 'About the book'}</div>
               </li>
             </StyledLinkButton>
@@ -121,12 +124,12 @@ function SideBar() {
             <li className="li-logout">
               <div className="user-name">
                 <div className="list-icon">
-                  <AccountCircleRoundedIcon fontSize="small"/>
+                  <AccountCircleRoundedIcon fontSize="small" style={{ color: '#647288' }} />
                 </div>
                 <div className="list-title">{username && username || ""}</div>
               </div>
               <Link to="/" onClick={onLogout} className="list-icon">
-                    <LogoutRoundedIcon fontSize="small"/>
+                <LogoutRoundedIcon fontSize="small" style={{ color: '#647288' }}/>
               </Link>
             </li>
 

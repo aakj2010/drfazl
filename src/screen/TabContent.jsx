@@ -8,6 +8,11 @@ import share1 from '../Assets/share1.svg'
 
 const TabContent = ({ index }) => {
     const [chapter, setChapter] = useState({});
+    const languageContext = useContext(LanguageContext);
+
+  const getFontFamily = () => {
+    return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+  };
 
     let context = useContext(FontContext)
     const langContext = useContext(LanguageContext);
@@ -75,7 +80,7 @@ const TabContent = ({ index }) => {
                                 </div>
                             </div>
                             <div className='verse-text'
-                                style={{ fontSize: `${context.fontSize}px` }}
+                                style={{ fontSize: `${context.fontSize}px`, fontFamily: getFontFamily() }}
                                 dangerouslySetInnerHTML={{ __html: verse.text }}></div>
                             {/* <div className='verse-link-box'>
                     {
