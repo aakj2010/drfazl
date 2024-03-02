@@ -20,12 +20,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 16px;
+  padding: 1.5rem;
+  padding-top: 0px;
   position: fixed;
   bottom: 0px;
   gap: 10px;
   width: 100vw;
-  height: 54px;
+  /* height: 54px; */
   background: #ffffff;
   box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.08);
   border-radius: 12px 12px 0px 0px;
@@ -38,15 +39,17 @@
   justify-content: center;
   text-decoration: none;
   list-style-type: no;
-  padding: 0px;
-  width: 60px;
-  height: 54px;
+  padding: 12px, 4px, 12px, 4px;
+  width: max-content;
+  height: 62px;
+  gap: 4px;
+  border-top: 4px solid transparent;
   /* border: 1px solid grey; */
 }
-.icon-container {
+/* .icon-container {
   width: 24px;
   height: 24px;
-}
+} */
 .icon {
   display: flex;
   align-items: center;
@@ -69,19 +72,18 @@ span button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0px;
+  padding: 0px 20px;
   gap: 4px;
-  width: 52px;
-  height: 54px;
+  /* width: 52px; */
+  /* height: 54px; */
 }
 .icon-container button {
   border: none;
   background: transparent;
 }
 .icon-title {
-  width: 51px;
   height: 14px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 10px;
@@ -89,14 +91,13 @@ span button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4b5768;
 }
-.icon-title ~ .active {
-  color: #818aff !important;
+.icon-with-title .icon-title ~ .active {
+  color: var(--menu-active);
 }
 
 .icon-with-title ~ .active {
-  color: #818aff !important;
-  border-bottom: 2px solid #818aff;
+  color: var(--menu-active);
+  border-top: 4px solid var(--menu-active);
 }
 /* icons-wrapper End */

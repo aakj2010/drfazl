@@ -1,18 +1,7 @@
-:root {
-  --primary500: #0071e3;
-  --primary600: #0055aa;
-  --primary700: #003e7d;
-  --primary800: #0c1f56;
-  --primary900: #06102b;
-  --placeholder: #647488;
-  --Neutral100: #e7eaee;
-  --Neutral600: #4b5768;
-  --bgwhite: #ffffff;
-}
 .img-container {
   width: 100vw;
   height: 234px;
-  background-image: url(../Assets/bg.svg);
+  background-image: url(../Assets/cover-page.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +12,7 @@
   height: 25px;
   left: 14px;
   top: 197px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -42,7 +31,7 @@
   gap: 10px;
   width: 100vw;
   height: 48px;
-  background: #1e226a !important;
+  background: var(--bg-primary);
   border: transparent;
   /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16); */
   /* border-radius: 0px; */
@@ -79,7 +68,7 @@
   color: #ffffff;
   background: transparent;
   border: none;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

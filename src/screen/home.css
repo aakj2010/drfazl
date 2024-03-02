@@ -1,16 +1,3 @@
-:root {
-  --primary400: #2b94ff;
-  --primary500: #0071e3;
-  --primary600: #0055aa;
-  --primary700: #003e7d;
-  --primary800: #0c1f56;
-  --primary900: #06102b;
-  --placeholder: #647488;
-  --Neutral100: #e7eaee;
-  --Neutral600: #4b5768;
-  --bgwhite: #ffffff;
-}
-
 .home-wrapper {
   width: 100vw;
   height: auto;

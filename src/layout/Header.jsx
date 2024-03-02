@@ -7,10 +7,12 @@ import chapter_list from '../Assets/chapter_list.svg'
 import { Link, useLocation } from 'react-router-dom'
 import SideBar from './SideBar'
 import SideBarContext from '../context/SideBarContext'
+import LanguageContext from '../context/LanguageContext'
 
 
 function Header() {
     let SideBarcontext = useContext(SideBarContext);
+    const languageContext = useContext(LanguageContext);
 
     const location = useLocation();
     const result = location.pathname.split('/')

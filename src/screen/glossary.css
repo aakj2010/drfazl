@@ -7,12 +7,12 @@
   justify-content: flex-start;
   padding: 16px;
   margin-top: 40px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
 }
 .g-title {
   width: 65px;
   height: 22px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -33,7 +33,7 @@
   width: 90vw;
   height: 22px;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -43,7 +43,7 @@
 .e-para {
   width: 90vw;
   height: 120px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -62,7 +62,7 @@
   height: 22px;
 }
 .g-title2 p {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -90,7 +90,7 @@
 .g-items-title p {
   width: auto;
   height: 22px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -100,7 +100,7 @@
 .g-items-para {
   width: 90vw;
   height: 72px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

@@ -1,16 +1,4 @@
-:root {
-  --primary400: #2b94ff;
-  --primary500: #0071e3;
-  --primary600: #0055aa;
-  --primary700: #003e7d;
-  --primary800: #0c1f56;
-  --primary900: #06102b;
-  --placeholder: #647488;
-  --Neutral100: #e7eaee;
-  --Neutral600: #4b5768;
-  --bgwhite: #ffffff;
-  --purpleprimary: #4f1346;
-}
+
 .img-container {
   display: flex;
   align-items: flex-end;
@@ -19,7 +7,7 @@
 .bottom-left {
   width: 51px;
   height: 25px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -93,7 +81,7 @@
   list-style-type: none;
   text-decoration: none;
   height: 16px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   padding: 10px;
   font-style: normal;
   font-weight: 700;
@@ -154,7 +142,7 @@
 .verse-num {
   width: 21px;
   height: 19px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -181,7 +169,7 @@
 .verse-text {
   width: 90vw;
   height: auto;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -199,7 +187,7 @@
 .verse-link-item {
   width: 29px;
   height: auto !important;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -236,7 +224,7 @@
 
 .tabs {
   display: flex;
-  background-color: #1e226a;
+  background-color: var(--bg-primary);
 }
 
 .tab {
@@ -249,7 +237,7 @@
   list-style-type: none;
   text-decoration: none;
   height: 40px;
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
   padding: 10px;
   font-style: normal;
   color: var(--Neutral100);
@@ -266,7 +254,7 @@
 }
 
 .tab.active {
-  border-bottom: 3px solid #818aff;
+  border-bottom: 3px solid var(--bg-secondary);
   font-weight: 700;
 }
 

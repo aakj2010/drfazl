@@ -47,6 +47,7 @@ function App() {
               <Route path='/settings' element={<ProtectedRoute><Settings /></ProtectedRoute>} />
               <Route path='/chapters/chapter-list' element={<ChapterList activeTab={activeTab} setActiveTab={setActiveTab} />} />
               <Route path='/chapters/search' element={<Search activeTab={activeTab} setActiveTab={setActiveTab} />} />
+              <Route path='/home/search' element={<Search activeTab={activeTab} setActiveTab={setActiveTab} />} />
               <Route path='/chapters' element={<ProtectedRoute><Chapters /></ProtectedRoute>} >
                 <Route path='' element={<Quran activeTab={activeTab} setActiveTab={setActiveTab} />} />
               </Route>

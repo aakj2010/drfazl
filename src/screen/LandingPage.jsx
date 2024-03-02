@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './landingPage.css'
-import logo from '../Assets/logo.svg'
+import logo from '../Assets/quran-logo.svg'
 import { Link } from 'react-router-dom'
 import LanguageContext from '../context/LanguageContext'
 

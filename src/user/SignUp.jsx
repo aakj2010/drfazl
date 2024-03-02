@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate
-import logo from '../Assets/logo.svg';
+import logo from '../Assets/quran-logo.svg';
 import './Signup.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 // import Spinner from './Spinner';
 import { register, clearAuthError } from '../actions/userActions';
-import google from '../Assets/google.svg'
 
 
 const SignUp = () => {

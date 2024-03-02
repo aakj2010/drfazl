@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './login.css'
-import logo from '../Assets/logo.svg'
+import logo from '../Assets/quran-logo.svg'
 import google from '../Assets/google.svg'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import LanguageContext from '../context/LanguageContext'
