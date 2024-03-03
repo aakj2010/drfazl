@@ -49,7 +49,7 @@
   font-size: 14px;
   line-height: 170%;
   text-align: justify;
-  color: #4b5768;
+    color: var(--text-primary);
 }
 .g-title2 {
   display: flex;
@@ -106,5 +106,5 @@
   font-size: 14px;
   line-height: 170%;
   text-align: justify;
-  color: #4b5768;
+    color: var(--text-primary);
 }

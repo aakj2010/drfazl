@@ -15,7 +15,7 @@ const ChapterList = ({ setActiveTab }) => {
   const navigate = useNavigate()
 
   const getFontFamily = () => {
-    return Context.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+    return Context.language === 'Tamil' ? 'mukta-font ' : 'nunito-font';
   };
 
   const data = Context.language === 'Tamil' ? tamQuranData : engQuranData;
@@ -61,8 +61,13 @@ const ChapterList = ({ setActiveTab }) => {
     <div className='cl-wrapper'>
       <div className='cl-header'>
         <div className='cl-header-title'>
-          <h3 className='cl-h-title'>Chapter list</h3>
-          <h4 className='cl-header-title-length'>{filteredChapters.length}</h4>
+          <p className={`cl-h-title {Context.language === 'Tamil' ? 'mukta-font' : 'nunito-font '}`}
+            style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
+          >
+            {Context.language === 'Tamil' ? 'அத்தியாயங்கள்' : 'Chapter list'}
+          </p>
+          <h4 className='cl-header-title-length' 
+          >{filteredChapters.length}</h4>
 
         </div>
         <div className='cl-header-closebtn'>
@@ -82,13 +87,13 @@ const ChapterList = ({ setActiveTab }) => {
           onChange={handleSearchQueryChange}
         />
       </div>
-      <div className='cl-list-item-wrapper' style={{ marginTop: "20px" }}>
+      <div className='cl-list-item-wrapper'>
         {React.Children.toArray(
           filteredChapters.map((chapter, index) => (
             <div className='cl-list-item' key={index} onClick={() => { handleClick(index) }}>
               <p
-                className='cl-list-item-title'
-                style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
+                className={`cl-list-item-title ${Context.language === 'Tamil' ? 'mukta-font' : 'nunito-font '}`}
+                style={{ fontSize: `${fontSizeContext.fontSize}px` }}
               >
                 {`${chapter.number}. ${chapter.title}`}
               </p>

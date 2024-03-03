@@ -20,13 +20,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   padding-top: 0px;
   position: fixed;
   bottom: 0px;
   gap: 10px;
   width: 100vw;
-  /* height: 54px; */
   background: #ffffff;
   box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.08);
   border-radius: 12px 12px 0px 0px;
@@ -44,20 +43,14 @@
   height: 62px;
   gap: 4px;
   border-top: 4px solid transparent;
-  /* border: 1px solid grey; */
 }
-/* .icon-container {
-  width: 24px;
-  height: 24px;
-} */
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
-  color: #4b5768;
-  /* color: #4f1346; */
+  color: var(--text-primary);
 }
 /* .active {
   color: #4b00c2;

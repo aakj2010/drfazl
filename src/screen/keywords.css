@@ -41,10 +41,10 @@
   font-size: 14px;
   line-height: 170%;
   text-align: justify;
-  color: #4b5768;
+  color: var(--text-primary);
 }
 .kw-num {
-  color: #0071e3;
+  color: var(--link-primary);
   text-decoration-line: underline;
 }
 .kw-more {

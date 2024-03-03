@@ -21,7 +21,7 @@ const StyledLinkButton = styled(NavLink)({
     },
   });
 function Footer() {
-    let SideBarcontext = useContext(SideBarContext);
+    let modal = useContext(SideBarContext);
     const languageContext = useContext(LanguageContext);
 
     const getFontFamily = () => {
@@ -29,7 +29,7 @@ function Footer() {
     };
     return (
         <>
-            <div className={!SideBarcontext.open ? "icons-wrapper" : "footer"} >
+            <div className={!modal.sidebarOpen ? "icons-wrapper" : "footer"} >
                 <StyledLinkButton to="" className='icon-with-title'>
                     <div className='icon-container'>
                     <MenuBookRoundedIcon />

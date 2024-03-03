@@ -1,18 +1,16 @@
 import React, { useContext } from 'react'
 import './Header.css'
 import search from '../Assets/search.svg'
-import help from '../Assets/help.svg'
 import menu from '../Assets/menu.svg'
-import chapter_list from '../Assets/chapter_list.svg'
 import { Link, useLocation } from 'react-router-dom'
 import SideBar from './SideBar'
 import SideBarContext from '../context/SideBarContext'
-import LanguageContext from '../context/LanguageContext'
+// import LanguageContext from '../context/LanguageContext'
 
 
 function Header() {
     let SideBarcontext = useContext(SideBarContext);
-    const languageContext = useContext(LanguageContext);
+    // const languageContext = useContext(LanguageContext);
 
     const location = useLocation();
     const result = location.pathname.split('/')
@@ -36,13 +34,10 @@ function Header() {
                         {title === 'Chapters' ? (
                             <div className='title'>
                                 {title}
-                                <div className='menu-btn-wrapper'>
-                                    <Link to='chapter-list'>
-                                        <button className='menu-btn'>
-                                            <img src={chapter_list} alt="chapter_list" />
-                                        </button>
-                                    </Link>
-                                </div>
+                                <Link to='chapter-list'
+                                    className='cl-header-length'>
+                                    114
+                                </Link>
                             </div>
                         ) : (
                             <div className='title'>{title}</div>
@@ -52,14 +47,15 @@ function Header() {
                 </div>
 
                 <div className='help-with-search'>
-                    <div className='menu-btn-wrapper'>
+                    {/* <div className='menu-btn-wrapper'>
                         <button className='menu-btn'>
                             <img src={help} alt="help" />
                         </button>
-                    </div>
+                    </div> */}
                     <div className='menu-btn-wrapper'>
                         <Link to='search'>
-                            <button className='menu-btn'>
+                            <button className='menu-btn' 
+                            style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                                 <img src={search} alt="search" />
                             </button>
                         </Link>

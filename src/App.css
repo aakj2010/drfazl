@@ -18,9 +18,11 @@
     #243b5d -12.93%,
     #4b7cc3 123.53%
   );
+  --link-primary: '#0071e3';
   --btn-gradient: linear-gradient(279deg, #243B5D -71.08%, #4B7CC3 174.39%);
   --font-family: "Nunito Sans", sans-serif;
   --bg-white: #ffffff;
+  --bg-light: #f7f8f9;
   --primary400: #2b94ff;
   --primary500: #33578d;
   --primary600: #0055aa;
@@ -93,7 +95,6 @@ body {
 }
 
 #wrapper #content-wrapper {
-  /* background-color: #f7f8f9; */
   width: 100vw;
   overflow-x: hidden;
 }

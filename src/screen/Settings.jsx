@@ -31,9 +31,21 @@ const Settings = () => {
                         <div className='lang-box'>
                             <p>Font Size</p>
                             <div className='btn-box'>
-                                <button className={context.fontSize === 14 ? 'active-eng-btn' : 'bi-ling-btn'} onClick={() => context.setFontSize(14)}>Small</button>
-                                <button className={context.fontSize === 16 ? 'active-eng-btn' : 'bi-ling-btn'} onClick={() => context.setFontSize(16)}>Default</button>
-                                <button className={context.fontSize === 18 ? 'active-eng-btn' : 'bi-ling-btn'} onClick={() => context.setFontSize(18)}>Large</button>
+                                <button 
+                                    className={context.fontSize === 12 ? 'active-eng-btn' : 'bi-ling-btn'}
+                                    onClick={() => context.setFontSize(12)}
+                                    >Small
+                                </button>
+                                <button 
+                                    className={context.fontSize === 14 ? 'active-eng-btn' : 'bi-ling-btn'}
+                                    onClick={() => context.setFontSize(14)}
+                                    >Default
+                                </button>
+                                <button 
+                                    className={context.fontSize === 16 ? 'active-eng-btn' : 'bi-ling-btn'}
+                                    onClick={() => context.setFontSize(16)}
+                                    >Large
+                                </button>
                             </div>
                         </div>
                     </div>

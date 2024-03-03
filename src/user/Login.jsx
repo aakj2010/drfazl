@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './login.css'
 import logo from '../Assets/quran-logo.svg'
-import google from '../Assets/google.svg'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import LanguageContext from '../context/LanguageContext'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,7 +18,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { loading, error, isAuthenticated } = useSelector(state => state.authState)
+  const { error, isAuthenticated } = useSelector(state => state.authState)
 
   const redirect = location.search ? '/' + location.search.split('=')[1] : '/'
 

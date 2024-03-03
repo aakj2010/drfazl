@@ -144,7 +144,7 @@
     #6e7ff3 126.29%
   );
   border-radius: 8px;
-  color: #ffffff;
+  color: var(--bg-white);
   border: none;
 }
 .verify-text {
@@ -156,5 +156,5 @@
   font-size: 14px;
   line-height: 140%;
   text-align: center;
-  color: #647488;
+  color: var(--icon-primary);
 }

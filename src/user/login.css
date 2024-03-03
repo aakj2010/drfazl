@@ -114,7 +114,7 @@
 }
 .lang-btn > .active-btn {
   background: var(--btn-gradient);
-  color: #ffffff;
+  color: var(--bgwhite);
   border-radius: 12px;
   font-family: var(--font-family);
   font-style: normal;
@@ -221,14 +221,14 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 140%;
-  color: #ffffff;
+  color: var(--bgwhite);
   outline: none;
 }
 .signin button {
   border: none;
   background: transparent;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--bgwhite);
 }
 .submit-btns > .google-btn {
   display: flex;

@@ -129,12 +129,12 @@ form {
   font-weight: 600;
   font-size: 14px;
   line-height: 140%;
-  color: #ffffff;
+  color: var(--bgwhite);
   outline: none;
 }
 .signin button {
   border: none;
   background: transparent;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--bgwhite);
 }

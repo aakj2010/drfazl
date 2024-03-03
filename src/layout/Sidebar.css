@@ -2,24 +2,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 20px;
-  gap: 32px; */
   width: 100%;
   height: 100vh;
   background: transparent;
-  /* box-shadow: 4px 0px 8px 2px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px); */
+  transition: transform 0.3s ease;
+}
+.sidebar.open {
+  transform: translateX(0); /* Adjust the transformation when the sidebar is open */
+}
+
+.sidebar.closed {
+  transform: translateX(-100%); /* Adjust the transformation when the sidebar is closed */
 }
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
-  /* padding: 32px 20px; */
   row-gap: 16px;
   width: 200px;
   height: 100vh;
@@ -36,22 +34,14 @@
   height: 80px;
   background: var(--bg-primary-gradient);
 }
-/* .logo {
-  border-radius: 50%;
-  border: 1px solid #fff;
-} */
 .title-sidebar {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   padding: 0px;
-  /* width: 102px; */
-  /* height: 46px; */
   color: #ffffff;
 }
 .title-sidebar h4 {
-  /* width: 102px; */
   height: 20px;
   font-family: var(--font-family);
   font-style: normal;
@@ -81,9 +71,6 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 12px;
-  /* gap: 4px; */
-  /* width: 160px;
-  height: 432px; */
   width: 100%;
   height: 100%;
 }
@@ -94,7 +81,6 @@
   padding: 0px;
   gap: 8px;
   width: 100%;
-  /* height: 192px; */
 }
 .menu-container li {
   display: flex;
@@ -128,9 +114,6 @@
   width: 115px;
   font-size: 13px;
 }
-/* .list-icon {
-  color: var(--icon-primary);
-} */
 
 .user-container {
   display: flex;
@@ -152,25 +135,6 @@
   width: 100%;
   height: 32px;
 }
-/* .toggle-btn {
-  width: 24px;
-  height: 13.71px;
-} */
-/* .user-container li .lang {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0px;
-  gap: 3px;
-  width: 100px;
-  height: 30px;
-  font-family: var(--font-family);
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 140%;
-  color: var(--text-primary);
-} */
 .theme {
   display: flex;
   flex-direction: row;
@@ -201,6 +165,5 @@
 .user-container > .li-logout {
   display: flex;
   justify-content: space-between !important;
-  /* color: var(--icon-primary); */
   color: '#647288'
 }

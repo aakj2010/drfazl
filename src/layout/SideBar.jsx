@@ -13,6 +13,7 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import StickyNote2RoundedIcon from '@mui/icons-material/StickyNote2Rounded';
 import FeedRoundedIcon from '@mui/icons-material/FeedRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import SideBarContext from "../context/SideBarContext";
 
 
 const StyledLinkButton = styled(NavLink)({
@@ -32,6 +33,8 @@ function SideBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const languageContext = useContext(LanguageContext);
+  const modal = useContext(SideBarContext)
+
 
   // const { user } = useSelector((state) => state.authState);
   // const username = user?.name?.substring(0, 10) + "...";
@@ -52,7 +55,7 @@ function SideBar() {
   };
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${modal.sidebarOpen ? 'open' : 'closed'}`}>
       <div className="container">
         <div className="logo-container">
           <div className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -126,7 +129,7 @@ function SideBar() {
                 <div className="list-icon">
                   <AccountCircleRoundedIcon fontSize="small" style={{ color: '#647288' }} />
                 </div>
-                <div className="list-title">{username && username || ""}</div>
+                <p className="list-title">{ username || "" }</p>
               </div>
               <Link to="/" onClick={onLogout} className="list-icon">
                 <LogoutRoundedIcon fontSize="small" style={{ color: '#647288' }}/>
