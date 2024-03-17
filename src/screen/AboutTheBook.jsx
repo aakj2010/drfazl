@@ -2,29 +2,128 @@ import React, { useContext } from 'react'
 import FontContext from '../context/FontContext'
 import Header from '../layout/Header';
 import './Preface.css'
+import LanguageContext from '../context/LanguageContext';
 
 function AboutTheBook() {
 
-  let context = useContext(FontContext);
+  const context = useContext(FontContext);
+  const languageContext = useContext(LanguageContext);
+  const getFontFamily = () => {
+    return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+  };
 
   return (
     <>
       <Header />
-      <div className='preface' style={{ fontSize: `${context.fontSize}px` }}>
-        <div className='p-title' style={{ fontSize: `${context.fontSize}px` }}>About The Book</div>
-        <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>On the home screen, you can browse your available textbooks and select one to start reading.
-          You can also easily search for specific topics, keywords, or pages, as well as access your bookmarked
-          pages and notes. In the textbook screen, you can navigate through the pages by swiping or tapping. The
-          app allows you to highlight important information and take notes, making studying and learning more
-          interactive and efficient. With Textbook Pro,
-          you'll have all your textbooks in one convenient place, accessible anytime and anywhere.</p>
-        <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>On the home screen, you can browse your available textbooks and select one to start reading.
-          You can also easily search for specific topics, keywords, or pages, as well as access your bookmarked
-          pages and notes. In the textbook screen, you can navigate through the pages by swiping or tapping. The
-          app allows you to highlight important information and take notes, making studying and learning more
-          interactive and efficient. With Textbook Pro,
-          you'll have all your textbooks in one convenient place, accessible anytime and anywhere.</p>
+      {
+        languageContext.language === 'English' ?
+          <div className='preface' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
+            <div className='p-title' style={{ fontSize: `${context.fontSize + 2}px` }}>About The Book</div>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>On the home screen, you can browse your available textbooks and select one to start reading.
+              You can also easily search for specific topics, keywords, or pages, as well as access your bookmarked
+              pages and notes. In the textbook screen, you can navigate through the pages by swiping or tapping. The
+              app allows you to highlight important information and take notes, making studying and learning more
+              interactive and efficient. With Textbook Pro,
+              you'll have all your textbooks in one convenient place, accessible anytime and anywhere.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>On the home screen, you can browse your available textbooks and select one to start reading.
+              You can also easily search for specific topics, keywords, or pages, as well as access your bookmarked
+              pages and notes. In the textbook screen, you can navigate through the pages by swiping or tapping. The
+              app allows you to highlight important information and take notes, making studying and learning more
+              interactive and efficient. With Textbook Pro,
+              you'll have all your textbooks in one convenient place, accessible anytime and anywhere.</p>
+          </div> :
+          <div className='preface' style={{ fontSize: `${context.fontSize}px` }}>
+            <div className='p-title' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize + 2}px` }}> அணிந்துரை</div>
+            <p className='p-para' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
+              அகிலங்களைப் படைத்து, அதில் மனிதனை மிக உயர்வான தகுதியில் அமைத்து,
+              இன்னும் அதில் ஒவ்வொருவரின் வாழ்க்கைத் தேவைகளையும் குறைவில்லாமல் படைத்து, பின்னர்
+              அவற்றுக்கான இரு வேறு வழிகளையும் தெளிவாகப் பிரித்து அறிவித்தப் படைப்பாளனுக்கே அனைத்துப்
+              புகழும். இன்னும் இவ்விரு வழிகளில் எவர் நேர் வழியின் மீது நம்பிக்கை கொண்டு நல்வழியை ஏற்று
+              செயல்படுகிறாரோ அவருக்கு நன்மையையும், எவர் தீய வழியில் முயல்கிறாரோ அவருக்குத் தீமையே
+              கூலி என்பதையும் அகிலங்களுக்குக் கட்டளையாக விதித்துள்ளானே, அந்த அகிலங்களின் அதிபதியான
+              அல்லாஹ்வுக்கே புகழ் அனைத்தும்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>
+              குர்ஆன் மனித குலம் முழுவதற்கும் இறைவனால் அருளப்பட்ட முழுமையான வழிகாட்டியாகும்.
+              மனித மொழிகளில் ஒன்றான அரபி மொழியில் வழிகாட்டும் குர்ஆன், வேதமாக அருளப்பட்டுள்ளது.
+            </p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>
+              ஜாதி, மதம், இனம், மொழி, நாடு என்ற மாச்சரியங்களைக் கடந்து, பூகோள ரீதியான எல்லைகளைத்
+              தாண்டி, மனித மனங்களைக் கவர்ந்து யதார்த்தமான வாழ்க்கையின் பக்கம் மக்களுக்கு வழிகாட்டும்
+              ஒப்பற்ற ஒரு வழிகாட்டியாக இந்த வேதம் இருக்கிறது. சிந்தனையுள்ள ஒவ்வொரு மனிதருக்கும்
+              இது மறுக்க முடியாத பொக்கிஷம்.
+            </p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>
+              'முஸ்லிம்கள்’ என்ற ஒரு குறிப்பிட்ட இனத்தவர்களுக்கு மட்டுமே இது வேத நூல் என்ற
+              கண்ணோட்டத்திலும், அரபி மொழியில் மட்டுமே இதைப் படிக்க வேண்டும் என்றும், இதனை
+              சிந்தனைக்குள் கொண்டு வருவதோ, அதைக் கொண்டு சுயமாகப் புரிந்து கொள்ள முற்படுவதோ
+              கூடாது என்றும், அரபி மொழி கற்றுத் தேர்ந்த பண்டிதர்களிடம் மட்டுமே இந்தக் குர்ஆனின்
+              வாசகங்களுக்கு விளக்கம் கேட்க வேண்டும் என்றும் உலக மக்கள் இதுவரையில் திசை
+              திருப்பப்பட்டிருந்தனர்.
+            </p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>
+              மேலும், குர்ஆனை விளங்கிக் கொள்ள, அது அருளப் பெற்ற காலத்தையும், வரலாற்றுப்
+              பின்னணியையும் அறிந்திருந்தால் தவிர, அதனை விளங்க முடியாது என்று குர்ஆனுக்கு மாறாக
+              அப்பட்டமாக பொய்யைப் புகுத்தினர். இன்னும் வேதத்தை அறிவதற்கு முன்பாக மனிதர்களின் கைகளால்
+              எழுதப்பட்ட வரலாற்றுப் பின்னணிகள் அடங்கிய ஹதீஸ்களின் பக்கமும் மக்களைத் திருப்பி விட்டனர்;
+              மக்களும் குர்ஆனைக் காட்டிலும் கதைகளின் மீதே ஆர்வம் அடைந்தனர். ஆனால், அல்லாஹ் கூறுகிறான், 'இந்த வேதம் இன்றைய
+              வாழ்க்கைக்கும், நாளைய வாழ்க்கைக்கும்; மேலும், என்றுமே வழிகாட்டும் ஒளிமயமான வேதம்.’ எனவே,
+              கடந்த கால நிகழ்ச்சிகள் அடங்கிய வரலாறுகள் அவசியமே இல்லை.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>
+              இன்னும், இந்தக் குர்ஆன் புரிய வேண்டு மென்றால், அரபி இலக்கண, இலக்கிய விதிகளை அறிந்திருந்தால் தான் குர்ஆன் வாசகங்களின் பொருளை அறிய முற்பட வேண்டும். அவ்வாறு இல்லாத பட்சத்தில் அரபி மொழியில் படிக்க மட்டும் கற்றுக் கொண்டு, எதுவும் புரியாமலேயே வெறும் வெற்றுச் சடங்காக ஓதினாலே புண்ணியம் என்றும் நேர்வழி அடைவதிலிருந்து மக்களைத் தடுத்தனர்; தடுத்தும் வருகின்றனர்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>
+              எனவே, 'பாமர மக்களுக்கு இது புரியாது' என்ற கருத்து பரவலாக்கப்பட்டு விட்டதால் முஸ்லிம்களுக்கு முற்றிலும், அந்நியமாகவே இந்தக் குர்ஆன் இருந்து வருகிறது. </p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>
+              அரபி மொழியை கற்றதன் காரணமாக, அறிஞர்கள் என்றும், பண்டிதர்கள் என்றும் இருப்பவர்கள் குர்ஆனுக்கு விளக்கம் அளிக்க ஆரம்பித்தார்கள். இவர்கள் பள்ளிவாசல்களிலும் தங்களைத் தாங்களே இமாம்களாக ஆக்கிக் கொண்டார்கள். பாமர மக்களும் இவர்களை மார்க்க அறிஞர்கள் என்றும், வழிகாட்டிகள் என்றும் தவறாகக் கருதி, தங்களிடமுள்ள வேதத்தைப் புரிந்து, ஓத வேண்டும் என்ற எண்ணத்தையே கைவிட்டனர். அவ்விதம் செயல்படுவது தெய்வக் குற்றம் என்றும் இன்றும் பெரும்பாலோர் கருதிக் கொண்டிருக்கின்றனர். எனவே, முஸ்லிம்கள் இம்மைக்கும் வழி தெரியாமல், மறுமையையும் நம்பிக்கை கொள்ள முடியாமல், வாழவே தகுதியற்றவர்களாக தத்தளித்துக் கொண்டிருக்கின்றனர். இவர்களைப் பற்றி மற்ற சமுதாயத்தினர், 'இந்த முஸ்லிம்கள், பூமிக்கு மேலே வானத்துக்கு அப்பாலும், பூமிக்குக் கீழே மண்ணறையையும் பற்றிப் பேசிக் கொண்டிருப்பார்களே தவிர, உலக வாழ்க்கையோடு ஒத்து, ஒருபோதும் இவர்கள் வாழ மாட்டார்கள்' என்று கேலி பேசப்படும் சமுதாயமாக ஆக்கப்பட்டு விட்டார்கள். இந்த நிலைக்குக் காரணம் மார்க்க வழிகாட்டிகள் என்று தங்களைத் தாங்களே ஆக்கிக் கொண்ட இமாம்கள் ஆவார்கள்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இமாம்கள் பள்ளிவாசல்களுக்கு தங்களை சமுதாயத்தின் பொறுப்பாளிகளாகவும், காரியஸ்தர்களாகவும் ஆக்கிக் கொண்டனர். எனவே, முஸ்லிம் சமுதாயத்தினர் மீது அவர்களுடைய ஆதிக்கமும், பிடியும் இறுகியது. இன்றும் முஸ்லிம்கள் தாங்களே குர்ஆனை ஓதி, புரிந்து செயல்படத்தான் விரும்புகிறார்கள். எனினும், அவ்விதமாக நீங்கள் செயல்பட்டால், உங்களை எங்கள் புதை குழிகளில் புதைக்க அனுமதிக்க மாட்டோம் என்றும், உங்களுக்கான இறுதிச் சடங்கு, காரிய  சம்பிரதாயங்களைச் செய்ய மாட்டோம் என்றும், இந்தச் சடங்குகள் முறையாகச் செய்யப்படவில்லை யென்றால் மறுமையில் உங்களுக்கு நரகம் தான்' என்றும் பயமுறுத்தப்பட்டு, அடக்கியாளப்பட்டு வருகின்றனர்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>குர்ஆனை மட்டும் இவர்கள் ஓதியிருந்திருந்தால் வாழும் காலத்தில் அதனை எந்த அளவுக்கு நீங்கள் சொந்தமாகப் புரிந்திருக்கிறீர்களோ, அதில் முடிந்த அளவுக்கு கடைப்பிடித்து வாழ்ந்து வந்தாலே உங்களுக்கு சுவர்க்கம் தான் என்று இறைவன் அறிவித்திருப்பதைப் புரிந்திருப்பார்கள் (64:16). இமாம்களுடைய பிடிகளிலிருந்தும் வெளியேறி சுதந்திரமாக ஆகியிருப்பார்கள்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>மேலும், குர்ஆன் உலக வாழ்க்கையில் வெற்றியடைவதற்கான வழிகாட்டி என்று இருக்க, அவ்வாறல்ல, அது மறுவுலக வாழ்க்கைக்கு மட்டுமே என்று போதித்தனர். எனவே, இவ்வுலக வாழ்க்கை முஸ்லிம்களுக்கு புதிராக ஆகி விட்டது. மறுவுலக வாழ்க்கையோ ஒரு மாயக் கற்பனையாக மாறி விட்டது. ஈருலகைப் பற்றியும் எந்த ஞானமும், வாழ்வாதாரமும் இல்லாத நிலையில் இன்று முஸ்லிம்கள். </p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இவர்களுடைய வாழ்க்கை இரண்டாகப் பிரிந்தது. ஒன்று, பள்ளிவாசல்களுக்குள் ஒரு தனி வாழ்க்கை . </p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>அதாவது மறுமையைப் பற்றிய ஒரு மாய வாழ்க்கை. மற்றது, பள்ளிவாசல்களுக்கு வெளியே எந்தப் பிடிமானமும் இல்லாத, உலகக் கல்வியறிவும் இல்லாத, மார்க்க அறிவும் இல்லாத ஏதோ ஒரு பிறவியாக வாழ்ந்து கொண்டிருக்கக் கூடிய நிலையில் இன்றைய முஸ்லிம்கள். இவர்கள் மட்டும் குர்ஆனை ஓத வேண்டிய முறைப்படி ஒவ்வொருவரும் தனித்தனியே முறையே படித்து, சிந்தித்து, செயல்பட்டிருப்பார்களானால், மனித சமுதாயத்தில் மிக உயர்ந்த அந்தஸ்த்தில் உலகத்திற்கே வழிகாட்டியாக, சிறந்த முன்மாதிரிகளாக இருந்திருப்பார்கள்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>எனினும், ஒவ்வொரு பொருளுக்கும் ஒரு காலத் தவணை உண்டு. காலம் மாறி மாறி வரக் கூடியதாக இருக்கிறது. இப்பொழுது மாறக் கூடிய காலம். இமாம்களின் பிடிகளிலிருந்து இயற்கையின் விதிப்படி, இறைவனின் நாட்டப்படி மனித சமுதாயத்தினரின் வழிமுறை மாறுகிறது. குர்ஆனின் தனித்தன்மை தனித்தனி மனிதர்களிடமிருந்து, புதிய புதிய பரிமாணங்களுடன் எண்ணற்ற திசைகளிலும், கோணங்களிலும் வழிகாட்டும் ஒளிவிளக்காக, எந்த இயற்கையில் அது அமைக்கப்பட்டதோ, அவ்விதமே அதன் பிரகாசத்தை சுடர் விட ஆரம்பித்து விட்டது. இமாம்களின் கைகளிலிருந்து மனித சமுதாயத்தினர் குர்ஆனைப் பிடுங்கி, தங்களுக்குத் தாங்களே இறைவன் அனுமதியைக் கொண்டும், அவன் வழிகாட்டுதலைக் கொண்டும் வெற்றிப் பாதையை நாடுபவர்களின் எண்ணிக்கைத் துவங்கி விட்டது.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>பலரும் தாங்களும் அரபி மொழியைக் கற்றுக் கொண்டு, தமிழ் மொழி பெயர்ப்புகள் செய்துள்ளனர். எனினும், அனைத்துக் குர்ஆன் தமிழ் மொழி பெயர்ப்புகளும் 'நபியுடைய வரலாற்றுப் பின்னணிகள்’ என்ற கதைகளின் அடிப்படையை ஒட்டியே அமைந்துள்ளன. எனவே, அதனால் இவ்வுலக வாழ்க்கைக்கும் பயனில்லை, மறுவுலக வாழ்க்கைக்கும் பயனில்லை. எனினும் இந்த மொழி பெயர்ப்புக்கள் காலத்தின் மாற்றத்தில் ஏற்பட்ட வளர்ச்சியின் ஆரம்ப நிலை. </p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இன்று, குர்ஆனை ஒவ்வொருவரும் தனித்தனியே முறையே படிப்பதில் ஆர்வம் காட்டுவதன் விளைவாக மனிதனுக்கு இறைவன் அளித்த அரிய பொக்கிஷமான சுய சிந்தனையின் பால் ஈர்க்கப்பட்டுள்ளார்கள். விளைவு, இன்று முஸ்லிம் சமுதாயம் தனித்தன்மை வாய்ந்த சமுதாயத்தினரைக் கொண்டதாக மாறி வருகிறது.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இவ்வகையில் தனித்தன்மையுடன் பரிணமிக்கும் முஸ்லிம் சமுதாயத்தினரில் ஒருவராக டாக்டர் ஃபஸ்லுர் ரஹ்மான் இன்று அமைந்திருக்கிறார். இவருடைய 53 வது வயதில் குர்ஆனை தமிழில் மொழியாக்கம் செய்திருக்கிறார். தன்னுடைய 19 வது வயதில் குர்ஆனை தனக்குத் தானே விளங்கிக் கொள்ள ஆரம்பித்ததன் விளைவாக, 34 ஆண்டுகளுக்குப் பிறகு குர்ஆனை மொழியாக்கம் செய்யும் தகுதிக்கு இறைவன் அவரை உயர்த்தி இருக்கிறான் என்பதை இந்த மொழியாக்கத்தைப் படிக்கும் ஒவ்வொருவரும் உணர முடியும். இதில் வரலாற்றுப் பின்னணி, சமய, சமுதாயப் பின்னணி கிடையாது. சடங்கு, சம்பிரதாயங்கள் அடிப்படை கிடையாது. ஜாதி, மத அடிப்படை கிடையாது. மனித சமுதாயம் ஒட்டுமொத்தமாக இவற்றுக்கெல்லாம் அப்பாற்பட்டு ஒரே சமுதாயமாக அமைக்கக் கூடிய தெளிவும், ஞானங்களும் இந்த மொழியாக்கத்தில் முழுமையாக அமைந்திருக்கிறது. இது ஓர் இறை அருட்கொடை என்றே உங்களால் கருதத் தோன்றும்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இமாம்கள் என்று சொல்லிக் கொள்வோர் எவரும் இந்த மொழி ஆக்கத்தை எதிர்க்க முடியாது. இதுவரையில் மொழியைப் பெயர்த்துவிடும் செயலில் தான் இருந்தார்கள். இப்பொழுது தான் குர்ஆன் முதன் முறையாக, தமிழில் மொழியாக்கம் ஆகியிருக்கிறது.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>பொதுவாக அனைத்து மொழி பெயர்ப்புக்களிலும் பெரும் குழப்பங்களைக் கொண்டும், குழப்பங்களை ஏற்படுத்தும் விதமாகவும் ஒவ்வொரு வசனத்திற்குள்ளும் அடைப்புக் குறிகளுக்குள் தங்கள் சொந்த கற்பனைகளையும், ஹதீஸ்கள் என்று சொல்லக் கூடிய வரலாற்றுப் பின்னணிகளையும் விளக்கங்களாகவும், விரிவுகளாகவும் எழுதியிருப்பார்கள். மேலும், அடிக் குறிப்புகளாகவும் ஹதீஸ்களை விமரிசையாக எழுதியிருப்பார்கள்</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இதில், படிப்பவர்களுக்கு பலவிதமான சங்கடங்கள் உள்ளன. இந்து, கிறிஸ்தவ சமுதாயத்தினர், 'இது முஸ்லிம்களின் சொந்த விஷயம் என்று கருதித் தொடக் கூட மாட்டார்கள். தொடவும் இல்லை. மேலும், அவ்விதமாகப் படித்தாலும் குற்றம், குறை காணும் நோக்கத்தோடு படிக்கத் தோன்றுகிறதே தவிர, புரிந்து கொள்ள படிக்கும் எண்ணம் தோன்றுவதே கிடையாது. அவ்வளவு தூரத்திற்கு வரலாற்றுப் பின்னணிகள் பொய்களைக் கொண்டு வெறுப்பு ஏற்படுத்தக் கூடிய அளவுக்கு அமைந்திருக்கின்றன. இந்த ஹதீஸ்கள் எனும் வரலாற்றுப் பின்னணியில் உண்மையும் இல்லை. இவற்றை இவர்களுக்குள்ளேயே பல முன்னுக்குப் பின் முரணான ஹதீஸ்களைக் கொண்டு பிரிவுகளாகப் பிரிந்து, ஒரு பிரிவினர் மற்றொரு பிரிவினரை எதிர்ப்பார்கள். இறுதியில், முஸ்லிம்களுக்குள் எண்ணற்ற பிரிவுகள், பிரிவினைகள். இது இன்றைய நிலை.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>எனவே, இந்தக் 'குர்ஆன் தமிழ் மொழியாக்கம்' ஒட்டுமொத்த மனித சமுதாயத்தின் இறையுணர்வு தேடுதல்களுக்கு எந்த நெருக்கடியும் இருதயத்தில் ஏற்படுத்தாத விசாலமான பாதையாக இறைவன் அருளால் அமைந்திருக்கிறது. குறிப்பாக, தொழுகை என்றால் என்ன? ஹஜ், உம்ரா, நோன்பு, ஹதீஸ் போன்ற ஒவ்வொன்றையும் குர்ஆன் அடிப்படையைக் கொண்டே தெளிவாக விளக்குகிறது. எங்கெல்லாம் உருவ அமைப்பைக் கொண்டும், வழிபாட்டைக் கொண்டும், சடங்குகளைக் கொண்டும், சம்பிரதாயங்களைக் கொண்டும் ஏனைய அனைத்து மொழி பெயர்ப்புக்களிலும் எழுதப்பட்டுள்ளதோ, அவற்றின் சாயல் ஒன்று கூட இல்லாமல் புத்தம் புது இறை ஞானத்துடன் அனைத்து சமுதாயத்தினரும் படித்து, உயர்வடையும் நேர்வழிக்குரியதாகவும், ஒளி மிக்கதாகவும் அமைந்திருக்கிறது இந்தக் குர்ஆன் தமிழ் மொழியாக்கம்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இந்தத் தமிழ் மொழியாக்கத்தின் சிறப்பம்சம் என்னவெனில், இதில் வரலாற்றுப் பின்னணி கிடையாது. ஹதீஸ்களுடைய வாசனையே கிடையாது. இன்றைய வாழ்க்கைக்கு பொருந்தக் கூடியதும், நாளைய வாழ்க்கைக்கு உறுதுணையாக இருக்கக் கூடியதுமான அல்லாஹ்வினுடைய வேதத்தின் அத்தாட்சிகள் தெளிவான தமிழில், குழப்பத்திற்கு வழியே இல்லாததாகவும், மனித சமுதாயம் அனைத்திற்கும் ஒரே சமுதாயமாக வழிகாட்டுவதாகவும், அனைத்துப் பிரச்சினைகளுக்கும் தீர்வளிக்கக் கூடியதாகவும், மனக் குழப்பங்களுக்கு தெளிவு ஏற்படுத்தக் கூடியதாகவும், இறைவனை மனதில் உறுதிப்படுத்தக் கூடியதாகவும் அமைந்திருப்பதாகும். இதுவே இறைவனுடைய ஞானங்களைக் கொண்டு மொழியாக்கம் செய்யப்பட்ட குர்ஆன். வழக்கமாக இப்பொழுது இருப்பவற்றைப் போன்று மனித மொழியறிவுகளில் ஒன்றான அரபி மொழியின் பாண்டித்தியத்தை நம்பி மொழி பெயர்க்கப்பட்டதல்ல. எனவே, முழுமையாக இறையருளையும், இறை ஞானத்தையும் கொண்டு இந்த குர்ஆன் அமைந்துள்ளதை உங்கள் இருதயம் ஏற்கும். நிச்சயமாக இது இறையருள் என்பதைக் கொண்டும் உங்கள் இருதயங்கள் அமைதியடையும். அல்லாஹ் போதுமானவன்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>டாக்டர் ஃபஸ்லுர் ரஹ்மான் அவர்களின் இந்த மொழி ஆக்கத்தில் முழுமையுமாகப் பங்கு கொண்டு அல்லாஹ்வினுடைய இக்காரியத்தில் அவருக்கு உதவி புரிய, என்னைத் தேர்வு செய்து, எனக்குப் பேருதவி புரிந்த அல்லாஹ்வுக்கு எல்லாப் புகழும்.</p>
+            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இவர்களுடைய வாழ்க்கை இரண்டாகப் பிரிந்தது. ஒன்று, பள்ளிவாசல்களுக்குள் ஒரு தனி வாழ்க்கை . </p>
+          </div>
+      }
+      <div className='contributors-container'>
+        <div className='contributor'>
+          <p className='contributor-name'
+            style={{ fontSize: `${context.fontSize}px` }}>K.M. Abdul Salam,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Bachelor of Islamic Law,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>AI Azhar University, Cairo, Egypt</p>
+        </div>
+        <div className='contributor'>
+          <p className='contributor-name' style={{ fontSize: `${context.fontSize}px` }}>Islamic Revealed Knowledge and Heritage, M.A.</p>
+          <p className='contributor-id'>(International Islamic University, Malaysia)</p>
+        </div>
+        <div className='contributor'>
+          <p className='contributor-name' style={{ fontSize: `${context.fontSize}px` }}>Afzal ul Ulema,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Madras University Modern Arabic,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>M.A. Madras University</p>
+        </div>
+        <div className='contributor'>
+          <p className='contributor-name'
+            style={{ fontSize: `${context.fontSize}px` }}>Moulvi Alim, Bakiath Salihath,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Arabic College, Vellore</p>
+        </div>
+        <div className='contributor'>
+          <p className='contributor-name'
+            style={{ fontSize: `${context.fontSize}px` }}>Moulvi Fazil,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Jamalia Arabic College, Chennai</p>
+        </div>
+        <div className='contributor'>
+          <p className='contributor-name' style={{ fontSize: `${context.fontSize}px` }}>Hafiz AlQuran, Jamia Anwarul Ulum,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Arabic College Trichy.</p>
+        </div>
       </div>
+
     </>
   )
 }
