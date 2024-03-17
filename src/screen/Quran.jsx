@@ -32,7 +32,7 @@ function Quran({ activeTab, setActiveTab }) {
                 </div>
                 <div className={!SideBarcontext.sidebarOpen ? 'chapter-list-wrapper' : 'chapter-list-relative'}>
                     <div className='tab-container' style={{ fontSize: `${context.fontSize}px` }}>
-                        <div className='tabs' style={{ fontSize: `${context.fontSize}px` }}>
+                        <div className='tabs' style={{ fontFamily:getFontFamily(), fontSize: `${context.fontSize}px` }}>
                             {
                                 React.Children.toArray(
                                     data.chapters.map((chapter, index) => (
