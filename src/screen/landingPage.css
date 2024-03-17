@@ -42,7 +42,7 @@
   font-weight: 700;
   font-size: 36px;
   line-height: 80%;
-  color: var(--text-primary);
+  color: var(--menu-active);
 }
 .landing-title h6 {
   width: 40px;
@@ -55,7 +55,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 140%;
-  color: var(--text-primary);
+  color: var(--menu-active);
 }
 .land-page {
   display: flex;

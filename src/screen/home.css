@@ -11,7 +11,7 @@
 }
 .prayer-container {
   height: 50%;
-  background-image: url(../Assets/cover-page.jpg);
+  background-image: url(../Assets/menu-prayer.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,7 +33,7 @@
 }
 .route-container {
   height: 50%;
-  padding: 1.125rem;
+  padding: .5rem;
   display: flex;
   justify-content: center;
   align-items: center;

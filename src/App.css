@@ -11,6 +11,7 @@
   --icon-priamry: #647288;
   --menu-active: #33578d;
   --menu-inactive: #8496b1;
+  --link-blue: #0071e3;
   --bg-primary: #243b5d;
   --bg-secondary: #628bc9;
   --bg-primary-gradient: linear-gradient(
@@ -20,7 +21,7 @@
   );
   --link-primary: '#0071e3';
   --btn-gradient: linear-gradient(279deg, #243B5D -71.08%, #4B7CC3 174.39%);
-  --font-family: "Nunito Sans", sans-serif;
+  --font-family: "Nunito", sans-serif;
   --bg-white: #ffffff;
   --bg-light: #f7f8f9;
   --primary400: #2b94ff;

@@ -42,10 +42,10 @@
   height: 29px;
   font-family: var(--font-family);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 36px;
   line-height: 80%;
-  color: var(--text-primary);
+  color: var(--menu-active);
 }
 .login-title h6 {
   width: 40px;
@@ -58,7 +58,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 140%;
-  color: var(--text-primary);
+  color: var(--menu-active);
 }
 form {
   display: flex;

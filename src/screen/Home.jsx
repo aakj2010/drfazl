@@ -41,7 +41,7 @@ function AboutTheBook() {
     <>
       <section className='home-wrapper'>
         <div className='prayer-container'>
-          <p className='en-iraivane' style={{ fontFamily: getFontFamily() }}>என் இறைவனே!</p>
+          {/* <p className='en-iraivane' style={{ fontFamily: getFontFamily() }}>என் இறைவனே!</p>
           <p className='pray' style={{ fontFamily: getFontFamily() }}>
             நீயே அளவற்ற அருளாளன்; நிகரற்ற
             இரக்கமுடையவன்; நீயே அகிலங்களின்
@@ -52,7 +52,8 @@ function AboutTheBook() {
             நான் உன்னை கொண்டே
             திருப்தியடைகிறேன். என்னை நீ
             நேர்வழியில் ஆக்குவாயாக.
-          </p>
+          </p> */}
+          
         </div>
         <div className='route-container'>
           <StyledLinkButton to="/chapters">
