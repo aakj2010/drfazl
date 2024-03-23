@@ -51,7 +51,7 @@ function AboutTheBook() {
         <div className='route-container'>
           <div className='divisions'>
             <Link to='/preface' className='index-card'>
-              <div className='icon-cont' style={{ backgroundColor: '#F0F5F9' }}>
+              <div className='icon-cont' style={{ backgroundColor: '#eff9da' }}>
                 <FeedRoundedIcon fontSize="small" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
@@ -70,7 +70,7 @@ function AboutTheBook() {
           <div className='divisions'>
             <Link to='/chapters/keywords' className='index-card'>
               <div className='icon-cont' style={{ backgroundColor: '#E3F3FF' }}>
-                <StarRateRoundedIcon fontSize="small" />
+                <StarRateRoundedIcon fontSize="medium" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
                 {languageContext.language === 'Tamil' ? 'கலைச்சொல்' : 'Keywords'}
@@ -78,7 +78,7 @@ function AboutTheBook() {
             </Link>
 
             <Link to='/aboutTheBook' className='index-card'>
-              <div className='icon-cont' style={{ backgroundColor: '#FFF1F1' }}>
+              <div className='icon-cont' style={{ backgroundColor: '#eff9da' }}>
                 <StickyNote2RoundedIcon fontSize="small" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
@@ -88,7 +88,7 @@ function AboutTheBook() {
           </div>
           <div className='divisions'>
             <Link to='/chapters/glossary' className='index-card'>
-              <div className='icon-cont' style={{ backgroundColor: '#E3F3FF' }}>
+              <div className='icon-cont' style={{ backgroundColor: '#ffefed' }}>
                 <AssignmentRoundedIcon fontSize="small" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
@@ -97,7 +97,7 @@ function AboutTheBook() {
             </Link>
 
             <Link to='/aboutTheBook' className='index-card'>
-              <div className='icon-cont' style={{ backgroundColor: '#FFF1F1' }}>
+              <div className='icon-cont' style={{ backgroundColor: '#e6edf3' }}>
                 <SettingsRoundedIcon fontSize="small" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
