@@ -10,7 +10,7 @@
   /* height: 234px; */
 }
 .prayer-container {
-  height: 60%;
+  height: 55%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,8 +31,9 @@
   margin-bottom: 1rem;
 }
 .route-container {
-  height: 40%;
+  height: 45%;
   padding: .5rem;
+  padding-bottom: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
