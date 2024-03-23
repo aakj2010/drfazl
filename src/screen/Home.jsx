@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import FontContext from '../context/FontContext'
 import Header from '../layout/Header';
+import Prayer from '../Assets/menu-prayer.jpg';
 import { styled } from "@mui/material";
 import './home.css'
 import LanguageContext from '../context/LanguageContext';
@@ -20,7 +21,7 @@ function AboutTheBook() {
 
   const StyledLinkButton = styled(NavLink)({
     fontSize: '12px',
-    width: '156px',
+    width: '148px',
     height: '130px',
     paddingBottom: '28px',
     paddingTop: '28px',
@@ -53,19 +54,19 @@ function AboutTheBook() {
             திருப்தியடைகிறேன். என்னை நீ
             நேர்வழியில் ஆக்குவாயாக.
           </p> */}
-          
+          <img src={Prayer} alt='Prayer' width="100%" height="100%" />
         </div>
         <div className='route-container'>
           <StyledLinkButton to="/chapters">
-            <div className='icon-cont' style={{ backgroundColor: '#FFF2DF'}}>
+            <div className='icon-cont' style={{ backgroundColor: '#FFF2DF' }}>
               <MenuBookRoundedIcon fontSize="small" />
             </div>
-            <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px`  }}>
+            <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
               {languageContext.language === 'Tamil' ? 'அத்தியாயம்' : 'Chapter'}
             </div>
           </StyledLinkButton>
           <StyledLinkButton to='/chapters/keywords' className='index-card'>
-            <div className='icon-cont' style={{ backgroundColor: '#E3F3FF'}}>
+            <div className='icon-cont' style={{ backgroundColor: '#E3F3FF' }}>
               <FeedRoundedIcon fontSize="small" />
             </div>
             <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
@@ -73,7 +74,7 @@ function AboutTheBook() {
             </div>
           </StyledLinkButton>
           <StyledLinkButton to='/preface' className='index-card'>
-            <div className='icon-cont' style={{ backgroundColor: '#F0F5F9'}}>
+            <div className='icon-cont' style={{ backgroundColor: '#F0F5F9' }}>
               <FeedRoundedIcon fontSize="small" />
             </div>
             <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
@@ -81,7 +82,7 @@ function AboutTheBook() {
             </div>
           </StyledLinkButton>
           <StyledLinkButton to='/aboutTheBook' className='index-card'>
-            <div className='icon-cont' style={{ backgroundColor: '#FFF1F1'}}>
+            <div className='icon-cont' style={{ backgroundColor: '#FFF1F1' }}>
               <StickyNote2RoundedIcon fontSize="small" />
             </div>
             <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>

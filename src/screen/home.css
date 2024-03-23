@@ -10,12 +10,11 @@
   /* height: 234px; */
 }
 .prayer-container {
-  height: 50%;
-  background-image: url(../Assets/menu-prayer.jpg);
+  height: 60%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1.5rem;
+  padding-bottom: 1.5rem;
   color: var(--bg-white);
   text-align: center;
   gap: 2rem;
@@ -32,7 +31,7 @@
   margin-bottom: 1rem;
 }
 .route-container {
-  height: 50%;
+  height: 40%;
   padding: .5rem;
   display: flex;
   justify-content: center;
