@@ -9,6 +9,10 @@ import FeedRoundedIcon from '@mui/icons-material/FeedRounded';
 import StickyNote2RoundedIcon from '@mui/icons-material/StickyNote2Rounded';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
+import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
+import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+
+
 
 
 function AboutTheBook() {
@@ -79,6 +83,25 @@ function AboutTheBook() {
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
                 {languageContext.language === 'Tamil' ? 'அணிந்துரை' : 'About Quran'}
+              </div>
+            </Link>
+          </div>
+          <div className='divisions'>
+            <Link to='/chapters/glossary' className='index-card'>
+              <div className='icon-cont' style={{ backgroundColor: '#E3F3FF' }}>
+                <AssignmentRoundedIcon fontSize="small" />
+              </div>
+              <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
+                {languageContext.language === 'Tamil' ? 'பிற்சேர்க்கை' : 'Glossary'}
+              </div>
+            </Link>
+
+            <Link to='/aboutTheBook' className='index-card'>
+              <div className='icon-cont' style={{ backgroundColor: '#FFF1F1' }}>
+                <SettingsRoundedIcon fontSize="small" />
+              </div>
+              <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
+                {languageContext.language === 'Tamil' ? 'அமைப்புகள்' : 'Settings'}
               </div>
             </Link>
           </div>
