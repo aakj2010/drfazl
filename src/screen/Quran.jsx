@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import './Chapters.css'
+import React, { useContext, useEffect, useState } from 'react';
+import './Chapters.css';
 import Tab from './Tab';
 import FontContext from '../context/FontContext';
 import SideBarContext from '../context/SideBarContext';
@@ -9,30 +9,44 @@ import engQuranData from './eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
 import LanguageContext from '../context/LanguageContext';
 
-
 function Quran({ activeTab, setActiveTab }) {
     let context = useContext(FontContext);
     let SideBarcontext = useContext(SideBarContext);
     const langContext = useContext(LanguageContext);
 
     const data = langContext.language === 'Tamil' ? tamQuranData : engQuranData;
-    
+
     const handleTabClick = (index) => {
         setActiveTab(index);
     }
+
     const getFontFamily = () => {
         return langContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
-      };
+    };
+
+    // State to store the dynamically calculated font size
+    const [dynamicFontSize, setDynamicFontSize] = useState(langContext.language === 'Tamil' ? 20 : 24);
+
+    useEffect(() => {
+        // Update the font size dynamically when language changes
+        setDynamicFontSize(langContext.language === 'Tamil' ? 20 : 24);
+    }, [langContext.language]);
+
     return (
         <>
             <Header />
             <div className='chapters'>
                 <div className='img-container' >
-                    <div className="bottom-left" style={{ fontSize: `${context.fontSize}px` }}>Quran</div>
+                    {/* Dynamically set font size and font family */}
+                    <div className="bottom-left" style={{ fontSize: `${dynamicFontSize}px`, fontFamily: getFontFamily() }}>
+                        {
+                            langContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran'
+                        }
+                    </div>
                 </div>
                 <div className={!SideBarcontext.sidebarOpen ? 'chapter-list-wrapper' : 'chapter-list-relative'}>
                     <div className='tab-container' style={{ fontSize: `${context.fontSize}px` }}>
-                        <div className='tabs' style={{ fontFamily:getFontFamily(), fontSize: `${context.fontSize}px` }}>
+                        <div className='tabs' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
                             {
                                 React.Children.toArray(
                                     data.chapters.map((chapter, index) => (
@@ -61,4 +75,4 @@ function Quran({ activeTab, setActiveTab }) {
     )
 }
 
-export default Quran
+export default Quran;

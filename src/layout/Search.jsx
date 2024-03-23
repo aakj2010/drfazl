@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useMemo } from 'react';
+import { useContext, useState, useEffect, useMemo, useTransition } from 'react';
 import engQuranData from '../screen/eng-quran.json';
 import tamQuranData from '../Content/tam-quran.json';
 import tamKalaiSorkalData from '../Content/tam-Kalaisol.json';
@@ -192,7 +192,6 @@ const Search = ({ setActiveTab }) => {
       return <p>No results found.</p>;
     }
   };
-
   return (
     <>
       <div className="s-wrapper">
@@ -208,28 +207,35 @@ const Search = ({ setActiveTab }) => {
             </Link>
           </div>
         </div>
-        <div className="cl-search">
-          <img src={search_refraction} alt="" />
-          <input
-            type="text"
-            placeholder={selectedLanguage === "English" ? "Search words" : "வார்த்தை அல்லது அத்தியாயம்"}
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-        </div>
+
         <div className="language-switcher">
           <button
-            className={selectedDataset === 'quran' ? 'active-btn' : ''}
+            className={selectedDataset === 'quran' ? 'active-btn search-btn' : ''}
             onClick={() => setSelectedDataset('quran')}
           >
             {selectedLanguage === "English" ? "Quran" : "குர்ஆன்"}
           </button>
           <button
-            className={selectedDataset === 'kalaisorkal' ? 'active-btn' : ''}
+            className={selectedDataset === 'kalaisorkal' ? 'active-btn search-btn' : ''}
             onClick={() => setSelectedDataset('kalaisorkal')}
           >
             {selectedLanguage === "English" ? "KalaiSorkal" : "கலைச்சொற்கள்"}
           </button>
+        </div>
+        <div className="cl-search">
+          <div className='inp-box'>
+            <input
+              type="text"
+              placeholder={selectedLanguage === "English" ? "Search words" : "வார்த்தை அல்லது அத்தியாயம்"}
+              value={searchQuery}
+              onChange={handleSearch}
+            />
+          </div>
+          {/* <div className='inp-box'> */}
+            {/* <button className="show-more-btn" onClick={renderResults()}> */}
+              <img src={search_refraction} alt="" />
+            {/* </button> */}
+          {/* </div> */}
         </div>
         <div className="verse-wrapper" style={{ marginTop: '56px' }}>
           {renderResults()}

@@ -62,7 +62,7 @@ function SideBar() {
             <img src={logo} alt="" width="32px" height="32px" />
           </div>
           <div className="title-sidebar">
-            <h4 style={{ fontFamily: getFontFamily() }}>{languageContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran drfazl'}</h4>
+            <h4 style={{ fontFamily: getFontFamily() }}>{languageContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran'}</h4>
           </div>
         </div>
 
@@ -120,7 +120,8 @@ function SideBar() {
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <SettingsRoundedIcon fontSize="small" />
                 </div>
-                <div className="list-title">Settings</div>
+                <div className="list-title">
+                {languageContext.language === 'Tamil' ? 'அமைப்புகள்' : 'Settings'}</div>
               </li>
             </StyledLinkButton>
             {/* <StyledLinkButton to="/"> */}

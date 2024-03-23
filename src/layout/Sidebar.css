@@ -42,7 +42,7 @@
   color: #ffffff;
 }
 .title-sidebar h4 {
-  height: 20px;
+  /* height: 20px; */
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;

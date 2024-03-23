@@ -51,7 +51,7 @@ function AboutTheBook() {
         <div className='route-container'>
           <div className='divisions'>
             <Link to='/preface' className='index-card'>
-              <div className='icon-cont' style={{ backgroundColor: '#eff9da' }}>
+              <div className='icon-cont' style={{ backgroundColor: '#FFF2DF' }}>
                 <FeedRoundedIcon fontSize="small" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
@@ -59,7 +59,7 @@ function AboutTheBook() {
               </div>
             </Link>
             <Link to="/chapters" className='index-card'>
-              <div className='icon-cont' style={{ backgroundColor: '#FFF2DF' }}>
+              <div className='icon-cont' style={{ backgroundColor: '#eff9da' }}>
                 <MenuBookRoundedIcon fontSize="small" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
@@ -78,7 +78,7 @@ function AboutTheBook() {
             </Link>
 
             <Link to='/aboutTheBook' className='index-card'>
-              <div className='icon-cont' style={{ backgroundColor: '#eff9da' }}>
+              <div className='icon-cont' style={{ backgroundColor: '#FFF2DF' }}>
                 <StickyNote2RoundedIcon fontSize="small" />
               </div>
               <div className="icon-name" style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
