@@ -10,7 +10,7 @@
   /* height: 234px; */
 }
 .prayer-container {
-  height: 50%;
+  height: 45%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,19 +33,19 @@
   margin-bottom: 1rem;
 }
 .route-container {
-  height: 50%;
+  height: 55%;
   padding: 1rem;
   padding-bottom: 1.5rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-wrap: wrap;
   gap: 1rem;
 }
 .index-card {
   min-width: 148px;
   width: 50%;
-  height: 130px;
+  height: 100%;
   padding: 1.75rem 1.25rem;
   border-radius: 12px;
   box-shadow: 0px 1px 4px 1px #00000014;
