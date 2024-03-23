@@ -89,38 +89,37 @@ function AboutTheBook() {
             <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>எனவே, இந்தக் 'குர்ஆன் தமிழ் மொழியாக்கம்' ஒட்டுமொத்த மனித சமுதாயத்தின் இறையுணர்வு தேடுதல்களுக்கு எந்த நெருக்கடியும் இருதயத்தில் ஏற்படுத்தாத விசாலமான பாதையாக இறைவன் அருளால் அமைந்திருக்கிறது. குறிப்பாக, தொழுகை என்றால் என்ன? ஹஜ், உம்ரா, நோன்பு, ஹதீஸ் போன்ற ஒவ்வொன்றையும் குர்ஆன் அடிப்படையைக் கொண்டே தெளிவாக விளக்குகிறது. எங்கெல்லாம் உருவ அமைப்பைக் கொண்டும், வழிபாட்டைக் கொண்டும், சடங்குகளைக் கொண்டும், சம்பிரதாயங்களைக் கொண்டும் ஏனைய அனைத்து மொழி பெயர்ப்புக்களிலும் எழுதப்பட்டுள்ளதோ, அவற்றின் சாயல் ஒன்று கூட இல்லாமல் புத்தம் புது இறை ஞானத்துடன் அனைத்து சமுதாயத்தினரும் படித்து, உயர்வடையும் நேர்வழிக்குரியதாகவும், ஒளி மிக்கதாகவும் அமைந்திருக்கிறது இந்தக் குர்ஆன் தமிழ் மொழியாக்கம்.</p>
             <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இந்தத் தமிழ் மொழியாக்கத்தின் சிறப்பம்சம் என்னவெனில், இதில் வரலாற்றுப் பின்னணி கிடையாது. ஹதீஸ்களுடைய வாசனையே கிடையாது. இன்றைய வாழ்க்கைக்கு பொருந்தக் கூடியதும், நாளைய வாழ்க்கைக்கு உறுதுணையாக இருக்கக் கூடியதுமான அல்லாஹ்வினுடைய வேதத்தின் அத்தாட்சிகள் தெளிவான தமிழில், குழப்பத்திற்கு வழியே இல்லாததாகவும், மனித சமுதாயம் அனைத்திற்கும் ஒரே சமுதாயமாக வழிகாட்டுவதாகவும், அனைத்துப் பிரச்சினைகளுக்கும் தீர்வளிக்கக் கூடியதாகவும், மனக் குழப்பங்களுக்கு தெளிவு ஏற்படுத்தக் கூடியதாகவும், இறைவனை மனதில் உறுதிப்படுத்தக் கூடியதாகவும் அமைந்திருப்பதாகும். இதுவே இறைவனுடைய ஞானங்களைக் கொண்டு மொழியாக்கம் செய்யப்பட்ட குர்ஆன். வழக்கமாக இப்பொழுது இருப்பவற்றைப் போன்று மனித மொழியறிவுகளில் ஒன்றான அரபி மொழியின் பாண்டித்தியத்தை நம்பி மொழி பெயர்க்கப்பட்டதல்ல. எனவே, முழுமையாக இறையருளையும், இறை ஞானத்தையும் கொண்டு இந்த குர்ஆன் அமைந்துள்ளதை உங்கள் இருதயம் ஏற்கும். நிச்சயமாக இது இறையருள் என்பதைக் கொண்டும் உங்கள் இருதயங்கள் அமைதியடையும். அல்லாஹ் போதுமானவன்.</p>
             <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>டாக்டர் ஃபஸ்லுர் ரஹ்மான் அவர்களின் இந்த மொழி ஆக்கத்தில் முழுமையுமாகப் பங்கு கொண்டு அல்லாஹ்வினுடைய இக்காரியத்தில் அவருக்கு உதவி புரிய, என்னைத் தேர்வு செய்து, எனக்குப் பேருதவி புரிந்த அல்லாஹ்வுக்கு எல்லாப் புகழும்.</p>
-            <p className='p-para' style={{ fontSize: `${context.fontSize}px` }}>இவர்களுடைய வாழ்க்கை இரண்டாகப் பிரிந்தது. ஒன்று, பள்ளிவாசல்களுக்குள் ஒரு தனி வாழ்க்கை . </p>
           </div>
       }
       <div className='contributors-container'>
         <div className='contributor'>
           <p className='contributor-name'
-            style={{ fontSize: `${context.fontSize}px` }}>K.M. Abdul Salam,</p>
-          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Bachelor of Islamic Law,</p>
-          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>AI Azhar University, Cairo, Egypt</p>
+            style={{ fontSize: `${context.fontSize -1}px` }}>K.M. Abdul Salam,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize -1 }px` }}>Bachelor of Islamic Law,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize -1 }px` }}>AI Azhar University, Cairo, Egypt</p>
         </div>
         <div className='contributor'>
-          <p className='contributor-name' style={{ fontSize: `${context.fontSize}px` }}>Islamic Revealed Knowledge and Heritage, M.A.</p>
-          <p className='contributor-id'>(International Islamic University, Malaysia)</p>
+          <p className='contributor-name' style={{ fontSize: `${context.fontSize - 1}px` }}>Islamic Revealed Knowledge and Heritage, M.A.</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize - 1}px` }}>(International Islamic University, Malaysia)</p>
         </div>
         <div className='contributor'>
-          <p className='contributor-name' style={{ fontSize: `${context.fontSize}px` }}>Afzal ul Ulema,</p>
-          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Madras University Modern Arabic,</p>
-          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>M.A. Madras University</p>
-        </div>
-        <div className='contributor'>
-          <p className='contributor-name'
-            style={{ fontSize: `${context.fontSize}px` }}>Moulvi Alim, Bakiath Salihath,</p>
-          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Arabic College, Vellore</p>
+          <p className='contributor-name' style={{ fontSize: `${context.fontSize - 1}px` }}>Afzal ul Ulema,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize - 1}px` }}>Madras University Modern Arabic,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize - 1}px` }}>M.A. Madras University</p>
         </div>
         <div className='contributor'>
           <p className='contributor-name'
-            style={{ fontSize: `${context.fontSize}px` }}>Moulvi Fazil,</p>
-          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Jamalia Arabic College, Chennai</p>
+            style={{ fontSize: `${context.fontSize - 1}px` }}>Moulvi Alim, Bakiath Salihath,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize - 1}px` }}>Arabic College, Vellore</p>
         </div>
         <div className='contributor'>
-          <p className='contributor-name' style={{ fontSize: `${context.fontSize}px` }}>Hafiz AlQuran, Jamia Anwarul Ulum,</p>
-          <p className='contributor-id' style={{ fontSize: `${context.fontSize}px` }}>Arabic College Trichy.</p>
+          <p className='contributor-name'
+            style={{ fontSize: `${context.fontSize - 1}px` }}>Moulvi Fazil,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize - 1}px` }}>Jamalia Arabic College, Chennai</p>
+        </div>
+        <div className='contributor'>
+          <p className='contributor-name' style={{ fontSize: `${context.fontSize - 1}px` }}>Hafiz AlQuran, Jamia Anwarul Ulum,</p>
+          <p className='contributor-id' style={{ fontSize: `${context.fontSize - 1}px` }}>Arabic College Trichy.</p>
         </div>
       </div>
 

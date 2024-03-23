@@ -136,6 +136,7 @@
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
+  border: none;
   font-size: 14px;
   line-height: 140%;
   color: var(--bg-white);

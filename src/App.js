@@ -50,30 +50,10 @@ function App() {
               <Route path='/home/search' element={<Search activeTab={activeTab} setActiveTab={setActiveTab} />} />
               <Route path='/chapters' element={<ProtectedRoute><Chapters /></ProtectedRoute>} >
                 <Route path='' element={<Quran activeTab={activeTab} setActiveTab={setActiveTab} />} />
+                <Route path='keywords' element={<KeyWords />} />
+                <Route path='glossary' element={<Glossary />} />
               </Route>
               <Route path='/welcome' element={<ProtectedRoute><LandingPage /></ProtectedRoute>} />
-              {
-                context.language === 'English' &&
-                (
-                  <Route path='/chapters' element={<Chapters />} >
-                    <Route path='keywords' element={<KeyWords />} />
-                    <Route path='glossary' element={<Glossary />} />
-                    <Route path='notes' element={<Notes />} />
-                    <Route path='bookmarks' element={<BookMark />} />
-                  </Route>
-                )
-              }
-              {
-                context.language === 'Tamil' &&
-                (
-                  <Route path='/chapters' element={<Chapters />} >
-                    <Route path='keywords' element={<KeyWords />} />
-                    <Route path='glossary' element={<Glossary />} />
-                    <Route path='notes' element={<Notes />} />
-                    <Route path='bookmarks' element={<BookMark />} />
-                  </Route>
-                )
-              }
             </Routes>
           </SideBarProvider>
         </FontSizeProvider>
