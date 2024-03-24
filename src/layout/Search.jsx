@@ -210,13 +210,13 @@ const Search = ({ setActiveTab }) => {
 
         <div className="language-switcher">
           <button
-            className={selectedDataset === 'quran' ? 'active-btn search-btn' : ''}
+            className={selectedDataset === 'quran' ? 'active-search-btn search-btn' : ''}
             onClick={() => setSelectedDataset('quran')}
           >
             {selectedLanguage === "English" ? "Quran" : "குர்ஆன்"}
           </button>
           <button
-            className={selectedDataset === 'kalaisorkal' ? 'active-btn search-btn' : ''}
+            className={selectedDataset === 'kalaisorkal' ? 'active-search-btn search-btn' : ''}
             onClick={() => setSelectedDataset('kalaisorkal')}
           >
             {selectedLanguage === "English" ? "KalaiSorkal" : "கலைச்சொற்கள்"}

@@ -60,7 +60,7 @@
   height: 40px;
   border-bottom: 1px solid var(--Neutral100);
 }
-.active-btn {
+.active-search-btn {
   color: var(--bg-secondary) !important;
   font-weight: 700;
   border-bottom: 2px solid var(--bg-secondary)!important;

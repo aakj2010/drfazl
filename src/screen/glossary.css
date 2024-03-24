@@ -10,7 +10,6 @@
   font-family: var(--font-family);
 }
 .g-title {
-  width: 65px;
   height: 22px;
   font-family: var(--font-family);
   font-style: normal;
@@ -18,7 +17,7 @@
   font-size: 16px;
   margin: 10px 0;
   line-height: 22px;
-  color: #13161a;
+  color: var(--text-primary);
 }
 .explanation {
   display: flex;
@@ -27,7 +26,8 @@
   padding: 0px;
   gap: 12px;
   width: 90vw;
-  height: 154px;
+  text-align: left;
+  margin: 1.5rem 0;
 }
 .e-title {
   width: 90vw;
@@ -38,18 +38,16 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
-  color: #13161a;
+  color: var(--text-primary);
 }
 .e-para {
   width: 90vw;
-  height: 120px;
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   line-height: 170%;
-  text-align: justify;
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
 .g-title2 {
   display: flex;
@@ -105,6 +103,5 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 170%;
-  text-align: justify;
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
