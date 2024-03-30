@@ -10,8 +10,9 @@ function Chapters() {
         <>
             <div className='chapters'>
                 <Header />
-                <Footer />
+
                 <Outlet />
+                <Footer />
             </div>
         </>
     )
