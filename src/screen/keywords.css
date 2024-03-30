@@ -16,12 +16,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  gap: 10px;
-  width: 90vw;
+  padding: 1rem;
+  gap: 1rem;
   height: auto;
   background: #ffffff;
   border-bottom: 0.5px solid #e7eaee;
+}
+.kw-verse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .kw-number-icon {
   display: flex;
@@ -38,9 +43,9 @@
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
+  /* font-size: 14px; */
   line-height: 170%;
-  text-align: justify;
+  text-align: left;
   color: var(--text-primary);
 }
 .kw-num {

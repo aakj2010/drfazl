@@ -61,12 +61,12 @@ const ChapterList = ({ setActiveTab }) => {
     <div className='cl-wrapper'>
       <div className='cl-header'>
         <div className='cl-header-title'>
-          <p className={`cl-h-title {Context.language === 'Tamil' ? 'mukta-font' : 'nunito-font '}`}
-            style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
+          <p className={`cl-h-title`}
+            style={{ fontSize: `${fontSizeContext.fontSize}px` }}
           >
             {Context.language === 'Tamil' ? 'அத்தியாயங்கள்' : 'Chapter list'}
           </p>
-          <h4 className='cl-header-title-length' 
+          <h4 className='cl-header-title-length'
           >{filteredChapters.length}</h4>
 
         </div>
