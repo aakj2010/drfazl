@@ -60,7 +60,6 @@ const Search = ({ setActiveTab }) => {
   const handleClick = (number) => {
     const number1 = parseInt(number.split('.')[0]);
     setActiveTab(number1 - 1);
-    // navigate('/chapters');
     navigate(`/chapters#${number}`);
   };
 

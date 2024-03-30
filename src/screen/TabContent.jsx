@@ -58,7 +58,7 @@ const TabContent = ({ index }) => {
               block: 'start',
             });
           }
-        }, 300);
+        }, 500);
       }, []);
     
     return (

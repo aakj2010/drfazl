@@ -3,7 +3,6 @@ import { Navigate } from 'react-router-dom'
 export default function ProtectedRoute({ children, isAdmin }) {
     // const { isAuthenticated, loading } = useSelector(state => state.authState)
     const userName = localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
-    console.log(userName)
 
     if (!userName) {
         return <Navigate to="/" />

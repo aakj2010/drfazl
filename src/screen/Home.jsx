@@ -87,7 +87,7 @@ function AboutTheBook() {
             </Link>
           </div>
           <div className='divisions'>
-            <Link to='/settings' className='index-card'>
+            <Link to='/aboutTheBook' className='index-card'>
               <div className='icon-cont' style={{ backgroundColor: '#ffefed' }}>
                 <AssignmentRoundedIcon fontSize="small" />
               </div>
@@ -96,7 +96,7 @@ function AboutTheBook() {
               </div>
             </Link>
 
-            <Link to='/aboutTheBook' className='index-card'>
+            <Link to='/settings' className='index-card'>
               <div className='icon-cont' style={{ backgroundColor: '#e6edf3' }}>
                 <SettingsRoundedIcon fontSize="small" />
               </div>

@@ -12,6 +12,7 @@ const Tab = (props) => {
       className={`tab ${props.isActive ? 'active' : ''}`}
       onClick={props.onClick}
       style={{ fontFamily: getFontFamily() }}
+      id={props.label}
     >
       {props.label}
     </div>
