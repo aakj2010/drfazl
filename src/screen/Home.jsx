@@ -87,7 +87,7 @@ function AboutTheBook() {
             </Link>
           </div>
           <div className='divisions'>
-            <Link to='/glossary' className='index-card'>
+            <Link to='/chapters/glossary' className='index-card'>
               <div className='icon-cont' style={{ backgroundColor: '#ffefed' }}>
                 <AssignmentRoundedIcon fontSize="small" />
               </div>
