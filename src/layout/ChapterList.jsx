@@ -73,7 +73,7 @@ const ChapterList = ({ setActiveTab }) => {
         <div className='cl-header-closebtn'>
           <Link to='/chapters'>
             <button>
-              <img src={x_close} alt='' />
+              <img src={x_close} alt='close-button' />
             </button>
           </Link>
         </div>

@@ -55,6 +55,7 @@ function Quran({ activeTab, setActiveTab }) {
                                                 label={`${chapter.number}. ${chapter.title}`}
                                                 isActive={activeTab === index}
                                                 onClick={() => handleTabClick(index)}
+                                                activeTab
                                             />
                                             <div className='divider-chapter'></div>
                                         </React.Fragment>
