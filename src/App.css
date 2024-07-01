@@ -138,6 +138,7 @@ body {
 .verse-wrapper {
   position: relative;
   overflow: hidden;
+  z-index: 0;
 }
 
 .verse-wrapper.animate {

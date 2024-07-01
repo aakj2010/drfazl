@@ -38,6 +38,7 @@
   scroll-behavior: smooth;
   overflow-y: hidden;
   background: #190041;
+  z-index: 999 !important;
 }
 .chapter-list-relative {
   display: flex;

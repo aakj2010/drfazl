@@ -33,6 +33,7 @@
   height: 48px;
   background: var(--bg-primary);
   border: transparent;
+  z-index: 99999 !important;
 }
 .menu-title {
   display: flex;
