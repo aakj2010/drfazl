@@ -63,6 +63,7 @@ function Quran({ activeTab, setActiveTab }) {
                                                 label={`${chapter.number}. ${chapter.title}`}
                                                 isActive={activeTab === index}
                                                 onClick={() => handleTabClick(index)}
+                                                activeTab
                                             />
                                             <div className='divider-chapter'></div>
                                         </React.Fragment>
@@ -73,13 +74,8 @@ function Quran({ activeTab, setActiveTab }) {
                 </div>
                 <div className="tab-content" style={{ fontSize: `${context.fontSize}px` }}>
                     {[...Array(114)].map((_, i) => {
-                        return activeTab === i && 
-                        <TabContent 
-                            index={i + 1} 
-                            onNextTab={handleNextTab}
-                            onPreviousTab={handlePreviousTab} 
-                            key={i} 
-                        />
+                        return activeTab === i && <TabContent index={i + 1} onNextTab={handleNextTab}
+                            onPreviousTab={handlePreviousTab} key={i} />
                     })}
                 </div>
 

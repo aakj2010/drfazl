@@ -98,7 +98,7 @@ const SignUp = () => {
                         <div className='submit-btns'>
                             <button
                                 // type="submit"
-                                className='next-btn'
+                                className='signin'
                                 // disabled={loading}
                                  >
                                 Register
@@ -113,7 +113,7 @@ const SignUp = () => {
                 <div className='login-down-container'>
                     <small>
                         <span className='dont-have-acc'>Already have an account? </span>
-                        <NavLink to="/"><span className='signup-link' > Sign in here</span></NavLink>
+                        <NavLink to="/"><span className='signup-link'> Sign in here</span></NavLink>
                     </small>
                 </div>
             </div>

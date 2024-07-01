@@ -1,5 +1,5 @@
+import React, { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import React, { useEffect, useState, useContext, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import engQuranData from './eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
@@ -15,7 +15,6 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     const navigate = useNavigate();
     const data = languageContext.language === 'Tamil' ? tamQuranData : engQuranData;
     const Quran = languageContext.language === 'Tamil' ? "குர்ஆன்" : "Quran";
-    const verseWrapperRef = useRef(null);
 
     const getFontFamily = () => {
         return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
@@ -44,7 +43,10 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     };
 
     useEffect(() => {
+        // Parse the verse number from the URL
         const verseNumberFromUrl = window.location.hash.substring(1);
+
+        // Scroll to the verseRef after a short delay (adjust delay as needed)
         setTimeout(() => {
             const verseRefFromUrl = document.getElementById(verseNumberFromUrl);
             if (verseRefFromUrl) {
@@ -60,31 +62,16 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
         const number1 = parseInt(number);
         navigate(`/chapters/keywords#${number1}`);
     };
+
     const swipeHandlers = useSwipeable({
-        onSwipedLeft: () => {
-            if (verseWrapperRef.current) {
-                verseWrapperRef.current.classList.add('swipe-left');
-                setTimeout(() => {
-                    verseWrapperRef.current.classList.remove('swipe-left');
-                    onNextTab();
-                }, 500); // Match the duration of CSS transition
-            }
-        },
-        onSwipedRight: () => {
-            if (verseWrapperRef.current) {
-                verseWrapperRef.current.classList.add('swipe-right');
-                setTimeout(() => {
-                    verseWrapperRef.current.classList.remove('swipe-right');
-                    onPreviousTab();
-                }, 500); // Match the duration of CSS transition
-            }
-        },
+        onSwipedLeft: onNextTab,
+        onSwipedRight: onPreviousTab,
         preventDefaultTouchmoveEvent: true,
         trackMouse: true,
-    });
+      });
 
     return (
-        <div ref={verseWrapperRef} {...swipeHandlers} className='verse-wrapper'>
+        <div {...swipeHandlers} className='verse-wrapper'>
             {chapter.verses && chapter.verses.map((verse, index) => (
                 <div key={index} className='verse-container' id={verse.number}>
                     <div className='verse-number'>

@@ -97,7 +97,7 @@ const Login = () => {
         <div className='login-down-container'>
           <small>
             <span className='dont-have-acc'>Don’t have an account? </span>
-            <NavLink to='register'><span className='signup-link' to="/signup">Signup here</span></NavLink>
+            <NavLink to='register'><span className='signup-link'>Signup here</span></NavLink>
           </small>
         </div>
       </div>
