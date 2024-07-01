@@ -32,6 +32,14 @@ function Quran({ activeTab, setActiveTab }) {
         setDynamicFontSize(langContext.language === 'Tamil' ? 20 : 24);
     }, [langContext.language]);
 
+    const handleNextTab = () => {
+        setActiveTab((prevTab) => (prevTab < 113 ? prevTab + 1 : prevTab)); // Adjust max index as needed
+    };
+
+    const handlePreviousTab = () => {
+        setActiveTab((prevTab) => (prevTab > 0 ? prevTab - 1 : prevTab));
+    };
+
     return (
         <>
             <Header />
@@ -66,7 +74,8 @@ function Quran({ activeTab, setActiveTab }) {
                 </div>
                 <div className="tab-content" style={{ fontSize: `${context.fontSize}px` }}>
                     {[...Array(114)].map((_, i) => {
-                        return activeTab === i && <TabContent index={i + 1} key={i} />
+                        return activeTab === i && <TabContent index={i + 1} onNextTab={handleNextTab}
+                            onPreviousTab={handlePreviousTab} key={i} />
                     })}
                 </div>
 

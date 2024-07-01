@@ -8,7 +8,7 @@ import FontContext from '../context/FontContext';
 import share1 from '../Assets/share1.svg';
 import htmlToReactParser from 'html-react-parser';
 
-const TabContent = ({ index, activeTab, setActiveTab }) => {
+const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     const [chapter, setChapter] = useState({});
     const languageContext = useContext(LanguageContext);
     const fontSizeContext = useContext(FontContext);
@@ -63,26 +63,12 @@ const TabContent = ({ index, activeTab, setActiveTab }) => {
         navigate(`/chapters/keywords#${number1}`);
     };
 
-    const handleSwipeLeft = () => {
-        // Navigate to the next chapter if it exists
-        if (index < data.chapters.length) {
-            setActiveTab(index + 1);
-        }
-    };
-
-    const handleSwipeRight = () => {
-        // Navigate to the previous chapter if it exists
-        if (index > 1) {
-            setActiveTab(index - 1);
-        }
-    };
-
     const swipeHandlers = useSwipeable({
-        onSwipedLeft: handleSwipeLeft,
-        onSwipedRight: handleSwipeRight,
+        onSwipedLeft: onNextTab,
+        onSwipedRight: onPreviousTab,
         preventDefaultTouchmoveEvent: true,
         trackMouse: true,
-    });
+      });
 
     return (
         <div {...swipeHandlers} className='verse-wrapper'>
