@@ -140,14 +140,14 @@ body {
   overflow: hidden;
 }
 
-.verse-wrapper .verse-container {
-  transition: transform 0.5s ease;
+.verse-wrapper.animate {
+  transition: transform 0.5s ease-in-out;
 }
 
-.swipe-left {
+.verse-wrapper.swipe-left {
   transform: translateX(-100%);
 }
 
-.swipe-right {
+.verse-wrapper.swipe-right {
   transform: translateX(100%);
 }

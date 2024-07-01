@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 import engQuranData from './eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
@@ -10,6 +10,7 @@ import htmlToReactParser from 'html-react-parser';
 
 const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     const [chapter, setChapter] = useState({});
+    const [swipeDirection, setSwipeDirection] = useState('');
     const languageContext = useContext(LanguageContext);
     const fontSizeContext = useContext(FontContext);
     const navigate = useNavigate();
@@ -64,14 +65,26 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     };
 
     const swipeHandlers = useSwipeable({
-        onSwipedLeft: onNextTab,
-        onSwipedRight: onPreviousTab,
+        onSwipedLeft: () => {
+            setSwipeDirection('swipe-left');
+            setTimeout(() => {
+                setSwipeDirection('');
+                onNextTab();
+            }, 500);
+        },
+        onSwipedRight: () => {
+            setSwipeDirection('swipe-right');
+            setTimeout(() => {
+                setSwipeDirection('');
+                onPreviousTab();
+            }, 500);
+        },
         preventDefaultTouchmoveEvent: true,
         trackMouse: true,
-      });
+    });
 
     return (
-        <div {...swipeHandlers} className='verse-wrapper'>
+        <div {...swipeHandlers} className={`verse-wrapper ${swipeDirection ? 'animate' : ''} ${swipeDirection}`}>
             {chapter.verses && chapter.verses.map((verse, index) => (
                 <div key={index} className='verse-container' id={verse.number}>
                     <div className='verse-number'>
