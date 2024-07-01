@@ -133,3 +133,21 @@ body {
   transition: 0.3s linear;
 
 } */
+
+/* Styles for animation */
+.verse-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-wrapper .verse-container {
+  transition: transform 0.5s ease;
+}
+
+.swipe-left {
+  transform: translateX(-100%);
+}
+
+.swipe-right {
+  transform: translateX(100%);
+}
