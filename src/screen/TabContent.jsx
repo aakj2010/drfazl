@@ -1,39 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useSwipeable } from 'react-swipeable';
 import engQuranData from './eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
 import LanguageContext from '../context/LanguageContext';
-import { useContext } from 'react';
 import FontContext from '../context/FontContext';
 import share1 from '../Assets/share1.svg';
 import htmlToReactParser from 'html-react-parser';
 
-const TabContent = ({ index }) => {
+const TabContent = ({ index, activeTab, setActiveTab }) => {
     const [chapter, setChapter] = useState({});
     const languageContext = useContext(LanguageContext);
+    const fontSizeContext = useContext(FontContext);
+    const navigate = useNavigate();
+    const data = languageContext.language === 'Tamil' ? tamQuranData : engQuranData;
+    const Quran = languageContext.language === 'Tamil' ? "குர்ஆன்" : "Quran";
 
     const getFontFamily = () => {
         return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
     };
 
-    let context = useContext(FontContext);
-    const langContext = useContext(LanguageContext);
-    const navigate = useNavigate();
-
-
-    const data = langContext.language === 'Tamil' ? tamQuranData : engQuranData;
-    const Quran = langContext.language === 'Tamil' ? "குர்ஆன்" : "Quran";
-
-    function fetchChapter() {
-        const chapterData = data.chapters.find(
-            (c) => c.number === index
-        );
+    const fetchChapter = () => {
+        const chapterData = data.chapters.find((c) => c.number === index);
         setChapter(chapterData);
-    }
+    };
 
     useEffect(() => {
         fetchChapter();
-    }, []);
+    }, [index, languageContext.language]);
 
     const handleShareClick = async (chapterTitle, verseNumber, verseText) => {
         try {
@@ -46,7 +40,7 @@ const TabContent = ({ index }) => {
         } catch (error) {
             console.error('Error sharing:', error);
         }
-    }
+    };
 
     useEffect(() => {
         // Parse the verse number from the URL
@@ -65,45 +59,55 @@ const TabContent = ({ index }) => {
     }, []);
 
     const handleClick = (number) => {
-        console.log(number);
         const number1 = parseInt(number);
         navigate(`/chapters/keywords#${number1}`);
-    }
+    };
+
+    const handleSwipeLeft = () => {
+        // Navigate to the next chapter if it exists
+        if (index < data.chapters.length) {
+            setActiveTab(index + 1);
+        }
+    };
+
+    const handleSwipeRight = () => {
+        // Navigate to the previous chapter if it exists
+        if (index > 1) {
+            setActiveTab(index - 1);
+        }
+    };
+
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: handleSwipeLeft,
+        onSwipedRight: handleSwipeRight,
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true,
+    });
 
     return (
-        <div className='verse-wrapper' >
-            {React.Children.toArray(
-                chapter.verses && chapter.verses.map((verse, index) => (
-                    <>
-                        <div className='verse-container' key={index} id={verse.number}
-                            // onClick={() => { handleClick(verse.link && verse.link) }}
-                            onClick={() => {
-                                console.log(verse.link);
-                                navigate(`/chapters/keywords#${verse.link}`);
-                            }}
-                        >
-                            <div className='verse-number' >
-                                <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>{verse.number}</div>
-                                <div className='more-btn-wrapper'>
-                                    <button
-                                        className="more-btn"
-                                        style={{ fontSize: `${context.fontSize}px` }}
-                                        onClick={() => handleShareClick(chapter.title, verse.number, verse.text)}
-                                    >
-                                        <img src={share1} alt="" />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className='verse-text'
-                                style={{ fontSize: `${context.fontSize}px`, fontFamily: getFontFamily() }}
+        <div {...swipeHandlers} className='verse-wrapper'>
+            {chapter.verses && chapter.verses.map((verse, index) => (
+                <div key={index} className='verse-container' id={verse.number}>
+                    <div className='verse-number'>
+                        <div className='verse-num' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>{verse.number}</div>
+                        <div className='more-btn-wrapper'>
+                            <button
+                                className="more-btn"
+                                style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+                                onClick={() => handleShareClick(chapter.title, verse.number, verse.text)}
                             >
-                                {htmlToReactParser(verse.text)}
-                            </div>
+                                <img src={share1} alt="" />
+                            </button>
                         </div>
-                        <div className='verse-divider'></div>
-                    </>
-                )))}
-
+                    </div>
+                    <div className='verse-text'
+                        style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
+                    >
+                        {htmlToReactParser(verse.text)}
+                    </div>
+                    <div className='verse-divider'></div>
+                </div>
+            ))}
         </div>
     );
 }
