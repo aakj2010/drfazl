@@ -10,7 +10,7 @@ import htmlToReactParser from 'html-react-parser';
 
 const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     const [chapter, setChapter] = useState({});
-    const [swipeDirection, setSwipeDirection] = useState('');
+    const [animationClass, setAnimationClass] = useState('');
     const languageContext = useContext(LanguageContext);
     const fontSizeContext = useContext(FontContext);
     const navigate = useNavigate();
@@ -66,16 +66,16 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
 
     const swipeHandlers = useSwipeable({
         onSwipedLeft: () => {
-            setSwipeDirection('swipe-left');
+            setAnimationClass('animate-exit-active');
             setTimeout(() => {
-                setSwipeDirection('');
+                setAnimationClass('animate-enter-active');
                 onNextTab();
             }, 500);
         },
         onSwipedRight: () => {
-            setSwipeDirection('swipe-right');
+            setAnimationClass('animate-exit-active');
             setTimeout(() => {
-                setSwipeDirection('');
+                setAnimationClass('animate-enter-active');
                 onPreviousTab();
             }, 500);
         },
@@ -83,8 +83,16 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
         trackMouse: true,
     });
 
+    useEffect(() => {
+        setAnimationClass('animate-enter-active');
+        const timer = setTimeout(() => {
+            setAnimationClass('');
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [index]);
+
     return (
-        <div {...swipeHandlers} className={`verse-wrapper ${swipeDirection ? 'animate' : ''} ${swipeDirection}`}>
+        <div {...swipeHandlers} className={`verse-wrapper ${animationClass}`}>
             {chapter.verses && chapter.verses.map((verse, index) => (
                 <div key={index} className='verse-container' id={verse.number}>
                     <div className='verse-number'>

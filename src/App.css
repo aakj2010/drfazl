@@ -134,21 +134,28 @@ body {
 
 } */
 
-/* Styles for animation */
+
+/* Define the container and animation styles */
 .verse-wrapper {
   position: relative;
   overflow: hidden;
   z-index: 0;
-}
-
-.verse-wrapper.animate {
   transition: transform 0.5s ease-in-out;
 }
 
-.verse-wrapper.swipe-left {
+.verse-wrapper.animate-enter {
+  transform: translateX(100%);
+}
+
+.verse-wrapper.animate-enter-active {
+  transform: translateX(0%);
+}
+
+.verse-wrapper.animate-exit {
+  transform: translateX(0%);
+}
+
+.verse-wrapper.animate-exit-active {
   transform: translateX(-100%);
 }
 
-.verse-wrapper.swipe-right {
-  transform: translateX(100%);
-}
