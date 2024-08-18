@@ -20,6 +20,7 @@
 .divisions {
   display: flex;
   gap: 1rem;
+  width: 100%;
 }
 .pray {
   font-size: 13px;
@@ -44,7 +45,7 @@
 }
 .index-card {
   min-width: 148px;
-  width: 50%;
+  width: 48%;
   height: 100%;
   padding: 1.25rem 1.25rem 1.5rem;
   border-radius: 12px;
