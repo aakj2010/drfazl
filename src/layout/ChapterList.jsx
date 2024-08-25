@@ -88,7 +88,7 @@ const ChapterList = ({ setIsChapterListModalOpen }) => {
       <div className='cl-list-item-wrapper'>
         {React.Children.toArray(
           filteredChapters.map((chapter, index) => (
-            <div className='cl-list-item' key={index} onClick={() => { handleClick(chapter.number) }}>
+            <div className='cl-list-item' key={index} onClick={() => { handleClick(chapter.number - 1) }}>
               <p
                 className={`cl-list-item-title ${Context.language === 'Tamil' ? 'mukta-font' : 'nunito-font '}`}
                 style={{ fontSize: `${fontSizeContext.fontSize}px` }}
