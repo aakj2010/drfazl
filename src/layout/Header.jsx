@@ -1,17 +1,25 @@
-import React, { useContext } from 'react'
-import './Header.css'
-import search from '../Assets/search.svg'
-import menu from '../Assets/menu.svg'
-import { Link, useLocation } from 'react-router-dom'
-import SideBar from './SideBar'
-import SideBarContext from '../context/SideBarContext'
-import LanguageContext from '../context/LanguageContext'
-// import LanguageContext from '../context/LanguageContext'     
+import React, { useState, useContext } from 'react';
+import './Header.css';
+import search from '../Assets/search.svg';
+import menu from '../Assets/menu.svg';
+import { useLocation } from 'react-router-dom';
+import SideBar from './SideBar';
+import SideBarContext from '../context/SideBarContext';
+import LanguageContext from '../context/LanguageContext';
+import Modal from 'react-modal'; // Import react-modal
+import ChapterList from './ChapterList';
+import Search from './Search';
 
 
-function Header() {
-    let SideBarcontext = useContext(SideBarContext);
+// Set up app element for accessibility
+Modal.setAppElement('#root');
+
+function Header({ activeTab, setActiveTab }) {
+    const SideBarcontext = useContext(SideBarContext);
     const languageContext = useContext(LanguageContext);
+    const [isChapterListModalOpen, setIsChapterListModalOpen] = useState(false); // State for ChapterList modal
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+
     // Mapping object for title translations
     const titleTranslations = {
         'Chapters': 'அத்தியாயங்கள்',
@@ -23,8 +31,21 @@ function Header() {
     };
 
     const location = useLocation();
-    const result = location.pathname.split('/')
+    const result = location.pathname.split('/');
     const title = result[2] ? result[2].charAt(0).toUpperCase() + result[2].slice(1) : result[1].charAt(0).toUpperCase() + result[1].slice(1);
+
+    const handleChapterListModalOpen = () => {
+        setIsChapterListModalOpen(true);
+    };
+
+    const handleSearchModalOpen = () => {
+        setIsSearchModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setIsChapterListModalOpen(false);
+        setIsSearchModalOpen(false);
+    };
 
     return (
         <>
@@ -33,21 +54,16 @@ function Header() {
                     <div className='menu-btn-wrapper'>
                         <button className='menu-btn' onClick={SideBarcontext.toggleSidebar}>
                             <img src={menu} alt="menu" />
-                            {
-                                SideBarcontext.sidebarOpen ? (
-                                    <SideBar />
-                                ) : null
-                            }
+                            {SideBarcontext.sidebarOpen ? <SideBar /> : null}
                         </button>
                     </div>
-                    <div className=''>
+                    <div>
                         {title === 'Chapters' ? (
                             <div className='title'>
                                 {languageContext.language === 'English' && title ? title : titleTranslations[title]}
-                                <Link to='chapter-list'
-                                    className='cl-header-length'>
+                                <span className='cl-header-length' onClick={handleChapterListModalOpen}>
                                     114
-                                </Link>
+                                </span>
                             </div>
                         ) : (
                             <div className='title'>
@@ -55,24 +71,44 @@ function Header() {
                             </div>
                         )}
                     </div>
-
                 </div>
-                {title === 'Chapters' ?
+                {title === 'Chapters' && (
                     <div className='help-with-search'>
-                        <div className='menu-btn-wrapper'>
-                            <Link to='search'>
-                                <button className='menu-btn'
-                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <img src={search} alt="search" />
-                                </button>
-                            </Link>
+                        <div className='menu-btn-wrapper' onClick={handleSearchModalOpen}>
+                            <img src={search} alt="search" />
                         </div>
-                    </div> : ""
-                }
-
+                    </div>
+                )}
             </header>
+
+            <Modal
+                isOpen={isChapterListModalOpen}
+                onRequestClose={handleModalClose}
+                className="modal-content"
+                style={{
+                    overlay: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        zIndex: 99999,
+                    }
+                }}
+            >
+                <ChapterList setIsChapterListModalOpen={setIsChapterListModalOpen} />
+            </Modal>
+            <Modal
+                isOpen={isSearchModalOpen}
+                onRequestClose={handleModalClose}
+                className="modal-content"
+                style={{
+                    overlay: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        zIndex: 99999,
+                    }
+                }}
+            >
+                <Search setIsSearchModalOpen={setIsSearchModalOpen} />
+            </Modal>
         </>
-    )
+    );
 }
 
-export default Header
+export default Header;

@@ -21,20 +21,16 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
         return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
     };
 
-    const fetchChapter = () => {
-        const chapterData = data.chapters.find((c) => c.number === index);
-        setChapter(chapterData);
-    };
-
     useEffect(() => {
-        fetchChapter();
+        const chapterData = data.chapters.find((c) => c.number === index + 1);
+        setChapter(chapterData);
     }, [index, languageContext.language]);
 
     const handleShareClick = async (chapterTitle, verseNumber, verseText) => {
         try {
             const shareData = {
-                title: `${index}. ${chapterTitle}`,
-                text: `${Quran} \n \n${index}. ${chapterTitle}\n \n${verseNumber} ${verseText}`,
+                title: `${index + 1}. ${chapterTitle}`,
+                text: `${Quran} \n \n${index + 1}. ${chapterTitle}\n \n${verseNumber} ${verseText}`,
             };
             await navigator.share(shareData);
             console.log('Shared successfully');
@@ -47,7 +43,6 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
         // Parse the verse number from the URL
         const verseNumberFromUrl = window.location.hash.substring(1);
 
-        // Scroll to the verseRef after a short delay (adjust delay as needed)
         setTimeout(() => {
             const verseRefFromUrl = document.getElementById(verseNumberFromUrl);
             if (verseRefFromUrl) {
@@ -57,7 +52,9 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                 });
             }
         }, 500);
-    }, []);
+    }, [index]);
+
+    
 
     const handleClick = (number) => {
         const number1 = parseInt(number);
@@ -85,8 +82,8 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
 
     return (
         <div {...swipeHandlers} className={`verse-wrapper ${swipeDirection ? 'animate' : ''} ${swipeDirection}`}>
-            {chapter.verses && chapter.verses.map((verse, index) => (
-                <div key={index} className='verse-container' id={verse.number}>
+            {chapter?.verses?.map((verse, i) => (
+                <div key={i} className='verse-container' id={verse.number}>
                     <div className='verse-number'>
                         <div className='verse-num' style={{ fontSize: `${fontSizeContext.fontSize}px` }}>{verse.number}</div>
                         <div className='more-btn-wrapper'>
@@ -104,7 +101,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                     >
                         {htmlToReactParser(verse.text)}
                     </div>
-                    <div className='verse-divider'></div>
+                    {/* <div className='verse-divider'></div> */}
                 </div>
             ))}
         </div>

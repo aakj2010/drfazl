@@ -1,3 +1,95 @@
+// import React, { useContext, useEffect, useState } from 'react';
+// import './Chapters.css';
+// import Tab from './Tab';
+// import FontContext from '../context/FontContext';
+// import SideBarContext from '../context/SideBarContext';
+// import Header from '../layout/Header';
+// import TabContent from './TabContent';
+// import engQuranData from './eng-quran.json';
+// import tamQuranData from '../Tamil Quran/tam-quran.json';
+// import LanguageContext from '../context/LanguageContext';
+// import ActiveTabContext from '../context/ActiveTab';
+
+// function Quran() {
+//     let context = useContext(FontContext);
+//     let SideBarcontext = useContext(SideBarContext);
+//     const langContext = useContext(LanguageContext);
+//     const tab = useContext(ActiveTabContext)
+
+//     const data = langContext.language === 'Tamil' ? tamQuranData : engQuranData;
+
+//     const handleTabClick = (index) => {
+//         tab.setActiveTab(index);
+//     }
+
+//     const getFontFamily = () => {
+//         return langContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+//     };
+
+//     // State to store the dynamically calculated font size
+//     const [dynamicFontSize, setDynamicFontSize] = useState(langContext.language === 'Tamil' ? 20 : 24);
+
+//     useEffect(() => {
+//         // Update the font size dynamically when language changes
+//         setDynamicFontSize(langContext.language === 'Tamil' ? 20 : 24);
+//     }, [langContext.language]);
+
+//     const handleNextTab = () => {
+//         tab.setActiveTab((prevTab) => (prevTab < 113 ? prevTab + 1 : prevTab)); // Adjust max index as needed
+//     };
+
+//     const handlePreviousTab = () => {
+//         tab.setActiveTab((prevTab) => (prevTab > 0 ? prevTab - 1 : prevTab));
+//     };
+
+//     return (
+//         <>
+//             <Header />
+//             <div className='chapters'>
+//                 <div className='img-container' >
+//                     {/* Dynamically set font size and font family */}
+//                     <div className="bottom-left" style={{ fontSize: `${dynamicFontSize}px`, fontFamily: getFontFamily() }}>
+//                         {
+//                             langContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran'
+//                         }
+//                     </div>
+//                 </div>
+//                 <div className={!SideBarcontext.sidebarOpen ? 'chapter-list-wrapper' : 'chapter-list-relative'}>
+//                     <div className='tab-container' style={{ fontSize: `${context.fontSize}px` }}>
+//                         <div className='tabs' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
+//                             {
+//                                 React.Children.toArray(
+//                                     data.chapters.map((chapter, index) => (
+//                                         <React.Fragment key={chapter.number}>
+//                                             <Tab
+//                                                 label={`${chapter.number}. ${chapter.title}`}
+//                                                 isActive={tab.activeTab === index}
+//                                                 onClick={() => handleTabClick(index)}
+//                                                 activeTab
+//                                             />
+//                                             <div className='divider-chapter'></div>
+//                                         </React.Fragment>
+//                                     )))
+//                             }
+//                         </div>
+//                     </div>
+//                 </div>
+//                 <div className="tab-content" style={{ fontSize: `${context.fontSize}px` }}>
+//                     {[...Array(114)].map((_, i) => {
+//                         return tab.activeTab === i && <TabContent index={i} onNextTab={handleNextTab}
+//                             onPreviousTab={handlePreviousTab} key={i} />
+//                     })}
+//                 </div>
+
+//                 <div className='empty'></div>
+//             </div>
+//         </>
+//     )
+// }
+
+// export default Quran;
+
+
 import React, { useContext, useEffect, useState } from 'react';
 import './Chapters.css';
 import Tab from './Tab';
@@ -8,17 +100,19 @@ import TabContent from './TabContent';
 import engQuranData from './eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
 import LanguageContext from '../context/LanguageContext';
+import ActiveTabContext from '../context/ActiveTab';
 
-function Quran({ activeTab, setActiveTab }) {
-    let context = useContext(FontContext);
-    let SideBarcontext = useContext(SideBarContext);
+function Quran() {
+    const context = useContext(FontContext);
+    const SideBarcontext = useContext(SideBarContext);
     const langContext = useContext(LanguageContext);
+    const tab = useContext(ActiveTabContext);
 
     const data = langContext.language === 'Tamil' ? tamQuranData : engQuranData;
 
     const handleTabClick = (index) => {
-        setActiveTab(index);
-    }
+        tab.setActiveTab(index);
+    };
 
     const getFontFamily = () => {
         return langContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
@@ -33,56 +127,50 @@ function Quran({ activeTab, setActiveTab }) {
     }, [langContext.language]);
 
     const handleNextTab = () => {
-        setActiveTab((prevTab) => (prevTab < 113 ? prevTab + 1 : prevTab)); // Adjust max index as needed
+        tab.setActiveTab((prevTab) => (prevTab < 113 ? prevTab + 1 : prevTab)); // Adjust max index as needed
     };
 
     const handlePreviousTab = () => {
-        setActiveTab((prevTab) => (prevTab > 0 ? prevTab - 1 : prevTab));
+        tab.setActiveTab((prevTab) => (prevTab > 0 ? prevTab - 1 : prevTab));
     };
 
     return (
         <>
-            <Header />
-            <div className='chapters'>
-                <div className='img-container' >
-                    {/* Dynamically set font size and font family */}
+            {/* <Header /> */}
+            <div className='chapters' style={{ fontSize: `${context.fontSize}px` }}>
+                <div className='img-container'>
                     <div className="bottom-left" style={{ fontSize: `${dynamicFontSize}px`, fontFamily: getFontFamily() }}>
-                        {
-                            langContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran'
-                        }
+                        {langContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran'}
                     </div>
                 </div>
                 <div className={!SideBarcontext.sidebarOpen ? 'chapter-list-wrapper' : 'chapter-list-relative'}>
                     <div className='tab-container' style={{ fontSize: `${context.fontSize}px` }}>
                         <div className='tabs' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize}px` }}>
-                            {
-                                React.Children.toArray(
-                                    data.chapters.map((chapter, index) => (
-                                        <React.Fragment key={chapter.number}>
-                                            <Tab
-                                                label={`${chapter.number}. ${chapter.title}`}
-                                                isActive={activeTab === index}
-                                                onClick={() => handleTabClick(index)}
-                                                activeTab
-                                            />
-                                            <div className='divider-chapter'></div>
-                                        </React.Fragment>
-                                    )))
-                            }
+                            {data.chapters.map((chapter, index) => (
+                                <React.Fragment key={chapter.number}>
+                                    <Tab
+                                        label={`${chapter.number}. ${chapter.title}`}
+                                        isActive={tab.activeTab === index}
+                                        onClick={() => handleTabClick(index)}
+                                    />
+                                    <div className='divider-chapter'></div>
+                                </React.Fragment>
+                            ))}
                         </div>
                     </div>
                 </div>
                 <div className="tab-content" style={{ fontSize: `${context.fontSize}px` }}>
-                    {[...Array(114)].map((_, i) => {
-                        return activeTab === i && <TabContent index={i + 1} onNextTab={handleNextTab}
-                            onPreviousTab={handlePreviousTab} key={i} />
-                    })}
+                    <TabContent 
+                        index={tab.activeTab} 
+                        onNextTab={handleNextTab} 
+                        onPreviousTab={handlePreviousTab} 
+                    />
                 </div>
 
                 <div className='empty'></div>
             </div>
         </>
-    )
+    );
 }
 
 export default Quran;

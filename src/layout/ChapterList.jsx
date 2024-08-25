@@ -7,13 +7,14 @@ import LanguageContext from '../context/LanguageContext';
 import engQuranData from '../screen/eng-quran.json';
 import tamQuranData from '../Tamil Quran/tam-quran.json';
 import FontContext from '../context/FontContext';
+import ActiveTabContext from '../context/ActiveTab';
 
-const ChapterList = ({ setActiveTab }) => {
+const ChapterList = ({ setIsChapterListModalOpen }) => {
   const [searchQuery, setSearchQuery] = useState('');
   let fontSizeContext = useContext(FontContext);
   const Context = useContext(LanguageContext);
   const navigate = useNavigate()
-
+  const tab = useContext(ActiveTabContext);
   const getFontFamily = () => {
     return Context.language === 'Tamil' ? 'mukta-font ' : 'nunito-font';
   };
@@ -53,8 +54,9 @@ const ChapterList = ({ setActiveTab }) => {
     return null; // or render an error message
   }
   const handleClick = (index) => {
-    setActiveTab(index)
+    tab.setActiveTab(index)
     navigate('/chapters')
+    setIsChapterListModalOpen(false)
   }
 
   return (
@@ -70,12 +72,8 @@ const ChapterList = ({ setActiveTab }) => {
           >{filteredChapters.length}</h4>
 
         </div>
-        <div className='cl-header-closebtn'>
-          <Link to='/chapters'>
-            <button>
-              <img src={x_close} alt='close-button' />
-            </button>
-          </Link>
+        <div className='cl-header-closebtn' onClick={() => setIsChapterListModalOpen(false)}>
+          <img src={x_close} alt='close-button' />
         </div>
       </div>
       <div className='cl-search'>
@@ -90,7 +88,7 @@ const ChapterList = ({ setActiveTab }) => {
       <div className='cl-list-item-wrapper'>
         {React.Children.toArray(
           filteredChapters.map((chapter, index) => (
-            <div className='cl-list-item' key={index} onClick={() => { handleClick(index) }}>
+            <div className='cl-list-item' key={index} onClick={() => { handleClick(chapter.number) }}>
               <p
                 className={`cl-list-item-title ${Context.language === 'Tamil' ? 'mukta-font' : 'nunito-font '}`}
                 style={{ fontSize: `${fontSizeContext.fontSize}px` }}

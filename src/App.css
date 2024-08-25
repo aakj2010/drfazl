@@ -152,3 +152,24 @@ body {
 .verse-wrapper.swipe-right {
   transform: translateX(100%);
 }
+/* Header.css */
+.modal-overlay {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: start;
+  z-index: 10000 !important;
+}
+
+.modal-content {
+  background: white;
+  /* padding: 10px; */
+  /* border-radius: 8px; */
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+
+}

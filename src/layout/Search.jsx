@@ -7,10 +7,11 @@ import LanguageContext from '../context/LanguageContext';
 import share1 from '../Assets/share1.svg';
 import x_close from '../Assets/x_close.svg';
 import search_refraction from '../Assets/search_refraction.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './search.css';
+import ActiveTabContext from '../context/ActiveTab';
 
-const Search = ({ setActiveTab }) => {
+const Search = ({ setIsSearchModalOpen }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showAllResults, setShowAllResults] = useState(false);
@@ -20,6 +21,7 @@ const Search = ({ setActiveTab }) => {
   const fontSizeContext = useContext(FontContext);
   const languageContext = useContext(LanguageContext);
   const [selectedLanguage] = useState(languageContext.language);
+  const tab = useContext(ActiveTabContext);
 
   useEffect(() => {
     switch (selectedLanguage) {
@@ -59,8 +61,9 @@ const Search = ({ setActiveTab }) => {
 
   const handleClick = (number) => {
     const number1 = parseInt(number.split('.')[0]);
-    setActiveTab(number1 - 1);
+    tab.setActiveTab(number1 - 1);
     navigate(`/chapters#${number}`);
+    setIsSearchModalOpen(false)
   };
 
   const handleSearch = (e) => {
@@ -198,12 +201,8 @@ const Search = ({ setActiveTab }) => {
           <div className="s-header-title">
             <h3 className="s-h-title">Search</h3>
           </div>
-          <div className="s-header-closebtn">
-            <Link to="/chapters">
-              <button>
-                <img src={x_close} alt="" />
-              </button>
-            </Link>
+          <div className="s-header-closebtn" onClick={() => { setIsSearchModalOpen(false) }}>
+            <img src={x_close} alt="" />
           </div>
         </div>
 
@@ -231,9 +230,9 @@ const Search = ({ setActiveTab }) => {
             />
           </div>
           {/* <div className='inp-box'> */}
-            {/* <button className="show-more-btn" onClick={renderResults()}> */}
-              <img src={search_refraction} alt="" />
-            {/* </button> */}
+          {/* <button className="show-more-btn" onClick={renderResults()}> */}
+          <img src={search_refraction} alt="" />
+          {/* </button> */}
           {/* </div> */}
         </div>
         <div className="verse-wrapper" style={{ marginTop: '56px' }}>
