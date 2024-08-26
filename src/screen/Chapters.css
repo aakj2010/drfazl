@@ -1,18 +1,22 @@
 .img-container {
+  width: 100vw;
+  height: 234px;
+  background-image: url(../Assets/cover-page.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
-  align-items: flex-end;
-  z-index: -1;
+  justify-content: flex-start;
+  align-items: end;
 }
 .bottom-left {
-  width: 51px;
-  height: 25px;
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 25px;
-  color: var(--bg-white);
-  z-index: -1;
+  color: #ffffff;
+  margin: 4%;
 }
 /* Chapter list start */
 .chapters {
