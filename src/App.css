@@ -67,7 +67,7 @@
   }
 }
 .scroll-margin-temp {
-  scroll-margin-top: 8rem;
+  scroll-margin-top: 8rem !important;
 }
 
 body {

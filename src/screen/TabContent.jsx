@@ -162,17 +162,22 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
         setTimeout(() => {
             const verseRefFromUrl = document.getElementById(verseNumberFromUrl);
             if (verseRefFromUrl) {
+                verseRefFromUrl.classList.add('scroll-margin-temp');
                 verseRefFromUrl.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start',
                 });
+                // Remove the temporary class after scrolling
+                setTimeout(() => {
+                    verseRefFromUrl.classList.remove('scroll-margin-temp');
+                }, 3000); // Adjust this timeout as needed
             }
         }, 500);
     }, [index]);
 
     const handleClick = (number) => {
         const number1 = parseInt(number);
-        navigate(`/chapters/keywords#${number1}`);
+        navigate(`/chapters/keywords#${number1}...`);
     };
 
     const swipeHandlers = useSwipeable({
