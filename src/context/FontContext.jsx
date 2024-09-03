@@ -1,46 +1,28 @@
-import { useContext, useState } from "react";
-import { createContext } from "react";
-// import LanguageContext from "./LanguageContext";
-import { useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
-
-let FontContext = createContext()
-
+let FontContext = createContext();
 
 export const FontSizeProvider = ({ children }) => {
-  // const tamil = useContext(LanguageContext);
+  // Initialize state with font size from localStorage or default to 14
+  const [fontSize, setFontSize] = useState(() => {
+    return localStorage.getItem('fontSize') ? parseInt(localStorage.getItem('fontSize')) : 14;
+  });
 
-  const [fontSize, setFontSize] = useState(14);
-  // const [save, setSave] = useState(16)
-  // const handleSave = () => {
-  //     setSave(fontSize)
-  // }
-
-  // useEffect(() => {
-  //     const savedFontSize = parseInt(localStorage.getItem('fontSize'));
-  //     if (savedFontSize) {
-  //       setFontSize(savedFontSize);
-  //     }
-  //   }, []);
-  const handleFontSizeChange = (size) => {
-    setFontSize(size);
-  }
+  // Update localStorage and document font size whenever fontSize changes
   useEffect(() => {
-
-  }, [fontSize,setFontSize])
-
-  const handleSaveClick = () => {
     localStorage.setItem('fontSize', fontSize);
     document.documentElement.style.fontSize = `${fontSize}px`;
+  }, [fontSize]);
+
+  const handleFontSizeChange = (size) => {
+    setFontSize(size);
   };
 
   return (
-    <FontContext.Provider value={{ fontSize, setFontSize, handleSaveClick, handleFontSizeChange }}>
+    <FontContext.Provider value={{ fontSize, setFontSize, handleFontSizeChange }}>
       {children}
     </FontContext.Provider>
-  )
-}
+  );
+};
 
-
-
-export default FontContext
+export default FontContext;

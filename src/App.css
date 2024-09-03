@@ -66,6 +66,9 @@
     transform: rotate(360deg);
   }
 }
+.scroll-margin-temp {
+  scroll-margin-top: 6rem;
+}
 
 body {
   box-sizing: border-box;
