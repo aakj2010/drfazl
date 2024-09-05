@@ -4,8 +4,8 @@ import Tab from './Tab';
 import FontContext from '../context/FontContext';
 import SideBarContext from '../context/SideBarContext';
 import TabContent from './TabContent';
-import engQuranData from './eng-quran.json';
-import tamQuranData from '../Tamil Quran/tam-quran.json';
+import engQuranData from '../Content/eng-quran.json';
+import tamQuranData from '../Content/tam-quran.json';
 import LanguageContext from '../context/LanguageContext';
 import ActiveTabContext from '../context/ActiveTab';
 

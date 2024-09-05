@@ -4,8 +4,8 @@ import x_close from '../Assets/x_close.svg';
 import search_refraction from '../Assets/search_refraction.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import LanguageContext from '../context/LanguageContext';
-import engQuranData from '../screen/eng-quran.json';
-import tamQuranData from '../Tamil Quran/tam-quran.json';
+import engQuranData from '../Content/eng-quran.json';
+import tamQuranData from '../Content/tam-quran.json';
 import FontContext from '../context/FontContext';
 import ActiveTabContext from '../context/ActiveTab';
 

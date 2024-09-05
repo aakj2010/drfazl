@@ -49,17 +49,56 @@ import Tamil_Kalaisol from '../Content/tam-Kalaisol.json';
 import htmlToReactParser from 'html-react-parser';
 import FontContext from '../context/FontContext';
 import { useNavigate } from 'react-router-dom';
+import ActiveTabContext from '../context/ActiveTab';
+import { useEffect } from 'react';
 
-function KeyWords({ setActiveTab }) {
+function KeyWords() {
   const context = useContext(FontContext);
   const navigate = useNavigate();
   const data = Tamil_Kalaisol;
   const chapters = data.chapters || [];
+  const tab = useContext(ActiveTabContext);
 
-  const handleClick = (index, number) => {
-    setActiveTab(index);
+  // const handleClick = (index, number) => {
+  //   tab.setActiveTab(index);
+  //   navigate(`/chapters#${number}`);
+  // };
+  // const handleClick = (number) => {
+  //   console.log("clicked")
+  //   const number1 = parseInt(number.split('.')[0]);
+  //   tab.setActiveTab(number1 - 1);
+  //   navigate(`/chapters#${number}`);
+  // };
+  const handleClick = (number) => {
+    console.log("clicked", number);
+
+    // Ensure `number` is a string
+    const numberStr = number.toString();
+
+    // Now you can safely call .split()
+    const number1 = parseInt(numberStr.split('.')[0]);
+
+    tab.setActiveTab(number1 - 1);
     navigate(`/chapters#${number}`);
   };
+  useEffect(() => {
+    let verseNumberFromUrl = window.location.hash.substring(1);
+    verseNumberFromUrl = verseNumberFromUrl + '...'
+    setTimeout(() => {
+      const verseRefFromUrl = document.getElementById(verseNumberFromUrl);
+      if (verseRefFromUrl) {
+        verseRefFromUrl.classList.add('scroll-margin-temp');
+        verseRefFromUrl.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+        // Remove the temporary class after scrolling
+        setTimeout(() => {
+          verseRefFromUrl.classList.remove('scroll-margin-temp');
+        }, 1000); // Adjust this timeout as needed
+      }
+    }, 500);
+  }, []);
 
   // Cache for dynamic row heights
   const cache = new CellMeasurerCache({
@@ -80,15 +119,19 @@ function KeyWords({ setActiveTab }) {
       >
         <div className='keyword-container' style={style}>
           {chapter.verses.map((item, idx) => (
-            <div className='kw-verse' id={idx + 1} key={item.number}
-              onClick={() => { handleClick(item.Link - 1, item.link2) }}
-            >
+            <div className='kw-verse' id={item.number} key={item.number}>
               <div className='kw-number-icon'>
-                <div className='kw-serial'>{item.number}</div>
+                <div className='kw-serial'>
+                  {item.number}
+                </div>
               </div>
 
-              <div className='kw-para' style={{ fontSize: `${context.fontSize}px` }}>
+              <div className='kw-para flex flex-col' style={{ fontSize: `${context.fontSize}px` }}>
+                <div className="flex gap-1 !text-primary700 font-bold">{item.Links?.map((link, index) => (
+                  <p key={index} onClick={() => { handleClick(link) }}>{link}</p>
+                ))}</div>
                 {htmlToReactParser(item.text)}
+                {/* {item.text} */}
               </div>
             </div>
           ))}
@@ -100,7 +143,7 @@ function KeyWords({ setActiveTab }) {
   return (
     <div className='keywords-wrapper' style={{ position: 'relative', height: '100vh', width: '100%' }}>
       <AutoSizer>
-        {({ height, width }) => (
+        {({ height, width, scrollToIndex }) => (
           <List
             width={width}
             height={height}
@@ -108,6 +151,7 @@ function KeyWords({ setActiveTab }) {
             rowCount={chapters.length}
             rowHeight={cache.rowHeight}
             rowRenderer={rowRenderer}
+            scrollToIndex={scrollToIndex}
           />
         )}
       </AutoSizer>

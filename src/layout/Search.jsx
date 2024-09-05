@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, useMemo, useTransition } from 'react';
-import engQuranData from '../screen/eng-quran.json';
+import engQuranData from '../Content/eng-quran.json';
 import tamQuranData from '../Content/tam-quran.json';
 import tamKalaiSorkalData from '../Content/tam-Kalaisol.json';
 import FontContext from '../context/FontContext';
@@ -56,6 +56,14 @@ const Search = ({ setIsSearchModalOpen }) => {
     }
 
   }, [selectedDataset, selectedLanguage])
+  useEffect(() => {
+    // Check if the URL includes the keyword 'keywords'
+    if (window.location.href.includes('keywords')) {
+      setSelectedDataset('kalaisorkal');
+    } else {
+      setSelectedDataset('quran'); // Set to default if 'keywords' is not in the URL
+    }
+  }, []);
 
   let chapters = data.chapters || [];
 

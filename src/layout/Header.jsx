@@ -72,7 +72,7 @@ function Header({ activeTab, setActiveTab }) {
                         )}
                     </div>
                 </div>
-                {title === 'Chapters' && (
+                {(title === 'Chapters' || title === 'Keywords') && (
                     <div className='help-with-search'>
                         <div className='menu-btn-wrapper' onClick={handleSearchModalOpen}>
                             <img src={search} alt="search" />

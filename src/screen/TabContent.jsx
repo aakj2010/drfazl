@@ -54,7 +54,7 @@
 //         }, 500);
 //     }, [index]);
 
-    
+
 
 //     const handleClick = (number) => {
 //         const number1 = parseInt(number);
@@ -112,8 +112,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
-import engQuranData from './eng-quran.json';
-import tamQuranData from '../Tamil Quran/tam-quran.json';
+import engQuranData from '../Content/eng-quran.json';
+import tamQuranData from '../Content/tam-quran.json';
 import LanguageContext from '../context/LanguageContext';
 import FontContext from '../context/FontContext';
 import share1 from '../Assets/share1.svg';
@@ -170,7 +170,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                 // Remove the temporary class after scrolling
                 setTimeout(() => {
                     verseRefFromUrl.classList.remove('scroll-margin-temp');
-                }, 3000); // Adjust this timeout as needed
+                }, 1000); // Adjust this timeout as needed
             }
         }, 500);
     }, [index]);
@@ -222,6 +222,11 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                             style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
                         >
                             {htmlToReactParser(verse.text)}
+                            {
+                                verse.links?.map((number) => (
+                                    <span onClick={() => { handleClick(number) }} className='font-bold pl-1 text-primary700'>({number})</span>
+                                ))
+                            }
                         </div>
                     </div>
                 ))
