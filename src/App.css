@@ -69,7 +69,9 @@
 .scroll-margin-temp {
   scroll-margin-top: 7rem !important;
 }
-
+.scroll-margin-left {
+  scroll-margin-left: 2rem;
+}
 body {
   box-sizing: border-box;
   width: 100vw;

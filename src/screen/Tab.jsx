@@ -10,12 +10,24 @@ const Tab = (props) => {
     return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
   };
   useEffect(() => {
-    if (props.isActive && tabRef.current && !hasScrolledIntoView.current) {
-      tabRef.current.scrollIntoView({ behavior: 'smooth', inline: 'start' });
-      hasScrolledIntoView.current = true;
-    }
+    // Timeout is kept to allow rendering to settle before scrolling
+    const timeoutId = setTimeout(() => {
+      if (props.isActive && tabRef.current && !hasScrolledIntoView.current) {
+        tabRef.current.classList.add('scroll-margin-left');
+        tabRef.current.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+        hasScrolledIntoView.current = true;
+
+        // Remove the temporary class after the scroll animation
+        setTimeout(() => {
+          tabRef.current.classList.remove('scroll-margin-left');
+        }, 500); // Adjust this timeout as needed
+      }
+    }, 10);
+
+    // Cleanup timeout to prevent memory leaks
+    return () => clearTimeout(timeoutId);
   }, [props.isActive]);
-  
+
   return (
     <div
       className={`tab ${props.isActive ? 'active' : ''}`}

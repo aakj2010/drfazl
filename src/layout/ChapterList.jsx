@@ -90,8 +90,8 @@ const ChapterList = ({ setIsChapterListModalOpen }) => {
           filteredChapters.map((chapter, index) => (
             <div className='cl-list-item' key={index} onClick={() => { handleClick(chapter.number - 1) }}>
               <p
-                className={`cl-list-item-title ${Context.language === 'Tamil' ? 'mukta-font' : 'nunito-font '}`}
-                style={{ fontSize: `${fontSizeContext.fontSize}px` }}
+                className={`cl-list-item-title`}
+                style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
               >
                 {`${chapter.number}. ${chapter.title}`}
               </p>
