@@ -67,7 +67,10 @@
   }
 }
 .scroll-margin-temp {
-  scroll-margin-top: 7rem !important;
+  scroll-margin-top: 8rem !important;
+}
+.scroll-margin-keywords {
+  scroll-margin-top: 6rem !important;
 }
 .scroll-margin-left {
   scroll-margin-left: 2rem;

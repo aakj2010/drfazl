@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 import engQuranData from '../Content/eng-quran.json';
 import tamQuranData from '../Content/tam-quran.json';
@@ -59,7 +59,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                 // Remove the temporary class after scrolling
                 setTimeout(() => {
                     verseRefFromUrl.classList.remove('scroll-margin-temp');
-                }, 1000); // Adjust this timeout as needed
+                }, 500); // Adjust this timeout as needed
             }
         }, 1000);
     }, [index]);
@@ -103,19 +103,30 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                                     style={{ fontSize: `${fontSizeContext.fontSize}px` }}
                                     onClick={() => handleShareClick(chapter.title, verse.number, verse.text)}
                                 >
-                                    <img src={share1} alt="" />
+                                    <img src={share1} alt="Share" />
                                 </button>
                             </div>
                         </div>
                         <div className='verse-text'
                             style={{ fontSize: `${fontSizeContext.fontSize}px`, fontFamily: getFontFamily() }}
                         >
-                            {htmlToReactParser(verse.text)}
-                            {
-                                verse.links?.map((number) => (
-                                    <span onClick={() => { handleClick(number) }} className='font-bold pl-1 text-primary700'>({number})</span>
-                                ))
-                            }
+                            {/* {htmlToReactParser(verse.text)} */}
+                            {htmlToReactParser(verse.text, {
+                                replace: (domNode) => {
+                                    // Check if the domNode is an element
+                                    if (domNode.type === 'tag' && domNode.name === 'span') {
+                                        // Check for any <Link> like structure and extract the link text
+                                        const number = domNode.children[0]?.data;
+                                        if (number) {
+                                            return (
+                                                <Link className='inline-block' to={`/chapters/keywords#${number}`}>
+                                                    <span className='font-bold inline-block'>({number})</span>
+                                                </Link>
+                                            );
+                                        }
+                                    }
+                                },
+                            })}
                         </div>
                     </div>
                 ))

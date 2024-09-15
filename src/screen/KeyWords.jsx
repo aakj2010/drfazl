@@ -48,7 +48,7 @@ import './keywords.css';
 import Tamil_Kalaisol from '../Content/tam-Kalaisol.json';
 import htmlToReactParser from 'html-react-parser';
 import FontContext from '../context/FontContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ActiveTabContext from '../context/ActiveTab';
 import { useEffect } from 'react';
 
@@ -87,14 +87,14 @@ function KeyWords() {
     setTimeout(() => {
       const verseRefFromUrl = document.getElementById(verseNumberFromUrl);
       if (verseRefFromUrl) {
-        verseRefFromUrl.classList.add('scroll-margin-temp');
+        verseRefFromUrl.classList.add('scroll-margin-keywords');
         verseRefFromUrl.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
         });
         // Remove the temporary class after scrolling
         setTimeout(() => {
-          verseRefFromUrl.classList.remove('scroll-margin-temp');
+          verseRefFromUrl.classList.remove('scroll-margin-keywords');
         }, 1000); // Adjust this timeout as needed
       }
     }, 500);
@@ -127,11 +127,28 @@ function KeyWords() {
               </div>
 
               <div className='kw-para flex flex-col' style={{ fontSize: `${context.fontSize}px` }}>
-                <div className="flex gap-1 !text-primary700 font-bold">{item.Links?.map((link, index) => (
-                  <p key={index} onClick={() => { handleClick(link) }}>{link}</p>
+                <div className="flex gap-1 font-bold">{item.Links?.map((link, index) => (
+                  <p key={index} onClick={() => { handleClick(link) }}>{link}...</p>
                 ))}</div>
-                {htmlToReactParser(item.text)}
-                {/* {item.text} */}
+                {htmlToReactParser(item.text, {
+                  replace: (domNode) => {
+                    // Check if the domNode is an element
+                    if (domNode.type === 'tag' && domNode.name === 'span') {
+                      // Check for any <Link> like structure and extract the link text
+                      const number = domNode.children[0]?.data;
+                      if (number) {
+                        return (
+                          <Link className='font-bold w-max !inline-block' to={`/chapters#${number}`}>
+                            <span className='font-bold inline-block' onClick={() => { handleClick(number) }}>({number})</span>
+                          </Link>
+                        );
+                      }
+                    }
+                  },
+                })}
+                <div className="flex gap-1 font-bold">{item.RefLinks?.map((link, index) => (
+                  <p key={index} onClick={() => { handleClick(link) }}>{link},</p>
+                ))}</div>
               </div>
             </div>
           ))}

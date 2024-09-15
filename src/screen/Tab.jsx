@@ -22,7 +22,7 @@ const Tab = (props) => {
           tabRef.current.classList.remove('scroll-margin-left');
         }, 500); // Adjust this timeout as needed
       }
-    }, 10);
+    }, 3000);
 
     // Cleanup timeout to prevent memory leaks
     return () => clearTimeout(timeoutId);
