@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useMemo, useTransition } from 'react';
 import engQuranData from '../Content/eng-quran.json';
-import tamQuranData from '../Content/tam-quran.json';
+import tamQuranData from '../Content/updated-tam-quran.json';
 import tamKalaiSorkalData from '../Content/tam-Kalaisol.json';
 import FontContext from '../context/FontContext';
 import LanguageContext from '../context/LanguageContext';
