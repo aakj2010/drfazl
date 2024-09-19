@@ -59,7 +59,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                 // Remove the temporary class after scrolling
                 setTimeout(() => {
                     verseRefFromUrl.classList.remove('scroll-margin-temp');
-                }, 500); // Adjust this timeout as needed
+                }, 1000); // Adjust this timeout as needed
             }
         }, 1000);
     }, [index]);

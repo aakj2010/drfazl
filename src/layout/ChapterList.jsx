@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './chapterlist.css';
 import x_close from '../Assets/x_close.svg';
 import search_refraction from '../Assets/search_refraction.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LanguageContext from '../context/LanguageContext';
 import engQuranData from '../Content/eng-quran.json';
 import tamQuranData from '../Content/updated-tam-quran.json';
