@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect, useMemo, useTransition } from 'react';
 import engQuranData from '../Content/eng-quran.json';
 import tamQuranData from '../Content/updated-tam-quran.json';
-import tamKalaiSorkalData from '../Content/tam-Kalaisol.json';
+import tamKalaiSorkalData from '../Content/updated-tam-kalaisol.json';
 import FontContext from '../context/FontContext';
 import LanguageContext from '../context/LanguageContext';
 import share1 from '../Assets/share1.svg';
