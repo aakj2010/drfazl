@@ -5,6 +5,7 @@ import htmlToReactParser from 'html-react-parser';
 import FontContext from '../context/FontContext';
 import { useNavigate } from 'react-router-dom';
 import ActiveTabContext from '../context/ActiveTab';
+import Eng_Kalaisol from '../Content/eng-kalaisol.json';
 import Tamil_Kalaisol from '../Content/updated-tam-kalaisol.json';
 import Modal from 'react-modal'; // You can use any modal library
 import QuranSearch from '../layout/QuranSearch';
