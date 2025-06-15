@@ -22,7 +22,7 @@ function Quran() {
     };
 
     const getFontFamily = () => {
-        return langContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+        return langContext.language === "Tamil" ? "system-ui" : "Nunito, sans-serif"
     };
 
     // State to store the dynamically calculated font size

@@ -7,7 +7,7 @@ function Glossary() {
   const context = useContext(FontContext);
   const languageContext = useContext(LanguageContext);
   const getFontFamily = () => {
-    return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+    return languageContext.language === "Tamil" ? "system-ui" : "Nunito, sans-serif"
   };
   return (
     <>

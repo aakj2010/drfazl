@@ -29,8 +29,6 @@ export const AuthContextProvider = ({children}) => {
 
     const [state,dispatch] = useReducer(userReducer,{user:null,isAuthReady:false})
 
-    console.log('Auth state is', state)
-
     useEffect(() => {
 
         const unsub = onAuthStateChanged(auth,(user) => {

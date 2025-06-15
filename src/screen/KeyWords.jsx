@@ -1,17 +1,30 @@
-import { CellMeasurer, AutoSizer, CellMeasurerCache, List } from 'react-virtualized';
-import React, { useContext, useEffect, useMemo, useState, useCallback } from 'react';
-import './keywords.css';
-import htmlToReactParser from 'html-react-parser';
-import FontContext from '../context/FontContext';
-import { useNavigate } from 'react-router-dom';
-import ActiveTabContext from '../context/ActiveTab';
-import Eng_Kalaisol from '../Content/eng-kalaisol.json';
-import Tamil_Kalaisol from '../Content/updated-tam-kalaisol.json';
-import Modal from 'react-modal'; // You can use any modal library
-import QuranSearch from '../layout/QuranSearch';
+import {
+  CellMeasurer,
+  AutoSizer,
+  CellMeasurerCache,
+  List,
+} from "react-virtualized";
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+} from "react";
+import "./keywords.css";
+import htmlToReactParser from "html-react-parser";
+import FontContext from "../context/FontContext";
+import { useNavigate } from "react-router-dom";
+import ActiveTabContext from "../context/ActiveTab";
+import Eng_Kalaisol from "../Content/eng-kalaisol.json";
+import Tamil_Kalaisol from "../Content/updated-tam-kalaisol.json";
+import Modal from "react-modal"; // You can use any modal library
+import QuranSearch from "../layout/QuranSearch";
+import LanguageContext from "../context/LanguageContext";
 
 function KeyWords() {
   const context = useContext(FontContext);
+  const langContext = useContext(LanguageContext);
   const navigate = useNavigate();
   const tab = useContext(ActiveTabContext);
 
@@ -28,14 +41,21 @@ function KeyWords() {
   // Lazy load data in chunks or paginate if possible
   const [visibleData, setVisibleData] = useState([]);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleKeywordSearch = useCallback((query) => {
-    setSearchQuery(query);  // Store the search query that was clicked
-    setIsSearchModalOpen(true);  // Open the modal to display search results
-  }, [setSearchQuery, setIsSearchModalOpen]);
+  const handleKeywordSearch = useCallback(
+    (query) => {
+      setSearchQuery(query); // Store the search query that was clicked
+      setIsSearchModalOpen(true); // Open the modal to display search results
+    },
+    [setSearchQuery, setIsSearchModalOpen]
+  );
   // Memoize chapters to avoid recalculating on each render
-  const chapters = useMemo(() => Tamil_Kalaisol.chapters || [], []);
+  const data =
+    langContext.language === "Tamil"
+      ? Tamil_Kalaisol.chapters
+      : Eng_Kalaisol.chapters;
+  const chapters = useMemo(() => data || [], [data]);
 
   // Simulate lazy loading by showing a limited number of items at the beginning
   useEffect(() => {
@@ -50,7 +70,7 @@ function KeyWords() {
 
   const handleClick = (number) => {
     const numberStr = number.toString();
-    const number1 = parseInt(numberStr.split('.')[0]);
+    const number1 = parseInt(numberStr.split(".")[0]);
 
     tab.setActiveTab(number1 - 1);
     navigate(`/chapters#${number}`);
@@ -58,17 +78,17 @@ function KeyWords() {
 
   useEffect(() => {
     let verseNumberFromUrl = window.location.hash.substring(1);
-    verseNumberFromUrl = verseNumberFromUrl + '...';
+    verseNumberFromUrl = verseNumberFromUrl + "...";
     setTimeout(() => {
       const verseRefFromUrl = document.getElementById(verseNumberFromUrl);
       if (verseRefFromUrl) {
-        verseRefFromUrl.classList.add('scroll-margin-keywords');
+        verseRefFromUrl.classList.add("scroll-margin-keywords");
         verseRefFromUrl.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
+          behavior: "smooth",
+          block: "start",
         });
         setTimeout(() => {
-          verseRefFromUrl.classList.remove('scroll-margin-keywords');
+          verseRefFromUrl.classList.remove("scroll-margin-keywords");
         }, 1000);
       }
     }, 500);
@@ -87,27 +107,51 @@ function KeyWords() {
           rowIndex={index}
           parent={parent}
         >
-          <div className='keyword-container' style={style}>
+          <div className="keyword-container" style={style}>
             {chapter?.verses.map((item) => (
-              <div className='kw-verse' id={item.number} key={item.number}>
-                <div className='kw-number-icon'>
-                  <div className='kw-serial'>{item.number}</div>
-                </div>
-
-                <div className='kw-para flex flex-col' style={{ fontSize: `${context.fontSize}px` }}>
-                  <div className='flex gap-1 font-bold'>
-                    {item.Links?.map((link, index) => (
-                      <p key={index} onClick={() => handleKeywordSearch(link)}>{link}...</p>
-                    ))}
+              <div className="kw-verse" id={item.number} key={item.number}>
+                <div className="kw-number-icon">
+                  <div className="kw-serial">
+                    {item.number}
+                    {langContext.language === "English" ? "..." : ""}
                   </div>
+                </div>
+                {langContext.language === "English" && (
+                  <div className="text-left w-full">{item.reference}...</div>
+                )}
+                <div
+                  className="kw-para flex flex-col"
+                  style={{
+                    fontSize: `${context.fontSize}px`,
+                    fontFamily:
+                      langContext.language === "Tamil"
+                        ? "system-ui"
+                        : "Nunito, sans-serif",
+                  }}
+                >
+                  {item.Links && (
+                    <div className="flex gap-1 font-bold">
+                      {item.Links?.map((link, index) => (
+                        <p
+                          key={index}
+                          onClick={() => handleKeywordSearch(link)}
+                        >
+                          {link}...
+                        </p>
+                      ))}
+                    </div>
+                  )}
 
                   {htmlToReactParser(item.text, {
                     replace: (domNode) => {
-                      if (domNode.type === 'tag' && domNode.name === 'span') {
+                      if (domNode.type === "tag" && domNode.name === "span") {
                         const number = domNode.children[0]?.data;
                         if (number) {
                           return (
-                            <span className='font-bold inline-block' onClick={() => handleKeywordSearch(number)}>
+                            <span
+                              className="font-bold inline-block text-primary500"
+                              onClick={() => handleKeywordSearch(number)}
+                            >
                               ({number})
                             </span>
                           );
@@ -116,9 +160,11 @@ function KeyWords() {
                     },
                   })}
 
-                  <div className='flex gap-1 font-bold'>
+                  <div className="flex gap-1 font-bold">
                     {item.RefLinks?.map((link, index) => (
-                      <p key={index} onClick={() => handleKeywordSearch(link)}>{link},</p>
+                      <p key={index} onClick={() => handleKeywordSearch(link)}>
+                        {link},
+                      </p>
                     ))}
                   </div>
                 </div>
@@ -132,7 +178,10 @@ function KeyWords() {
   );
 
   return (
-    <div className='keywords-wrapper' style={{ position: 'relative', height: '100vh', width: '100%' }}>
+    <div
+      className="keywords-wrapper"
+      style={{ position: "relative", height: "100vh", width: "100%" }}
+    >
       <AutoSizer>
         {({ height, width }) => (
           <List
@@ -159,16 +208,15 @@ function KeyWords() {
         className="modal-content-quran"
         style={{
           overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
             zIndex: 99999,
-          }
+          },
         }}
       >
         <QuranSearch
-          setIsSearchModalOpen={setIsSearchModalOpen}  // Pass modal control function
-          searchQuery={searchQuery}  // Pass the search query to search in Quran or other data
+          setIsSearchModalOpen={setIsSearchModalOpen} // Pass modal control function
+          searchQuery={searchQuery} // Pass the search query to search in Quran or other data
         />
-
       </Modal>
     </div>
   );

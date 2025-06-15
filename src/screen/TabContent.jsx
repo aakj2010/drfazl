@@ -20,7 +20,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     const Quran = languageContext.language === 'Tamil' ? "குர்ஆன்" : "Quran";
 
     const getFontFamily = () => {
-        return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
+        return languageContext.language === "Tamil" ? "system-ui" : "Nunito, sans-serif"
     };
 
     useEffect(() => {
@@ -120,7 +120,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                                         if (number) {
                                             return (
                                                 <Link className='inline-block' to={`/chapters/keywords#${number}`}>
-                                                    <span className='font-bold inline-block'>({number})</span>
+                                                    <span className='font-bold inline-block text-primary500'>({number})</span>
                                                 </Link>
                                             );
                                         }
