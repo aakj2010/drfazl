@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './login.css'
 import logo from '../Assets/quran-logo.svg'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import LanguageContext from '../context/LanguageContext'
-import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
-import { clearAuthError, login } from '../actions/userActions'
+import { useAuthentication } from '../hooks/userAuthentication'
 
 const Login = () => {
 
@@ -13,33 +11,27 @@ const Login = () => {
   const [password, setPassword] = useState("")
 
   const context = useContext(LanguageContext);
+  const { login, error } = useAuthentication()
+  console.log(error)
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [validationError, setValidationError] = useState(null)
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-  const { error, isAuthenticated } = useSelector(state => state.authState)
+        if (!email) {
+            setValidationError('Email cannot be empty')
+            return
+        }
+        else if (!password) {
+            setValidationError('Password cannot be empty')
+            return
+        }
 
-  const redirect = location.search ? '/' + location.search.split('=')[1] : '/'
+        setValidationError(null)
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(login(email, password))
-  }
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/welcome")
+        console.log({ email, password })
+        login({ email, password })
     }
-    if (error) {
-      toast(error, {
-        position: toast.POSITION.TOP_CENTER,
-        type: 'error',
-        onOpen: () => { dispatch(clearAuthError) }
-      })
-      return
-    }
-  }, [error, isAuthenticated, dispatch, navigate, redirect])
 
   return (
     <div className='login-wrapper'>
@@ -60,7 +52,7 @@ const Login = () => {
             <button className='bi-ling-btn'>Bi-lingual</button>
           </div>
 
-          <form onSubmit={submitHandler}>
+          <form onSubmit={handleSubmit}>
             <div className='inp-box'>
               <input
                 type="email"
@@ -78,19 +70,23 @@ const Login = () => {
                 <NavLink to='/forgot-password'> <span className='signup-link'>Forgot your password?</span></NavLink>
               </div>
             </div>
+            {
+              validationError && <div className="text-red-500" role="alert">
+                {validationError}
+              </div>
+            }
+            {
+              error && <div className="text-red-500" role="alert">
+                {error}
+              </div>
+            }
             <div className='submit-btns'>
-              {/* <NavLink className='signin'> */}
-              <button 
-                // type="submit"
+              <button
+                type="submit"
                 className='signin'
-                // disabled={loading}
               >
                 Sign In
               </button>
-              {/* </NavLink> */}
-              {/* <button className='google-btn'>
-                <img src={google} alt="google" /><span>Sign In with Google</span>
-              </button> */}
             </div>
           </form>
         </div>

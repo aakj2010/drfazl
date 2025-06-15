@@ -1,44 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom'; // Import useNavigate
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom'; // Import useNavigate
 import logo from '../Assets/quran-logo.svg';
 import './Signup.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-// import Spinner from './Spinner';
-import { register, clearAuthError } from '../actions/userActions';
+import { useAuthentication } from '../hooks/userAuthentication';
 
 
 const SignUp = () => {
 
     const [userName, setUserName] = useState("")
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const { signup, error } = useAuthentication()
 
-    const { loading, error, isAuthenticated } = useSelector(state => state.authState)
+    const [validationError, setValidationError] = useState(null)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (!userName) {
+            setValidationError('First Name cannot be empty')
+            return
+        }
+        else if (!email) {
+            setValidationError('Email cannot be empty')
+            return
+        }
+        else if (!password) {
+            setValidationError('Password cannot be empty')
+            return
+        }
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        dispatch(register(userName, email, password))
+        setValidationError(null)
+        console.log({ email, password, userName })
+        signup({ email, password, userName })
     }
-
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate('/welcome')
-            return
-        }
-        if (error) {
-            toast(error, {
-                position: toast.POSITION.TOP_CENTER,
-                type: 'error',
-                onOpen: () => { dispatch(clearAuthError) }
-            })
-            return
-        }
-    }, [error, isAuthenticated, dispatch, navigate])
-
 
     return (
         <div className='signup-wrapper'>
@@ -53,7 +47,7 @@ const SignUp = () => {
                             <h6>drfazl</h6>
                         </div>
                     </div>
-                    <form onSubmit={submitHandler}>
+                    <form onSubmit={handleSubmit}>
                         <div className='inp-box'>
                             <input
                                 type="text"
@@ -95,18 +89,24 @@ const SignUp = () => {
                             // onChange={(e) => setEmail(e.target.value)}
                             />
                         </div> */}
+                        {
+                            validationError && <div className="text-red-500" role="alert">
+                                {validationError}
+                            </div>
+                        }
+                        {
+                            error && <div className="text-red-500" role="alert">
+                                {error}
+                            </div>
+                        }
                         <div className='submit-btns'>
                             <button
                                 // type="submit"
                                 className='signin'
-                                // disabled={loading}
-                                 >
+                            // disabled={loading}
+                            >
                                 Register
                             </button>
-                            {/* <button className='google-btn'>
-                                <img src={google} alt="google" />
-                                <span>Sign In with Google</span>
-                            </button> */}
                         </div>
                     </form>
                 </div>

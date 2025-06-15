@@ -6,15 +6,18 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { LanguageProvider } from './context/LanguageContext';
 import { Provider } from 'react-redux';
 import store from './store';
+import { AuthContextProvider } from './context/AuthContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <LanguageProvider>
-        <App />
-      </LanguageProvider>
+      <AuthContextProvider>
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
+      </AuthContextProvider>
     </Provider>
   </React.StrictMode>
 );

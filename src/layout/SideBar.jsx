@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import "./Sidebar.css";
 import logo from "../Assets/quran-logo.svg";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { styled } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { logout } from "../actions/userActions";
 import LanguageContext from "../context/LanguageContext";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
@@ -14,6 +12,7 @@ import StickyNote2RoundedIcon from '@mui/icons-material/StickyNote2Rounded';
 import FeedRoundedIcon from '@mui/icons-material/FeedRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import SideBarContext from "../context/SideBarContext";
+import { useAuthentication } from "../hooks/userAuthentication";
 
 
 const StyledLinkButton = styled(NavLink)({
@@ -29,26 +28,17 @@ const StyledLinkButton = styled(NavLink)({
 });
 
 function SideBar() {
-  // const user = JSON.parse(localStorage.getItem('user'))
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const languageContext = useContext(LanguageContext);
   const modal = useContext(SideBarContext)
 
-
-  // const { user } = useSelector((state) => state.authState);
-  // const username = user?.name?.substring(0, 10) + "...";
   const userName = localStorage.getItem('user')
     ? JSON.parse(localStorage.getItem('user'))
     : { user: null };
   const username = userName?.user?.name?.substring(0, 10) + "...";
-
-
-  const onLogout = () => {
-    // Update redux state
-    dispatch(logout());
-    navigate("/");
-  };
+  const { logout } = useAuthentication()
+  const handleLogout = () => {
+    logout()
+  }
 
   const getFontFamily = () => {
     return languageContext.language === 'Tamil' ? 'Mukta, sans-serif' : 'Nunito, sans-serif';
@@ -73,7 +63,7 @@ function SideBar() {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <HomeRoundedIcon fontSize="small" />
                 </div>
-                <div className="list-title"  style={{ fontFamily: getFontFamily() }}>
+                <div className="list-title" style={{ fontFamily: getFontFamily() }}>
                   {languageContext.language === 'Tamil' ? 'முகப்பு' : 'Home'}
                 </div>
               </li>
@@ -121,7 +111,7 @@ function SideBar() {
                   <SettingsRoundedIcon fontSize="small" />
                 </div>
                 <div className="list-title">
-                {languageContext.language === 'Tamil' ? 'அமைப்புகள்' : 'Settings'}</div>
+                  {languageContext.language === 'Tamil' ? 'அமைப்புகள்' : 'Settings'}</div>
               </li>
             </StyledLinkButton>
             {/* <StyledLinkButton to="/"> */}
@@ -130,10 +120,10 @@ function SideBar() {
                 <div className="list-icon">
                   <AccountCircleRoundedIcon fontSize="small" style={{ color: '#647288' }} />
                 </div>
-                <p className="list-title">{ username || "" }</p>
+                <p className="list-title">{username || ""}</p>
               </div>
-              <Link to="/" onClick={onLogout} className="list-icon">
-                <LogoutRoundedIcon fontSize="small" style={{ color: '#647288' }}/>
+              <Link to="/" onClick={handleLogout}  className="list-icon">
+                <LogoutRoundedIcon fontSize="small" style={{ color: '#647288' }} />
               </Link>
             </li>
 
