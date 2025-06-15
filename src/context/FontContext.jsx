@@ -5,7 +5,7 @@ let FontContext = createContext();
 export const FontSizeProvider = ({ children }) => {
   // Initialize state with font size from localStorage or default to 14
   const [fontSize, setFontSize] = useState(() => {
-    return localStorage.getItem('fontSize') ? parseInt(localStorage.getItem('fontSize')) : 14;
+    return localStorage.getItem('fontSize') ? parseInt(localStorage.getItem('fontSize')) : 16;
   });
 
   // Update localStorage and document font size whenever fontSize changes

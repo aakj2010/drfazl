@@ -44,20 +44,20 @@ const Settings = () => {
                             <p>Font Size</p>
                             <div className='btn-box'>
                                 <button
-                                    className={fontContext.fontSize === 13 ? 'active-eng-btn' : 'bi-ling-btn'}
-                                    onClick={() => fontContext.setFontSize(13)}
+                                    className={fontContext.fontSize === 14 ? 'active-eng-btn' : 'bi-ling-btn'}
+                                    onClick={() => fontContext.setFontSize(14)}
                                 >
                                     Small
                                 </button>
                                 <button
-                                    className={fontContext.fontSize === 14 ? 'active-eng-btn' : 'bi-ling-btn'}
-                                    onClick={() => fontContext.setFontSize(14)}
+                                    className={fontContext.fontSize === 16 ? 'active-eng-btn' : 'bi-ling-btn'}
+                                    onClick={() => fontContext.setFontSize(16)}
                                 >
                                     Default
                                 </button>
                                 <button
-                                    className={fontContext.fontSize === 16 ? 'active-eng-btn' : 'bi-ling-btn'}
-                                    onClick={() => fontContext.setFontSize(16)}
+                                    className={fontContext.fontSize === 18 ? 'active-eng-btn' : 'bi-ling-btn'}
+                                    onClick={() => fontContext.setFontSize(18)}
                                 >
                                     Large
                                 </button>
