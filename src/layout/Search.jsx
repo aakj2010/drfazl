@@ -113,14 +113,14 @@ const Search = ({ setIsSearchModalOpen }) => {
                 </div>
               </div>
               {languageContext.language === "English" &&
-                  selectedDataset === "kalaisorkal" && (
-                    <div
-                      className="text-left w-full text-primary500 font-bold cursor-pointer"
-                      onClick={() => handleClick(verse.reference)}
-                    >
-                      {verse.reference}...
-                    </div>
-                  )}
+                selectedDataset === "kalaisorkal" && (
+                  <div
+                    className="text-left w-full text-primary500 font-bold cursor-pointer"
+                    onClick={() => handleClick(verse.reference)}
+                  >
+                    {verse.reference}...
+                  </div>
+                )}
               <div
                 onClick={() => {
                   handleClick(verse.number);
@@ -210,6 +210,8 @@ const Search = ({ setIsSearchModalOpen }) => {
   const renderResults = () => {
     if (isLoading) {
       return <div className="spinner"></div>;
+    } else if (searchQuery.trim() === "") {
+      return null;
     } else if (filteredData.length > 0) {
       let resultsToRender = showAllResults
         ? filteredData
