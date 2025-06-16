@@ -69,7 +69,7 @@ const Search = ({ setIsSearchModalOpen }) => {
   let chapters = data.chapters || [];
 
   const handleClick = (number) => {
-    const number1 = parseInt(number.split('.')[0]);
+    const number1 = parseInt(number.toString().split('.')[0]);
     tab.setActiveTab(number1 - 1);
     navigate(`/chapters#${number}`);
     setIsSearchModalOpen(false)
@@ -86,7 +86,7 @@ const Search = ({ setIsSearchModalOpen }) => {
         if (chapter.verses && searchQuery.trim() !== "") {
           const filteredVerses = chapter.verses.filter(
             (verse) =>
-              verse.number.includes(searchQuery) ||
+              verse.number.toString().includes(searchQuery) ||
               verse.text.toLowerCase().includes(searchQuery.toLowerCase())
           );
 
@@ -161,7 +161,7 @@ const Search = ({ setIsSearchModalOpen }) => {
               (verse) =>
                 verse.number &&
                 verse.text &&
-                (verse.number.includes(searchQuery) ||
+                (verse.number.toString().includes(searchQuery) ||
                   verse.text.toLowerCase().includes(searchQuery.toLowerCase()))
             );
           return chapterTitleMatches || (verses && verses.length > 0);
@@ -172,7 +172,7 @@ const Search = ({ setIsSearchModalOpen }) => {
               (verse) =>
                 verse.number &&
                 verse.text &&
-                (verse.number.includes(searchQuery) ||
+                (verse.number.toString().includes(searchQuery) ||
                   verse.text.toLowerCase().includes(searchQuery.toLowerCase()))
             );
           return (kalai && kalai.length > 0);
