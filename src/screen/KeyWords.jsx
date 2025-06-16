@@ -109,7 +109,7 @@ function KeyWords() {
         >
           <div className="keyword-container" style={style}>
             {chapter?.verses.map((item) => (
-              <div className="kw-verse" id={item.number} key={item.number}>
+              <div className="kw-verse space-y-1.5" id={item.number} key={item.number}>
                 <div className="kw-number-icon">
                   <div className="kw-serial">
                     {item.number}
@@ -117,7 +117,12 @@ function KeyWords() {
                   </div>
                 </div>
                 {langContext.language === "English" && (
-                  <div className="text-left w-full">{item.reference}...</div>
+                  <div
+                    className="text-left w-full text-primary500 font-bold cursor-pointer"
+                    onClick={() => handleClick(item.reference)}
+                  >
+                    {item.reference}...
+                  </div>
                 )}
                 <div
                   className="kw-para flex flex-col"
