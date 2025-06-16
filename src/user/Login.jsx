@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './login.css'
 import logo from '../Assets/quran-logo.svg'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import LanguageContext from '../context/LanguageContext'
 import { useAuthentication } from '../hooks/userAuthentication'
 

@@ -2,6 +2,7 @@ import { useContext, useState, useEffect, useMemo } from 'react';
 import engQuranData from '../Content/eng-quran.json';
 import tamQuranData from '../Content/updated-tam-quran.json';
 import tamKalaiSorkalData from '../Content/updated-tam-kalaisol.json';
+import Eng_KalaisolData from "../Content/eng-kalaisol.json";
 import FontContext from '../context/FontContext';
 import LanguageContext from '../context/LanguageContext';
 import share1 from '../Assets/share1.svg';
@@ -41,7 +42,7 @@ const Search = ({ setIsSearchModalOpen }) => {
       case 'English':
         switch (selectedDataset) {
           case 'kalaisorkal':
-            setData(engQuranData);
+            setData(Eng_KalaisolData);
             break;
           case 'quran':
             setData(engQuranData);
