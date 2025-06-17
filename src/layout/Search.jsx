@@ -217,65 +217,72 @@ const Search = ({ setIsSearchModalOpen }) => {
         ? filteredData
         : filteredData.slice(0, 1);
       return resultsToRender.map((chapter) => (
-        <div key={chapter.number}>{renderVerses(chapter)}</div>
+        <div className="max-w-2xl mx-auto" key={chapter.number}>
+          {renderVerses(chapter)}
+        </div>
       ));
     } else {
       return <p>No results found.</p>;
     }
   };
   return (
-    <div className="s-wrapper">
-      <div className="s-header">
-        <div className="s-header-title">
-          <h3 className="s-h-title">Search</h3>
+    <div className="s-wrapper max-w-2xl mx-auto w-full relative">
+      <div className="fixed top-0 left-0 right-0 z-10 w-full max-w-2xl mx-auto w-full ">
+        <div className="s-header">
+          <div className="s-header-title">
+            <h3 className="s-h-title">Search</h3>
+          </div>
+          <div
+            className="s-header-closebtn"
+            onClick={() => {
+              setIsSearchModalOpen(false);
+            }}
+          >
+            <img src={x_close} alt="" />
+          </div>
         </div>
-        <div
-          className="s-header-closebtn"
-          onClick={() => {
-            setIsSearchModalOpen(false);
-          }}
-        >
-          <img src={x_close} alt="" />
-        </div>
-      </div>
 
-      <div className="language-switcher">
-        <button
-          className={
-            selectedDataset === "quran" ? "active-search-btn search-btn" : ""
-          }
-          onClick={() => setSelectedDataset("quran")}
-        >
-          {selectedLanguage === "English" ? "Quran" : "குர்ஆன்"}
-        </button>
-        <button
-          className={
-            selectedDataset === "kalaisorkal"
-              ? "active-search-btn search-btn"
-              : ""
-          }
-          onClick={() => setSelectedDataset("kalaisorkal")}
-        >
-          {selectedLanguage === "English" ? "KalaiSorkal" : "கலைச்சொற்கள்"}
-        </button>
-      </div>
-      <div className="cl-search">
-        <div className="inp-box !w-[90%]">
-          <input
-            type="text"
-            placeholder={
-              selectedLanguage === "English"
-                ? "Search words"
-                : "வார்த்தை அல்லது அத்தியாயம்"
+        <div className="language-switcher">
+          <button
+            className={
+              selectedDataset === "quran" ? "active-search-btn search-btn" : ""
             }
-            value={searchQuery}
-            onChange={handleSearch}
-            className="!w-full"
-          />
+            onClick={() => setSelectedDataset("quran")}
+          >
+            {selectedLanguage === "English" ? "Quran" : "குர்ஆன்"}
+          </button>
+          <button
+            className={
+              selectedDataset === "kalaisorkal"
+                ? "active-search-btn search-btn"
+                : ""
+            }
+            onClick={() => setSelectedDataset("kalaisorkal")}
+          >
+            {selectedLanguage === "English" ? "KalaiSorkal" : "கலைச்சொற்கள்"}
+          </button>
         </div>
-        <img src={search_refraction} alt="" />
+        <div className="cl-search">
+          <div className="inp-box !w-[90%]">
+            <input
+              type="text"
+              placeholder={
+                selectedLanguage === "English"
+                  ? "Search words"
+                  : "வார்த்தை அல்லது அத்தியாயம்"
+              }
+              value={searchQuery}
+              onChange={handleSearch}
+              className="!w-full"
+            />
+          </div>
+          <img src={search_refraction} alt="" />
+        </div>
       </div>
-      <div className="verse-wrapper" style={{ marginTop: "56px" }}>
+      <div
+        className="verse-wrapper max-w-2xl mx-auto w-full"
+        style={{ marginTop: "32px" }}
+      >
         {renderResults()}
         {!showAllResults && filteredData.length > 2 && (
           <button className="show-more-btn" onClick={handleShowAllResults}>

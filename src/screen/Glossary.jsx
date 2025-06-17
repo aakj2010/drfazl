@@ -13,7 +13,7 @@ function Glossary() {
     <>
       {
         languageContext.language === 'English' ?
-          <div className='glossary-wrapper'>
+          <div className='glossary-wrapper max-w-2xl mx-auto w-full'>
             <div className='g-title' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize + 1}px` }}>
               Glossary
             </div>
@@ -42,7 +42,7 @@ function Glossary() {
             </div>
             <div className='empty'></div>
           </div> :
-          <div className='glossary-wrapper'>
+          <div className='glossary-wrapper max-w-2xl mx-auto w-full'>
             <div className='g-title' style={{ fontFamily: getFontFamily(), fontSize: `${context.fontSize + 1}px` }}>
               பிற்சேர்க்கை
             </div>

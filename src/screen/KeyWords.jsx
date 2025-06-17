@@ -89,7 +89,7 @@ function KeyWords() {
         });
         setTimeout(() => {
           verseRefFromUrl.classList.remove("scroll-margin-keywords");
-        }, 1000);
+        }, 800);
       }
     }, 500);
   }, []);

@@ -48,8 +48,8 @@ function Header({ activeTab, setActiveTab }) {
     };
 
     return (
-        <>
-            <header className='m-header-wrapper'>
+        <>  
+            <header className='m-header-wrapper max-w-2xl mx-auto w-full'>
                 <div className='menu-title'>
                     <div className='menu-btn-wrapper'>
                         <button className='menu-btn' onClick={SideBarcontext.toggleSidebar}>

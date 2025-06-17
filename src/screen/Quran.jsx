@@ -66,7 +66,7 @@ function Quran() {
                         </div>
                     </div>
                 </div>
-                <div className="tab-content" style={{ fontSize: `${context.fontSize}px` }}>
+                <div className="tab-content max-w-2xl mx-auto w-full" style={{ fontSize: `${context.fontSize}px` }}>
                     <TabContent 
                         index={tab.activeTab} 
                         onNextTab={handleNextTab} 

@@ -26,7 +26,7 @@ const KeyWords = lazy(() => import('./screen/KeyWords'));
 function App() {
   const { user, isAuthReady } = useAuthContext()
   return (
-    <div className='mobile-screen max-w-2xl mx-auto'>
+    <div className='mobile-screen max-w-2xl mx-auto w-full '>
       <BrowserRouter>
         <ToastContainer theme='dark' />
         <FontSizeProvider>
@@ -45,7 +45,7 @@ function App() {
                     <Route path='/chapters/chapter-list' element={<ChapterList />} />
                     <Route path='/chapters/search' element={<Search />} />
                     <Route path='/chapters' element={<Chapters />} >
-                      <Route path='' element={
+                      <Route path='/chapters' element={
                         <Suspense fallback={<Loader />}>
                           <Quran />
                         </Suspense>

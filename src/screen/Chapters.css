@@ -21,7 +21,7 @@
 /* Chapter list start */
 .chapters {
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +36,7 @@
   align-items: center;
   position: sticky;
   top: 46px;
-  width: 100vw;
+  width: 100%;
   height: 40px;
   overflow-x: scroll;
   scroll-behavior: smooth;
@@ -102,7 +102,6 @@
   justify-content: center;
   /* padding: 6px; */
   gap: 6px;
-  width: 100vw;
   height: auto;
   background: #ffffff;
   overflow-y: scroll;
@@ -267,8 +266,4 @@
 .tab.active {
   border-bottom: 3px solid var(--bg-secondary);
   font-weight: 700;
-}
-
-.tab-content {
-  padding: 10px;
 }

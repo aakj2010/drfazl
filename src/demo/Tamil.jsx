@@ -8,14 +8,14 @@ const Tamil = () => {
 
     return (
         <>
-            <div className='chapter-list-wrapper'>
+            <div className='chapter-list-wrapper max-w-2xl mx-auto w-full'>
                 <div className='chapter-list-items'>
                     <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>1. வெற்றிக்கு மேல் வெற்றி</li>
                     <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>2. பசு</li>
                     <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>3. இம்ரானின் குடும்பத்தினர்</li>
                 </div>
             </div>
-            <div className='verse-wrapper' style={{ fontSize: `${context.fontSize}px` }}>
+            <div className='verse-wrapper max-w-2xl mx-auto w-full' style={{ fontSize: `${context.fontSize}px` }}>
                 <div className='verse-container' style={{ fontSize: `${context.fontSize}px` }}>
                     <div className='verse-number' style={{ fontSize: `${context.fontSize}px` }}>
                         <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>1.1</div>

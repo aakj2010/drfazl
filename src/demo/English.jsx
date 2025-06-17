@@ -8,14 +8,14 @@ const English = () => {
 
     return (
         <>
-            <div className='chapter-list-wrapper'>
+            <div className='chapter-list-wrapper max-w-2xl mx-auto w-full'>
                 <div className='chapter-list-items'>
                     <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>1. Victory upon Victory</li>
                     <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>2. Pasu </li>
                     <li className="list-items" style={{ fontSize: `${context.fontSize}px` }}>3. Imran’s Family</li>
                 </div>
             </div>
-            <div className='verse-wrapper' style={{ fontSize: `${context.fontSize}px` }}>
+            <div className='verse-wrapper max-w-2xl mx-auto w-full' style={{ fontSize: `${context.fontSize}px` }}>
                 <div className='verse-container' style={{ fontSize: `${context.fontSize}px` }}>
                     <div className='verse-number' style={{ fontSize: `${context.fontSize}px` }}>
                         <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>1.1</div>

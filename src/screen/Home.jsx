@@ -41,7 +41,7 @@ function AboutTheBook() {
   });
 
   return (
-    <section className="home-wrapper">
+    <section className="home-wrapper max-w-2xl mx-auto w-full">
       <div className="prayer-container">
         <img src={Prayer} alt="Prayer" width="100%" height="100%" />
       </div>

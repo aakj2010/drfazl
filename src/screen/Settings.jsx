@@ -14,9 +14,9 @@ const Settings = () => {
     return (
         <>
             <Header />
-            <div className='settings-wrapper'>
-                <div className='settings-container'>
-                    <div className='settings-box'>
+            <div className='settings-wrapper w-full max-w-2xl mx-auto w-full'>
+                <div className='settings-container w-full'>
+                    <div className='settings-box w-full p-4'>
                         <div className='lang-box'>
                             <p>Change Language</p>
                             <div className='btn-box'>
@@ -65,7 +65,7 @@ const Settings = () => {
                         </div>
                     </div>
 
-                    <div className='demo-box'>
+                    <div className='demo-box w-full'>
                         {languageContext.language === 'Tamil' && <Tamil />}
                         {languageContext.language === 'English' && <English />}
                     </div>

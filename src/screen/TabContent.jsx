@@ -89,7 +89,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
     });
 
     return (
-        <div {...swipeHandlers} className={`verse-wrapper ${swipeDirection ? 'animate' : ''} ${swipeDirection}`}>
+        <div {...swipeHandlers} className={`verse-wrapper max-w-2xl mx-auto w-full ${swipeDirection ? 'animate' : ''} ${swipeDirection}`}>
             {loading ? (
                 <Loader /> // Render loader while loading
             ) : (
