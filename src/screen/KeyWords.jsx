@@ -109,7 +109,14 @@ function KeyWords() {
         >
           <div className="keyword-container" style={style}>
             {chapter?.verses.map((item) => (
-              <div className="kw-verse space-y-1.5" id={item.number} key={item.number}>
+              <div
+                className="kw-verse space-y-1.5"
+                id={item.number}
+                key={item.number}
+                style={{
+                  contentVisibility: "auto",
+                }}
+              >
                 <div className="kw-number-icon">
                   <div className="kw-serial">
                     {item.number}

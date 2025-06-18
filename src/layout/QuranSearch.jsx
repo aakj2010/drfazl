@@ -77,7 +77,7 @@ const QuranSearch = ({ setIsSearchModalOpen, searchQuery }) => {
                                             style={{ fontSize: `${fontSizeContext.fontSize}px` }}
                                             onClick={() => handleClick(verse.number)}
                                         >
-                                            <img src={share1} alt="Share" />
+                                            <img src={share1} alt="Share" loading='lazy'/>
                                         </button>
                                     </div>
                                     <div

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import FontContext from "../context/FontContext";
 import Prayer from "../Assets/menu-prayer.jpg";
-import { styled } from "@mui/material";
+// import { styled } from "@mui/material";
 import "./home.css";
 import LanguageContext from "../context/LanguageContext";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import FeedRoundedIcon from "@mui/icons-material/FeedRounded";
 import StickyNote2RoundedIcon from "@mui/icons-material/StickyNote2Rounded";
 import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded";
@@ -21,29 +21,40 @@ function AboutTheBook() {
       : "Nunito, sans-serif";
   };
 
-  const StyledLinkButton = styled(NavLink)({
-    fontSize: "12px",
-    width: "50%",
-    height: "130px",
-    paddingBottom: "28px",
-    paddingTop: "28px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    borderRadius: "12px",
-    boxShadow: "0px 1px 4px 1px #00000014",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    "&.active": {
-      background: "rgb(237,239,242)",
-      borderRadius: 5,
-    },
-  });
+  // const StyledLinkButton = styled(NavLink)({
+  //   fontSize: "12px",
+  //   width: "50%",
+  //   height: "130px",
+  //   paddingBottom: "28px",
+  //   paddingTop: "28px",
+  //   paddingLeft: "20px",
+  //   paddingRight: "20px",
+  //   borderRadius: "12px",
+  //   boxShadow: "0px 1px 4px 1px #00000014",
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   justifyContent: "space-between",
+  //   "&.active": {
+  //     background: "rgb(237,239,242)",
+  //     borderRadius: 5,
+  //   },
+  // });
 
   return (
-    <section className="home-wrapper max-w-2xl mx-auto w-full">
+    <section
+      className="home-wrapper max-w-2xl mx-auto w-full"
+      style={{
+        contentVisibility: "auto",
+      }}
+    >
       <div className="prayer-container">
-        <img src={Prayer} alt="Prayer" width="100%" height="100%" />
+        <img
+          src={Prayer}
+          alt="Prayer"
+          width="100%"
+          height="100%"
+          loading="lazy"
+        />
       </div>
       <div className="route-container">
         <div className="divisions">

@@ -103,7 +103,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
                                     style={{ fontSize: `${fontSizeContext.fontSize}px` }}
                                     onClick={() => handleShareClick(chapter.title, verse.number, verse.text)}
                                 >
-                                    <img src={share1} alt="Share" />
+                                    <img src={share1} alt="Share" loading="lazy" />
                                 </button>
                             </div>
                         </div>

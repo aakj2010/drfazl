@@ -53,7 +53,7 @@ function Header({ activeTab, setActiveTab }) {
                 <div className='menu-title'>
                     <div className='menu-btn-wrapper'>
                         <button className='menu-btn' onClick={SideBarcontext.toggleSidebar}>
-                            <img src={menu} alt="menu" />
+                            <img src={menu} alt="menu" loading="lazy" />
                             {SideBarcontext.sidebarOpen ? <SideBar /> : null}
                         </button>
                     </div>
@@ -75,7 +75,7 @@ function Header({ activeTab, setActiveTab }) {
                 {(title === 'Chapters' || title === 'Keywords') && (
                     <div className='help-with-search'>
                         <div className='menu-btn-wrapper' onClick={handleSearchModalOpen}>
-                            <img src={search} alt="search" />
+                            <img src={search} alt="search" loading="lazy" />
                         </div>
                     </div>
                 )}

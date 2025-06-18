@@ -29,7 +29,7 @@ const ForgotPassword = () => {
         <div className='login-up-container'>
           <div className='title-with-image'>
             <div className='logo'>
-              <img src={logo} alt="" width="50px" height="50px" />
+              <img src={logo} alt="Logo" width="50px" height="50px" loading="lazy" />
             </div>
             <div className="login-title">
               <h4>Quran</h4>

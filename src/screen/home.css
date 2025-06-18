@@ -5,7 +5,7 @@
   display: none;
 }
 .img {
-  width: 100vw !important;
+  width: 100% !important;
   /* height: 234px; */
 }
 .prayer-container {

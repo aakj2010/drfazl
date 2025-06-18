@@ -49,7 +49,7 @@ function SideBar() {
       <div className="container">
         <div className="logo-container">
           <div className="logo" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={logo} alt="" width="32px" height="32px" />
+            <img src={logo} alt="Logo" width="32px" height="32px" loading="lazy" />
           </div>
           <div className="title-sidebar">
             <h4 style={{ fontFamily: getFontFamily() }}>{languageContext.language === 'Tamil' ? 'குர்ஆன்' : 'Quran'}</h4>
@@ -102,8 +102,6 @@ function SideBar() {
           </div>
 
           <div className="user-container">
-            {/* <li><div className='lang'>தமிழ் / English</div> <div className='toggle-btn'><img src={toggle} alt="" /></div></li>
-                    <li><div className='theme'>Light / Dark</div> <div className='toggle-btn'><img src={toggle} alt="" /></div></li> */}
             <StyledLinkButton to="/settings">
               <li>
                 <div className="list-icon"
@@ -114,7 +112,6 @@ function SideBar() {
                   {languageContext.language === 'Tamil' ? 'அமைப்புகள்' : 'Settings'}</div>
               </li>
             </StyledLinkButton>
-            {/* <StyledLinkButton to="/"> */}
             <li className="li-logout">
               <div className="user-name">
                 <div className="list-icon">
@@ -126,8 +123,6 @@ function SideBar() {
                 <LogoutRoundedIcon fontSize="small" style={{ color: '#647288' }} />
               </Link>
             </li>
-
-            {/* </StyledLinkButton> */}
           </div>
         </div>
       </div>

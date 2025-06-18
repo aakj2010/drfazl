@@ -108,7 +108,7 @@ const Search = ({ setIsSearchModalOpen }) => {
                     style={{ fontSize: `${fontSizeContext.fontSize}px` }}
                     onClick={() => handleShareClick(verse.number, verse.text)}
                   >
-                    <img src={share1} alt="" />
+                    <img src={share1} alt="share" loading="lazy" />
                   </button>
                 </div>
               </div>
@@ -238,7 +238,7 @@ const Search = ({ setIsSearchModalOpen }) => {
               setIsSearchModalOpen(false);
             }}
           >
-            <img src={x_close} alt="" />
+            <img src={x_close} alt="close" loading="lazy" />
           </div>
         </div>
 
@@ -276,13 +276,10 @@ const Search = ({ setIsSearchModalOpen }) => {
               className="!w-full"
             />
           </div>
-          <img src={search_refraction} alt="" />
+          <img src={search_refraction} alt="search" loading="lazy" />
         </div>
       </div>
-      <div
-        className="verse-wrapper max-w-2xl mx-auto w-full"
-        style={{ marginTop: "32px" }}
-      >
+      <div className="verse-wrapper max-w-2xl mx-auto w-full mt-40">
         {renderResults()}
         {!showAllResults && filteredData.length > 2 && (
           <button className="show-more-btn" onClick={handleShowAllResults}>

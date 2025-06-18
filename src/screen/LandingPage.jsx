@@ -8,8 +8,6 @@ const LandingPage = () => {
     const [show, setShow] = useState(false)
 
     const languageContext = useContext(LanguageContext);
-    const lan = languageContext.language
-    console.log(lan);
 
     useEffect(() => {
         setTimeout(() => {
@@ -22,7 +20,7 @@ const LandingPage = () => {
             {
                 !show && <div className='title-with-image'>
                     <div className='logo'>
-                        <img src={logo} alt="" width="80px" height="80px" />
+                        <img src={logo} alt="Logo" width="80px" height="80px" loading="lazy" />
                     </div>
                     <div className="landing-title">
                         <h4>Quran</h4>
@@ -35,7 +33,7 @@ const LandingPage = () => {
                 show &&
                 <div className='land-page'>
                     <div className='logo'>
-                        <img src={logo} alt="" width="44px" height="44px" />
+                        <img src={logo} alt="Logo" width="44px" height="44px" loading="lazy" />
                     </div>
                     {
                         languageContext.language === 'Tamil' ? (

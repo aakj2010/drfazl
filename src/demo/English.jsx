@@ -21,7 +21,7 @@ const English = () => {
                         <div className='verse-num' style={{ fontSize: `${context.fontSize}px` }}>1.1</div>
                         <div className='more-btn-wrapper' style={{ fontSize: `${context.fontSize}px` }}>
                             <button className='more-btn' style={{ fontSize: `${context.fontSize}px` }}>
-                                <img src={more} alt="" />
+                                <img src={more} alt="more button" loading='lazy' />
                             </button>
                         </div>
                     </div>

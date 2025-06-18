@@ -75,11 +75,11 @@ const ChapterList = ({ setIsChapterListModalOpen }) => {
           className="cl-header-closebtn"
           onClick={() => setIsChapterListModalOpen(false)}
         >
-          <img src={x_close} alt="close-button" />
+          <img src={x_close} alt="close-button" loading="lazy" />
         </div>
       </div>
       <div className="cl-search">
-        <img src={search_refraction} alt="" />
+        <img src={search_refraction} alt="" loading="lazy" />
         <input
           type="text"
           placeholder="Search chapters"
