@@ -114,9 +114,6 @@ function KeyWords() {
                 className="kw-verse space-y-1.5"
                 id={langContext.language === "Tamil" ? item.number : item.number + "..."}
                 key={item.number}
-                style={{
-                  contentVisibility: "auto",
-                }}
               >
                 <div className="kw-number-icon">
                   <div className="kw-serial">
