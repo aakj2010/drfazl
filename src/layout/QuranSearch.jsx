@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
 import tamQuranData from '../Content/updated-tam-quran.json';
-import engQuranData from '../Content/eng-quran.json';
+// import engQuranData from '../Content/eng-quran.json';
+// import engQuranData from '../Content/eng-quran-converted.json';
+import engQuranData from '../Content/eng-quran-with-links.json';
 import LanguageContext from '../context/LanguageContext';
 import FontContext from '../context/FontContext';
 import share1 from '../Assets/share1.svg'; // Assuming you want the share functionality

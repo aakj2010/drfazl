@@ -76,27 +76,25 @@
 }
 body {
   box-sizing: border-box;
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  /* border: 1px solid lightgray; */
 }
 .mobile-screen {
-  /* min-width: 360px;
-  max-width: 480px; */
   width: 100vw;
   height: 100vh;
-  /* display: grid; */
-  /* grid-template-columns: 48px auto 48px; */
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 .mobile-screen::-webkit-scrollbar {
+  display: none;
+}
+.no_scrollbar::-webkit-scrollbar {
   display: none;
 }
 /* Portal Starts */

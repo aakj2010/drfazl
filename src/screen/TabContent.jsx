@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
-import engQuranData from '../Content/eng-quran.json';
+// import engQuranData from '../Content/eng-quran.json';
+// import engQuranData from '../Content/eng-quran-converted.json';
+import engQuranData from '../Content/eng-quran-with-links.json';
 import tamQuranData from '../Content/updated-tam-quran.json';
 import LanguageContext from '../context/LanguageContext';
 import FontContext from '../context/FontContext';

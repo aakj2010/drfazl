@@ -14,7 +14,7 @@ import React, {
 import "./keywords.css";
 import htmlToReactParser from "html-react-parser";
 import FontContext from "../context/FontContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ActiveTabContext from "../context/ActiveTab";
 import Eng_Kalaisol from "../Content/eng-kalaisol.json";
 import Tamil_Kalaisol from "../Content/updated-tam-kalaisol.json";
@@ -26,6 +26,7 @@ function KeyWords() {
   const context = useContext(FontContext);
   const langContext = useContext(LanguageContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const tab = useContext(ActiveTabContext);
 
   // Cache for dynamic row heights
@@ -107,11 +108,11 @@ function KeyWords() {
           rowIndex={index}
           parent={parent}
         >
-          <div className="keyword-container" style={style}>
+          <div className="keyword-container no_scrollbar" style={style}>
             {chapter?.verses.map((item) => (
               <div
                 className="kw-verse space-y-1.5"
-                id={item.number}
+                id={langContext.language === "Tamil" ? item.number : item.number + "..."}
                 key={item.number}
                 style={{
                   contentVisibility: "auto",

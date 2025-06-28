@@ -45,7 +45,7 @@ const LandingPage = () => {
                                 </div>
                                 <div>
                                     <Link to='/home'>
-                                        <button className='start-btn'>நுழைக</button>
+                                        <button className='text-center w-[140px] h-9 shadow-[0px_2px_4px_rgba(0,0,0,0.15)] bg-[linear-gradient(_279deg,_#243B5D_-71.08%,_#4B7CC3_174.39%)] rounded not-italic font-semibold text-sm leading-[140%] text-white mt-8 px-4 py-2 border-none'>நுழைக</button>
                                     </Link>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ const LandingPage = () => {
                                 <div className='landing-text-box'>
                                     <p className='landing-text'> My Lord, I seek your protection from the accursed Shaithans in Men and Jinns.</p>
                                 </div>
-                                <Link to='/home' className='start-btn'>
+                                <Link to='/home' className='text-center w-[140px] h-9 shadow-[0px_2px_4px_rgba(0,0,0,0.15)] bg-[linear-gradient(_279deg,_#243B5D_-71.08%,_#4B7CC3_174.39%)] rounded not-italic font-semibold text-sm leading-[140%] text-white mt-8 px-4 py-2 border-none'>
                                     Start Reading
                                 </Link>
                             </div>
