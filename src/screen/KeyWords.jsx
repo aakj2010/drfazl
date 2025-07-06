@@ -16,7 +16,7 @@ import htmlToReactParser from "html-react-parser";
 import FontContext from "../context/FontContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import ActiveTabContext from "../context/ActiveTab";
-import Eng_Kalaisol from "../Content/eng-kalaisol.json";
+import Eng_Kalaisol from "../Content/eng-kalaisol-processed.json";
 import Tamil_Kalaisol from "../Content/updated-tam-kalaisol.json";
 import Modal from "react-modal"; // You can use any modal library
 import QuranSearch from "../layout/QuranSearch";
@@ -112,7 +112,11 @@ function KeyWords() {
             {chapter?.verses.map((item) => (
               <div
                 className="kw-verse space-y-1.5"
-                id={langContext.language === "Tamil" ? item.number : item.number + "..."}
+                id={
+                  langContext.language === "Tamil"
+                    ? item.number
+                    : item.number + "..."
+                }
                 key={item.number}
               >
                 <div className="kw-number-icon">
@@ -124,13 +128,14 @@ function KeyWords() {
                 {langContext.language === "English" && (
                   <div
                     className="text-left w-full text-primary500 font-bold cursor-pointer"
-                    onClick={() => handleClick(item.reference)}
+                    // onClick={() => handleClick(item.reference)}
+                    onClick={() => handleKeywordSearch(item.reference)}
                   >
                     {item.reference}...
                   </div>
                 )}
                 <div
-                  className="kw-para flex flex-col"
+                  className="kw-para"
                   style={{
                     fontSize: `${context.fontSize}px`,
                     fontFamily:
@@ -159,24 +164,30 @@ function KeyWords() {
                         if (number) {
                           return (
                             <span
-                              className="font-bold inline-block text-primary500"
+                              className="font-bold text-primary500 "
                               onClick={() => handleKeywordSearch(number)}
+                              title={`Search for reference: ${number}`}
+                              // style={{ display: 'inline', whiteSpace: 'nowrap' }}
                             >
-                              ({number})
+                              {number}
                             </span>
                           );
                         }
                       }
                     },
                   })}
-
-                  <div className="flex gap-1 font-bold">
-                    {item.RefLinks?.map((link, index) => (
-                      <p key={index} onClick={() => handleKeywordSearch(link)}>
-                        {link},
-                      </p>
-                    ))}
-                  </div>
+                  {item.RefLinks && (
+                    <div className="flex gap-1 font-bold">
+                      {item.RefLinks?.map((link, index) => (
+                        <p
+                          key={index}
+                          onClick={() => handleKeywordSearch(link)}
+                        >
+                          {link},
+                        </p>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
