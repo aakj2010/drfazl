@@ -55,7 +55,7 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
             const cleanVerseText = stripHtmlTags(verseText);
             const shareData = {
                 // title: `${index + 1}. ${chapterTitle}`,
-                text: `${Quran} \n \n${index + 1}. ${chapterTitle}\n \n${verseNumber} ${cleanVerseText}`,
+                text: `${Quran}\n \n${index + 1}. ${chapterTitle}\n \n${verseNumber} ${cleanVerseText}`,
             };
             await navigator.share(shareData);
             console.log('Shared successfully');
