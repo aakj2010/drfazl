@@ -25,6 +25,22 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
         return languageContext.language === "Tamil" ? "system-ui" : "Nunito, sans-serif"
     };
 
+    // Function to strip HTML tags from text
+    const stripHtmlTags = (html) => {
+        if (typeof html !== 'string') return html;
+        
+        // First, replace English keyword spans with proper parentheses format
+        let processedHtml = html.replace(/<span data-keyword="\d+">(\d+)<\/span>/g, '($1)');
+        
+        // Then, replace Tamil keyword links with proper parentheses format
+        processedHtml = processedHtml.replace(/<Link to='[^']*'><span>(\d+)<\/span><\/?Link\/?>/g, '($1)');
+        
+        // Then strip all remaining HTML tags
+        const tmp = document.createElement('DIV');
+        tmp.innerHTML = processedHtml;
+        return tmp.textContent || (tmp.innerText) || '';
+    };
+
     useEffect(() => {
         setLoading(true); // Start loading when the index or language changes
 
@@ -36,9 +52,10 @@ const TabContent = ({ index, onNextTab, onPreviousTab }) => {
 
     const handleShareClick = async (chapterTitle, verseNumber, verseText) => {
         try {
+            const cleanVerseText = stripHtmlTags(verseText);
             const shareData = {
-                title: `${index + 1}. ${chapterTitle}`,
-                text: `${Quran} \n \n${index + 1}. ${chapterTitle}\n \n${verseNumber} ${verseText}`,
+                // title: `${index + 1}. ${chapterTitle}`,
+                text: `${Quran} \n \n${index + 1}. ${chapterTitle}\n \n${verseNumber} ${cleanVerseText}`,
             };
             await navigator.share(shareData);
             console.log('Shared successfully');
